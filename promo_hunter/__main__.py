@@ -29,13 +29,20 @@ def select_candidates(candidates: list[Candidate], seen: Seen) -> list[Candidate
     )
     batch = []
     selected_keys = set()
-    for score, post in ranked:
-        if not score or len(batch) == MAX_BATCH:
-            break
-        if seen.contains(post.keys) or selected_keys.intersection(post.keys):
-            continue
-        batch.append(post)
-        selected_keys.update(post.keys)
+
+    def take(limit: int, *, open_web_only: bool = False) -> None:
+        for score, post in ranked:
+            if not score or len(batch) == limit:
+                break
+            if open_web_only and not post.source_id.startswith("open-web:"):
+                continue
+            if seen.contains(post.keys) or selected_keys.intersection(post.keys):
+                continue
+            batch.append(post)
+            selected_keys.update(post.keys)
+
+    take(MAX_BATCH // 4, open_web_only=True)
+    take(MAX_BATCH)
     return batch
 
 
