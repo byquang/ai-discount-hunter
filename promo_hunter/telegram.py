@@ -17,12 +17,13 @@ def escape(text: str, limit: int) -> str:
 
 def format_alert(offer: Offer) -> str:
     url = offer.url.replace("\\", "\\\\").replace(")", "\\)")
+    link_label = "Xem bài đăng nguồn" if offer.source_only else "Mở trang nhận ưu đãi"
     return "\n".join([
         f"*Ưu đãi: {escape(offer.tool_name, 75)}*",
         f"*Nội dung:* {escape(offer.offer_summary, 500)}",
         f"*Hạn chót:* {escape(offer.deadline or 'Chưa công bố', 30)}",
         f"*Cách nhận:* {escape(offer.how_to_claim, 300)}",
-        f"[Mở liên kết]({url})",
+        f"[{link_label}]({url})",
     ])
 
 

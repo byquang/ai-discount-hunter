@@ -1,7 +1,7 @@
 import json
 import re
 from dataclasses import dataclass
-from datetime import date
+from datetime import date, datetime, timedelta
 
 from google import genai
 from google.genai import types
@@ -27,6 +27,11 @@ normal evergreen trials, paid discounts, referral spam and phishing. If evidence
 Return exactly one verdict per index. For approved offers, name the tool and write the summary and
 claim instructions in Vietnamese, including eligibility, limits or payment requirements if known.
 Set deadline to YYYY-MM-DD only for an explicit calendar date; otherwise use null.
+If there is a claim window relative to the provided post's publication time (e.g. "within 24 hours
+of this post"), set claim_window_minutes to that duration in whole minutes. Reject if the post's
+publication time is unknown or if the claim deadline is relative to another event whose time is
+unknown. Otherwise set claim_window_minutes to null. Do not confuse a duration of access or
+credits after claiming with the deadline to claim.
 Use an official claim URL only when it appears verbatim in the provided URLs; otherwise use
 the source URL. Do not invent a code, terms, instructions, deadline, or URL.
 For rejections, use null for the offer fields."""
@@ -39,9 +44,10 @@ RESPONSE_SCHEMA = {
         "properties": {
             "index": {"type": "integer"},
             "approved": {"type": "boolean"},
+            "claim_window_minutes": {"type": ["integer", "null"]},
             **{field: {"type": ["string", "null"]} for field in FIELDS},
         },
-        "required": ["index", "approved", *FIELDS],
+        "required": ["index", "approved", "claim_window_minutes", *FIELDS],
     },
 }
 
@@ -53,6 +59,7 @@ class Offer:
     deadline: str | None
     how_to_claim: str
     url: str
+    source_only: bool = False
 
 
 def keyword_score(title: str, body: str = "") -> int:
@@ -60,7 +67,7 @@ def keyword_score(title: str, body: str = "") -> int:
     return 2 if STRONG.search(text) else int(bool(WEAK.search(text)))
 
 
-def parse_verdicts(raw: str, candidates: list[Candidate], today: date) -> list[Offer | None]:
+def parse_verdicts(raw: str, candidates: list[Candidate], now: datetime) -> list[Offer | None]:
     verdicts = json.loads(raw)
     if not isinstance(verdicts, list):
         raise ValueError("Expected a list of Gemini verdicts")
@@ -84,20 +91,33 @@ def parse_verdicts(raw: str, candidates: list[Candidate], today: date) -> list[O
         if url not in (candidate.url, *candidate.links):
             url = candidate.url
         deadline = verdict["deadline"]
+        calendar_date = None
         if deadline is not None:
             if not isinstance(deadline, str) or not re.fullmatch(r"\d{4}-\d\d-\d\d", deadline):
                 raise ValueError("Invalid Gemini deadline")
-            if date.fromisoformat(deadline) < today:
+            calendar_date = date.fromisoformat(deadline)
+            if calendar_date < now.date():
                 continue
-        offers[index] = Offer(tool, summary, deadline, claim, url)
+        window = verdict["claim_window_minutes"]
+        if window is not None:
+            if type(window) is not int or window <= 0:
+                raise ValueError("Invalid Gemini claim window")
+            if candidate.published is None or candidate.published > now:
+                continue
+            cutoff = candidate.published + timedelta(minutes=window)
+            if cutoff <= now:
+                continue
+            if calendar_date is None or cutoff.date() <= calendar_date:
+                deadline = cutoff.strftime("%Y-%m-%d %H:%M UTC")
+        offers[index] = Offer(tool, summary, deadline, claim, url, source_only=url == candidate.url)
     if len(offers) != len(candidates):
         raise ValueError("Gemini did not classify all candidates")
     return [offers[index] for index in range(len(candidates))]
 
 
-def classify(api_key: str, model: str, candidates: list[Candidate], today: date) -> list[Offer | None]:
+def classify(api_key: str, model: str, candidates: list[Candidate], now: datetime) -> list[Offer | None]:
     payload = {
-        "today_utc": today.isoformat(),
+        "now_utc": now.isoformat(),
         "posts": [
             {
                 "index": index,
@@ -122,4 +142,4 @@ def classify(api_key: str, model: str, candidates: list[Candidate], today: date)
                 max_output_tokens=4000,
             ),
         )
-        return parse_verdicts(response.text or "", candidates, today)
+        return parse_verdicts(response.text or "", candidates, now)

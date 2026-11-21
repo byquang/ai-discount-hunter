@@ -95,7 +95,7 @@ def main() -> int:
                 LOG.info("No new keyword matches among %s source results", len(candidates))
                 return 0
             try:
-                offers = classify(env["GEMINI_API_KEY"], env["GEMINI_MODEL"] or DEFAULT_MODEL, batch, now.date())
+                offers = classify(env["GEMINI_API_KEY"], env["GEMINI_MODEL"] or DEFAULT_MODEL, batch, now)
                 sent = process_batch(batch, offers, seen, notify)
             finally:
                 seen.save()
