@@ -1,4 +1,5 @@
 import logging
+import re
 from datetime import datetime, timezone
 from html.parser import HTMLParser
 from urllib.parse import urlsplit
@@ -13,6 +14,8 @@ HN_QUERIES = ("free credits", "free month", "100% off", "promo code", "giveaway"
 PROMO_TERMS = '("free credits" OR "free month" OR "100% off")'
 WEB_TERMS = PROMO_TERMS + ' ("AI" OR "Devin" OR "Claude" OR "Cursor")'
 WEB_DOMAINS = ["x.com", "threads.net", "threads.com"]
+X_EPOCH_MS = 1288834974657
+X_STATUS_PATH = re.compile(r"^/(?:i/web|[^/]+)/status/([0-9]{1,19})(?:/|$)")
 TIMEOUT = (5, 15)
 LOG = logging.getLogger(__name__)
 
@@ -71,6 +74,7 @@ def web_posts(results: list[dict], reddit: bool = False) -> list[Candidate]:
         title = result.get("title")
         if not url or not title:
             continue
+        published = timestamp(result.get("published_date") or result.get("page_age"))
         parts = urlsplit(url)
         host = parts.hostname or ""
         source_id = f"web:{url}"
@@ -88,9 +92,14 @@ def web_posts(results: list[dict], reddit: bool = False) -> list[Candidate]:
             source_id = f"reddit:{path[3]}"
         elif not any(host == domain or host.endswith("." + domain) for domain in WEB_DOMAINS):
             continue
-        body, _ = post_content(result.get("content") or result.get("description") or "")
-        published = timestamp(result.get("published_date") or result.get("page_age"))
-        posts.append(Candidate(source_id, title, body, url, published))
+        elif host == "x.com" or host.endswith(".x.com"):
+            status = X_STATUS_PATH.match(parts.path)
+            if not status or not 0 < (post_id := int(status[1])) < 2**63:
+                continue
+            # X's post ID encodes publication time, unlike the search index date.
+            published = datetime.fromtimestamp(((post_id >> 22) + X_EPOCH_MS) / 1000, timezone.utc)
+        body, links = post_content(result.get("content") or result.get("description") or "")
+        posts.append(Candidate(source_id, title, body, url, published, links))
     return posts
 
 

@@ -30,7 +30,7 @@ Use [Gemini Free Tier](https://ai.google.dev/gemini-api/docs/pricing) and leave 
 
 ## Behavior
 
-The bot looks back two days and sends up to 12 unseen candidates in one structured Gemini request per run. It rejects expired offers, evergreen free tiers, paid discounts, and tutorials. Claim links come from the source data; if no verified claim link is present, the alert links to the source post. Verify an offer on the vendor's site before entering credentials or payment details.
+The bot looks back two days and sends up to 12 unseen candidates in one structured Gemini request per run. It rejects expired offers, evergreen free tiers, paid discounts, and tutorials. For claim windows relative to a post (such as “within 24 hours”), it calculates the deadline from publication time and skips the offer if that time is unknown. X publication times come from post IDs. Alerts distinguish a claim link found in the source data from a link to the source post itself. Verify an offer on the vendor's site before entering credentials or payment details.
 
 `seen.json` retains the latest 500 classified entries, matched by source ID and normalized URL, plus the confirmed claim URL when available. A failed Telegram send is left eligible for retry; GitHub serializes hunts to prevent state races. Deduplication can't identify unrelated links for the same deal or guarantee delivery exactly once if a send succeeds but the state push fails.
 

@@ -63,6 +63,18 @@ class SourceTests(unittest.TestCase):
         self.assertEqual([post.source_id for post in web_posts(results, reddit=True)], ["reddit:abc"])
         self.assertEqual([post.url for post in web_posts(results)], ["https://x.com/user/status/123"])
 
+    def test_x_uses_post_id_time_not_index_date_and_skips_non_post_links(self):
+        result = {
+            "title": "A 24-hour offer",
+            "url": "https://x.com/someone/status/2123392055573385525",
+            "published_date": "2026-11-21T12:00:00Z",
+            "content": '<a href="https://vendor.example/deal">Claim</a>',
+        }
+        posts = web_posts([result, dict(result, url="https://x.com/someone")])
+        self.assertEqual(len(posts), 1)
+        self.assertEqual(posts[0].published, datetime(2026, 11, 19, 12, 24, 51, 422000, tzinfo=timezone.utc))
+        self.assertEqual(posts[0].links, ("https://vendor.example/deal",))
+
     def test_tavily_reddit_query_includes_all_requested_subreddits(self):
         session = Mock()
         session.post.return_value.json.return_value = {"results": [{"url": REDDIT_URL, "title": "Offer"}]}

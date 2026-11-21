@@ -1,7 +1,8 @@
 import json
 import tempfile
 import unittest
-from datetime import date
+from dataclasses import replace
+from datetime import datetime, timezone
 from pathlib import Path
 from unittest.mock import Mock, patch
 
@@ -19,13 +20,14 @@ POST = Candidate(
     links=(TEMPORARY_OFFER,),
 )
 SECOND_POST = Candidate("reddit:abc", "Free promo", "", "https://www.reddit.com/r/cursor/comments/abc/")
-TODAY = date(2026, 11, 21)
+NOW = datetime(2026, 11, 21, 15, 55, tzinfo=timezone.utc)
 VERDICT = {
     "index": 0,
     "approved": True,
     "tool_name": "Devin",
     "offer_summary": "Tặng tín dụng trải nghiệm",
     "deadline": "2026-11-30",
+    "claim_window_minutes": None,
     "how_to_claim": "Đăng ký trên website",
     "url": TEMPORARY_OFFER,
 }
@@ -109,24 +111,45 @@ class StateTests(unittest.TestCase):
 
 class VerdictTests(unittest.TestCase):
     def test_success_and_invented_url_falls_back_to_source(self):
-        self.assertEqual(parse_verdicts(json.dumps([VERDICT]), [POST], TODAY), [OFFER])
+        self.assertEqual(parse_verdicts(json.dumps([VERDICT]), [POST], NOW), [OFFER])
         altered = dict(VERDICT, url="https://invented.example")
-        self.assertEqual(parse_verdicts(json.dumps([altered]), [POST], TODAY)[0].url, POST.url)
+        offer = parse_verdicts(json.dumps([altered]), [POST], NOW)[0]
+        self.assertEqual(offer.url, POST.url)
+        self.assertTrue(offer.source_only)
+        self.assertIn(f"[Xem bài đăng nguồn]({POST.url})", format_alert(offer))
 
     def test_expired_and_explicit_rejection(self):
         for change in ({"deadline": "2026-11-20"}, {"approved": False}):
-            self.assertEqual(parse_verdicts(json.dumps([VERDICT | change]), [POST], TODAY), [None])
+            self.assertEqual(parse_verdicts(json.dumps([VERDICT | change]), [POST], NOW), [None])
+
+    def test_relative_claim_deadline_rejects_expired_or_unverifiable_offers(self):
+        relative = json.dumps([dict(VERDICT, deadline=None, claim_window_minutes=1440)])
+        for published in (
+            None,
+            datetime(2026, 11, 19, 12, 24, tzinfo=timezone.utc),
+            datetime(2026, 11, 20, 15, 55, tzinfo=timezone.utc),
+            datetime(2026, 11, 21, 16, 0, tzinfo=timezone.utc),
+        ):
+            with self.subTest(published=published):
+                self.assertEqual(parse_verdicts(relative, [replace(POST, published=published)], NOW), [None])
+
+    def test_active_relative_window_displays_computed_deadline(self):
+        published = datetime(2026, 11, 20, 17, 0, tzinfo=timezone.utc)
+        post = replace(POST, published=published)
+        relative = json.dumps([dict(VERDICT, deadline=None, claim_window_minutes=1440)])
+        offer = parse_verdicts(relative, [post], NOW)[0]
+        self.assertEqual(offer.deadline, "2026-11-21 17:00 UTC")
 
     def test_incomplete_duplicate_or_invalid_output_raises(self):
         for bad_output in ([], [VERDICT, VERDICT], [dict(VERDICT, approved="true")]):
             with self.subTest(bad_output=bad_output), self.assertRaises(ValueError):
-                parse_verdicts(json.dumps(bad_output), [POST], TODAY)
+                parse_verdicts(json.dumps(bad_output), [POST], NOW)
 
     def test_sdk_receives_structured_config_and_all_evidence(self):
         with patch("promo_hunter.filtering.genai.Client") as Client:
             models = Client.return_value.__enter__.return_value.models
             models.generate_content.return_value.text = json.dumps([VERDICT])
-            self.assertEqual(classify("fake-key", "test-model", [POST], TODAY), [OFFER])
+            self.assertEqual(classify("fake-key", "test-model", [POST], NOW), [OFFER])
         request = models.generate_content.call_args.kwargs
         self.assertEqual(request["config"].response_mime_type, "application/json")
         self.assertEqual(request["config"].response_json_schema["type"], "array")
@@ -146,7 +169,7 @@ class TelegramTests(unittest.TestCase):
                 r"*Nội dung:* Tặng 100% \+ mã \[FREE\]\.",
                 r"*Hạn chót:* 2026\-12\-01",
                 r"*Cách nhận:* Use a \#code \| then go\!",
-                r"[Mở liên kết](https://vendor.example/deal(a\)?code=1)",
+                r"[Mở trang nhận ưu đãi](https://vendor.example/deal(a\)?code=1)",
             ],
         )
 
