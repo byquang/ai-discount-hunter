@@ -166,5 +166,89 @@
       "https://x.com/coreyganim/status/2123788629537362385"
     ],
     "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://www.instagram.com/reel/DgASjqmtX09",
+      "https://instagram.com/reel/DgASjqmtX09"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://relevanceai.saver.com",
+      "https://relevanceai.saver.com/"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://www.spheron.network/blog/agent-gpu-sandbox-vs-manual-ssh-what-the-guardrails-buy-you",
+      "https://spheron.network/blog/agent-gpu-sandbox-vs-manual-ssh-what-the-guardrails-buy-you"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "official:https://blog.google/innovation-and-ai/products/gemini-app/tasks-in-gemini-free-new-features/",
+      "https://blog.google/innovation-and-ai/products/gemini-app/tasks-in-gemini-free-new-features"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "official:https://openai.com/index/expanding-chatgpt-for-academic-researchers",
+      "https://openai.com/index/expanding-chatgpt-for-academic-researchers"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "official:https://openai.com/business/customer-stories/gondola",
+      "https://openai.com/business/customer-stories/gondola"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "official:https://openai.com/ads/blog/chatgpt-ads-increases-its-market-presence",
+      "https://openai.com/ads/blog/chatgpt-ads-increases-its-market-presence"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "official:https://openai.com/index/chatgpt-plus-for-veterans",
+      "https://openai.com/index/chatgpt-plus-for-veterans"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "official:https://openai.com/index/helping-caregivers-use-ai-in-everyday-life",
+      "https://openai.com/index/helping-caregivers-use-ai-in-everyday-life"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://shattered.io/kiro-vs-claude-code-20-dollar-plans-1000-credits-vs-tokens",
+      "https://shattered.io/kiro-vs-claude-code-20-dollar-plans-1000-credits-vs-tokens"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://techcrunch.com/2026/11/21/all-the-ai-agents-that-can-live-in-your-text-messages",
+      "https://techcrunch.com/2026/11/21/all-the-ai-agents-that-can-live-in-your-text-messages"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://www.facebook.com/Realromanknox/videos/16-billion-free-tokens-a-month-for-claude-code-from-free-tiers-four-free-tools-t/2085052772208105",
+      "https://facebook.com/Realromanknox/videos/16-billion-free-tokens-a-month-for-claude-code-from-free-tiers-four-free-tools-t/2085052772208105"
+    ],
+    "alerted": false
   }
 ]
