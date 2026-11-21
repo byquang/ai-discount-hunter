@@ -2,7 +2,7 @@ import argparse
 import logging
 import os
 from collections.abc import Callable
-from datetime import datetime, timedelta, timezone
+from datetime import datetime, timezone
 from pathlib import Path
 
 import requests
@@ -10,7 +10,7 @@ from google.genai.errors import APIError
 
 from .candidate import Candidate, url_key
 from .filtering import DEFAULT_MODEL, MAX_BATCH, Offer, classify, keyword_score
-from .sources import discover
+from .sources import discover, scheduled_web_scopes
 from .state import Seen
 from .telegram import TelegramError, format_alert, send_message
 
@@ -20,18 +20,29 @@ LOG = logging.getLogger(__name__)
 def select_candidates(candidates: list[Candidate], seen: Seen) -> list[Candidate]:
     ranked = sorted(
         ((keyword_score(post.title, post.text), post) for post in candidates),
-        key=lambda item: (item[0], item[1].published.timestamp() if item[1].published else 0),
+        key=lambda item: (
+            item[0],
+            item[1].source_id.startswith("official:"),
+            item[1].published.timestamp() if item[1].published else 0,
+        ),
         reverse=True,
     )
     batch = []
     selected_keys = set()
-    for score, post in ranked:
-        if not score or len(batch) == MAX_BATCH:
-            break
-        if seen.contains(post.keys) or selected_keys.intersection(post.keys):
-            continue
-        batch.append(post)
-        selected_keys.update(post.keys)
+
+    def take(limit: int, *, open_web_only: bool = False) -> None:
+        for score, post in ranked:
+            if not score or len(batch) == limit:
+                break
+            if open_web_only and not post.source_id.startswith("open-web:"):
+                continue
+            if seen.contains(post.keys) or selected_keys.intersection(post.keys):
+                continue
+            batch.append(post)
+            selected_keys.update(post.keys)
+
+    take(MAX_BATCH // 4, open_web_only=True)
+    take(MAX_BATCH)
     return batch
 
 
@@ -83,13 +94,12 @@ def main() -> int:
                 return 0
             seen = Seen(Path("seen.json"))
             now = datetime.now(timezone.utc)
-            web_targets = (False, True)
+            search_keys = (env["TAVILY_API_KEY"], env["BRAVE_API_KEY"])
             if os.getenv("GITHUB_EVENT_NAME") == "schedule":
-                # At most half the scheduled runs use web search, alternating the source.
-                web_targets = {0: (False,), 2: (True,)}.get(now.hour % 4, ())
-            candidates = discover(
-                session, now - timedelta(days=2), env["TAVILY_API_KEY"], env["BRAVE_API_KEY"], web_targets
-            )
+                web_targets = scheduled_web_scopes(now)
+                candidates = discover(session, now, *search_keys, web_targets, include_feeds=bool(web_targets))
+            else:
+                candidates = discover(session, now, *search_keys)
             batch = select_candidates(candidates, seen)
             if not batch:
                 LOG.info("No new keyword matches among %s source results", len(candidates))
