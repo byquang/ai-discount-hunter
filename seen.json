@@ -82,5 +82,68 @@
       "https://news.ycombinator.com/item?id=50583761"
     ],
     "alerted": false
+  },
+  {
+    "keys": [
+      "web:https://x.com/LinusEkenstam/status/2123392055573385525",
+      "https://x.com/LinusEkenstam/status/2123392055573385525"
+    ],
+    "alerted": true
+  },
+  {
+    "keys": [
+      "web:https://www.threads.com/@ariacodez/post/Df7i3iYDcA5/video-comment-api-and-ill-send-you-the-free-setup-prompt-one-prompt-and-claude-code",
+      "https://threads.com/@ariacodez/post/Df7i3iYDcA5/video-comment-api-and-ill-send-you-the-free-setup-prompt-one-prompt-and-claude-code"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "web:https://www.threads.com/@theaiimpact/post/Df-22_vhkDM/video-free-tools-to-upgrade-claude-code-rtk-cuts-command-output-tokens-by-up-to",
+      "https://threads.com/@theaiimpact/post/Df-22_vhkDM/video-free-tools-to-upgrade-claude-code-rtk-cuts-command-output-tokens-by-up-to"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "web:https://x.com/stretchcloud/status/2124072576859419103",
+      "https://x.com/stretchcloud/status/2124072576859419103"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "web:https://www.threads.com/@claudeyoudaily/post/Df90n1UG1Ck/ai-tools-hours-of-research-yours-for-save-hours-every-week-ai-tools-for-content",
+      "https://threads.com/@claudeyoudaily/post/Df90n1UG1Ck/ai-tools-hours-of-research-yours-for-save-hours-every-week-ai-tools-for-content"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "web:https://x.com/sebuzdugan/status/2123511607439626392",
+      "https://x.com/sebuzdugan/status/2123511607439626392"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "web:https://x.com/TrustScore_1/status/2123845500550148237",
+      "https://x.com/TrustScore_1/status/2123845500550148237"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "hn:50583294",
+      "https://news.ycombinator.com/item?id=50583294"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "hn:50574885",
+      "https://murmurcomputing.ai/"
+    ],
+    "alerted": false
   }
 ]
