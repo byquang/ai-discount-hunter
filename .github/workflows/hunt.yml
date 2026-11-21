@@ -1,0 +1,78 @@
+name: AI Promo Hunter
+
+on:
+  schedule:
+    - cron: '*/30 * * * *'
+  workflow_dispatch:
+    inputs:
+      test_telegram:
+        description: Send one test message instead of hunting
+        type: boolean
+        default: false
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  tests:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405 # v6.2.0
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: |
+          python -m pip install -r requirements.txt
+          python -m unittest discover -s tests -v
+
+  hunt:
+    if: github.event_name != 'pull_request' && github.ref_name == github.event.repository.default_branch
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+    concurrency:
+      group: promo-hunter-state
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+      - uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405 # v6.2.0
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: python -m pip install -r requirements.txt
+      - name: Hunt or test Telegram
+        id: hunt
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY }}
+          BRAVE_API_KEY: ${{ secrets.BRAVE_API_KEY }}
+          TEST_TELEGRAM: ${{ inputs.test_telegram }}
+        run: |
+          if [[ "$TEST_TELEGRAM" == true ]]; then
+            python -m promo_hunter --test-telegram
+          else
+            python -m promo_hunter
+          fi
+      - name: Save seen state
+        if: ${{ !cancelled() && (steps.hunt.outcome == 'success' || steps.hunt.outcome == 'failure') }}
+        run: |
+          if git diff --quiet -- seen.json; then
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- seen.json
+          git commit -m 'Update seen promotions'
+          git push origin "HEAD:refs/heads/$GITHUB_REF_NAME"
