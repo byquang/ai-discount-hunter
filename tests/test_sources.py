@@ -132,6 +132,7 @@ class SourceTests(unittest.TestCase):
         ]}
         posts = discover(session, NOW, tavily_key="fake", web_targets=("web",), include_feeds=False)
         self.assertEqual([post.url for post in posts], [url, other])
+        self.assertTrue(all(post.source_id.startswith("open-web:") for post in posts))
         payload = session.post.call_args.kwargs["json"]
         self.assertNotIn("include_domains", payload)
         self.assertNotIn("poke.com", payload["query"])

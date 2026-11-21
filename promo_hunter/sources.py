@@ -141,7 +141,7 @@ def web_posts(results: list[dict], scope: SearchScope = "social") -> list[Candid
         published = timestamp(result.get("published_date") or result.get("page_age"))
         parts = urlsplit(url)
         host = parts.hostname or ""
-        source_id = f"web:{url}"
+        source_id = f"{'open-web' if scope == 'web' else 'web'}:{url}"
         social_host = any(host == domain or host.endswith("." + domain) for domain in WEB_DOMAINS)
         reddit_host = host == "reddit.com" or host.endswith(".reddit.com")
         if scope == "reddit":

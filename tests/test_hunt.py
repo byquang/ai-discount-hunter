@@ -10,7 +10,7 @@ import requests
 
 from promo_hunter.__main__ import process_batch, select_candidates
 from promo_hunter.candidate import Candidate, url_key, web_url
-from promo_hunter.filtering import Offer, classify, keyword_score, parse_verdicts
+from promo_hunter.filtering import MAX_BATCH, Offer, classify, keyword_score, parse_verdicts
 from promo_hunter.state import Seen
 from promo_hunter.telegram import TelegramError, format_alert, send_message
 
@@ -70,6 +70,18 @@ class StateTests(unittest.TestCase):
         self.assertEqual(select_candidates([POST, with_same_id, with_same_url, unrelated], self.seen), [POST])
         self.seen.remember(POST.keys)
         self.assertEqual(select_candidates([with_same_id, with_same_url], self.seen), [])
+
+    def test_select_reserves_room_for_open_web_matches_without_increasing_the_batch(self):
+        community = [
+            Candidate(f"hn:{i}", "Free credits", "", f"https://example.org/community/{i}", NOW)
+            for i in range(MAX_BATCH)
+        ]
+        open_web = Candidate("open-web:1", "Limited giveaway", "", "https://vendor.example/promotion")
+        batch = select_candidates([*community, open_web], self.seen)
+        self.assertIn(open_web, batch)
+        self.assertEqual(len(batch), MAX_BATCH)
+        self.seen.remember(open_web.keys)
+        self.assertEqual(select_candidates([*community, open_web], self.seen), community)
 
     def test_save_caps_history_at_500_entries_and_skips_unchanged_file(self):
         for index in range(502):
