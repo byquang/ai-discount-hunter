@@ -24,6 +24,9 @@ period of a normally paid plan, or a 100% discount. The post must contain concre
 a limited claim window, a limited quantity, or time-limited access to that paid product.
 Reject expired offers, permanent free tiers, tutorials or discussion, wishful speculation,
 normal evergreen trials, paid discounts, referral spam and phishing. If evidence is weak, reject.
+A recent search result does not make an old promotion active. Reject if there is no credible
+evidence that the offer is still claimable (for example, a future deadline or a current vendor
+offer page with a live claim path). A generic coupon listing is not enough.
 Return exactly one verdict per index. For approved offers, name the tool and write the summary and
 claim instructions in Vietnamese, including eligibility, limits or payment requirements if known.
 Set deadline to YYYY-MM-DD only for an explicit calendar date; otherwise use null.
