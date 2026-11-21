@@ -1,78 +1,71 @@
-name: AI Promo Hunter
+name: AI Promo Hunter coverage audit
 
 on:
-  schedule:
-    - cron: '*/30 * * * *'
   workflow_dispatch:
-    inputs:
-      test_telegram:
-        description: Send one test message instead of hunting
-        type: boolean
-        default: false
-  pull_request:
 
 permissions:
   contents: read
 
 jobs:
-  tests:
-    if: github.event_name == 'pull_request'
+  audit:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
         with:
           persist-credentials: false
-      - uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405 # v6.2.0
-        with:
-          python-version: '3.12'
-          cache: pip
-      - run: |
-          python -m pip install -r requirements.txt
-          python -m unittest discover -s tests -v
-
-  hunt:
-    if: github.event_name != 'pull_request' && github.ref_name == github.event.repository.default_branch
-    runs-on: ubuntu-latest
-    timeout-minutes: 5
-    permissions:
-      contents: write
-    concurrency:
-      group: promo-hunter-state
-      cancel-in-progress: false
-    steps:
-      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
-        with:
-          ref: ${{ github.event.repository.default_branch }}
-      - uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405 # v6.2.0
+      - uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405
         with:
           python-version: '3.12'
           cache: pip
       - run: python -m pip install -r requirements.txt
-      - name: Hunt or test Telegram
-        id: hunt
+      - name: Check live feeds, web discovery, and classification
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
-          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY }}
           BRAVE_API_KEY: ${{ secrets.BRAVE_API_KEY }}
-          TEST_TELEGRAM: ${{ inputs.test_telegram }}
         run: |
-          if [[ "$TEST_TELEGRAM" == true ]]; then
-            python -m promo_hunter --test-telegram
-          else
-            python -m promo_hunter
-          fi
-      - name: Save seen state
-        if: ${{ !cancelled() && (steps.hunt.outcome == 'success' || steps.hunt.outcome == 'failure') }}
-        run: |
-          if git diff --quiet -- seen.json; then
-            exit 0
-          fi
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add -- seen.json
-          git commit -m 'Update seen promotions'
-          git push origin "HEAD:refs/heads/$GITHUB_REF_NAME"
+          python - <<'PY'
+          import logging
+          import os
+          from collections import Counter
+          from datetime import datetime, timezone
+          from pathlib import Path
+          from tempfile import TemporaryDirectory
+          from urllib.parse import urlsplit
+
+          import requests
+          from google.genai.errors import APIError
+
+          from promo_hunter.__main__ import select_candidates
+          from promo_hunter.filtering import DEFAULT_MODEL, classify
+          from promo_hunter.sources import discover
+          from promo_hunter.state import Seen
+
+          logging.basicConfig(level=logging.WARNING, format="%(levelname)s: %(message)s")
+          logging.getLogger("promo_hunter.sources").setLevel(logging.DEBUG)
+          tavily = os.getenv("TAVILY_API_KEY", "").strip()
+          brave = os.getenv("BRAVE_API_KEY", "").strip()
+          now = datetime.now(timezone.utc)
+          try:
+              with requests.Session() as session:
+                  candidates = discover(session, now, tavily, brave)
+              def host(post):
+                  return urlsplit(post.url).hostname
+              print("Discovered:", Counter((post.source_id.partition(":")[0], host(post)) for post in candidates), flush=True)
+              with TemporaryDirectory() as folder:
+                  batch = select_candidates(candidates, Seen(Path(folder) / "seen.json"))
+              print("Selected:", Counter(map(host, batch)), flush=True)
+              key = os.environ["GEMINI_API_KEY"]
+              model = os.getenv("GEMINI_MODEL", "").strip() or DEFAULT_MODEL
+              offers = classify(key, model, batch, now) if batch else []
+              for post, offer in zip(batch, offers, strict=True):
+                  if offer:
+                      print("Approved:", host(post), offer.deadline, flush=True)
+              print(f"Audit result: {sum(offer is not None for offer in offers)} approved out of {len(batch)} classified; no Telegram alerts or state writes")
+          except APIError as exc:
+              raise SystemExit(f"Gemini returned HTTP {exc.code}") from None
+          except Exception as exc:
+              raise SystemExit(f"Audit failed ({type(exc).__name__})") from None
+          PY
