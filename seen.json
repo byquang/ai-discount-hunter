@@ -1,1 +1,86 @@
-[]
+[
+  {
+    "keys": [
+      "hn:50589936",
+      "https://klistra.ai/"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "hn:50589229",
+      "https://github.com/spooky6G/bobalice_books"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "hn:50588038",
+      "https://swiphtgroup.com/swiphtnum"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "hn:50585574",
+      "https://muglobe.com/"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "hn:50584994",
+      "https://nametheworld.starshadowx2.workers.dev/"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "hn:50584716",
+      "https://craoli.com/"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "hn:50581403",
+      "https://github.com/diggerhq/opencomputer"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "hn:50576552",
+      "https://usenunya.com/"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "hn:50573575",
+      "https://github.com/protortyp/depthpro2-onnx"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "hn:50567622",
+      "https://bocalito.com/"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "hn:50587779",
+      "https://news.ycombinator.com/item?id=50587779"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "hn:50583761",
+      "https://news.ycombinator.com/item?id=50583761"
+    ],
+    "alerted": false
+  }
+]
