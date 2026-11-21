@@ -145,5 +145,26 @@
       "https://murmurcomputing.ai/"
     ],
     "alerted": false
+  },
+  {
+    "keys": [
+      "web:https://x.com/rubenhassid/status/2124110591866613936",
+      "https://x.com/rubenhassid/status/2124110591866613936"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "web:https://www.threads.com/@ai.iyaz/post/Df6zLjaAVqS/video-gemini-neon-is-free-on-the-api-for-hours-on-the-intelligence-index-ahead-of",
+      "https://threads.com/@ai.iyaz/post/Df6zLjaAVqS/video-gemini-neon-is-free-on-the-api-for-hours-on-the-intelligence-index-ahead-of"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "web:https://x.com/coreyganim/status/2123788629537362385",
+      "https://x.com/coreyganim/status/2123788629537362385"
+    ],
+    "alerted": false
   }
 ]
