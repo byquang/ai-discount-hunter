@@ -5,7 +5,8 @@ from unittest.mock import Mock, patch
 import requests
 
 from promo_hunter.sources import (
-    HN_QUERIES, HN_URL, OFFICIAL_FEEDS, SUBREDDITS, discover, fetch_web, hn_posts, scheduled_web_scopes, web_posts,
+    HN_QUERIES, HN_URL, OFFICIAL_FEEDS, SUBREDDITS, discover, fetch_web, hn_posts, official_posts,
+    scheduled_web_scopes, web_posts,
 )
 
 NOW = datetime(2026, 11, 21, tzinfo=timezone.utc)
@@ -142,6 +143,12 @@ class SourceTests(unittest.TestCase):
         with patch("promo_hunter.sources.fetch_official", side_effect=ValueError("Invalid XML")):
             with self.assertLogs("promo_hunter.sources", level="WARNING"):
                 self.assertTrue(discover(session, NOW))
+
+    def test_rss_allows_html_doctype_in_article_content_but_not_the_feed(self):
+        html_article = RSS.replace(b"<![CDATA[", b"<![CDATA[<!DOCTYPE html>", 1)
+        self.assertEqual(len(official_posts(html_article, NOW - timedelta(days=14), NOW)), 1)
+        with self.assertRaisesRegex(ValueError, "Unexpected document type"):
+            official_posts(b"<!DOCTYPE rss><rss><channel/></rss>", SINCE, NOW)
 
     def test_scheduled_scopes_stay_within_the_previous_search_budget(self):
         slots = [scheduled_web_scopes(NOW + timedelta(minutes=30*i)) for i in range(31*48)]

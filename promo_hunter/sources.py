@@ -84,11 +84,15 @@ def hn_posts(data: dict) -> list[Candidate]:
     return posts
 
 
-def official_posts(raw: str, since: datetime, now: datetime) -> list[Candidate]:
-    if re.search(r"<!DOCTYPE\b", raw, re.IGNORECASE):
+class RSSBuilder(ElementTree.TreeBuilder):
+    def doctype(self, name: str, pubid: str | None, system: str | None) -> None:
         raise ValueError("Unexpected document type in RSS")
+
+
+def official_posts(raw: bytes, since: datetime, now: datetime) -> list[Candidate]:
     try:
-        channel = ElementTree.fromstring(raw).find("channel")
+        parser = ElementTree.XMLParser(target=RSSBuilder())
+        channel = ElementTree.fromstring(raw, parser=parser).find("channel")
     except ElementTree.ParseError as exc:
         raise ValueError("Invalid RSS") from exc
     if channel is None:
@@ -123,7 +127,7 @@ def fetch_official(session: requests.Session, url: str, since: datetime, now: da
             payload.extend(chunk)
             if len(payload) > MAX_FEED_BYTES:
                 raise ValueError("RSS feed too large")
-        return official_posts(payload.decode("utf-8-sig"), since, now)
+        return official_posts(bytes(payload), since, now)
 
 
 def web_posts(results: list[dict], scope: SearchScope = "social") -> list[Candidate]:
