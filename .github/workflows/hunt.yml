@@ -1,78 +1,99 @@
-name: AI Promo Hunter
+name: AI Promo Hunter 24-hour audit
 
 on:
-  schedule:
-    - cron: '*/30 * * * *'
   workflow_dispatch:
-    inputs:
-      test_telegram:
-        description: Send one test message instead of hunting
-        type: boolean
-        default: false
-  pull_request:
 
 permissions:
   contents: read
 
 jobs:
-  tests:
-    if: github.event_name == 'pull_request'
+  audit:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
         with:
           persist-credentials: false
-      - uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405 # v6.2.0
-        with:
-          python-version: '3.12'
-          cache: pip
-      - run: |
-          python -m pip install -r requirements.txt
-          python -m unittest discover -s tests -v
-
-  hunt:
-    if: github.event_name != 'pull_request' && github.ref_name == github.event.repository.default_branch
-    runs-on: ubuntu-latest
-    timeout-minutes: 5
-    permissions:
-      contents: write
-    concurrency:
-      group: promo-hunter-state
-      cancel-in-progress: false
-    steps:
-      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
-        with:
-          ref: ${{ github.event.repository.default_branch }}
-      - uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405 # v6.2.0
+      - uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405
         with:
           python-version: '3.12'
           cache: pip
       - run: python -m pip install -r requirements.txt
-      - name: Hunt or test Telegram
-        id: hunt
+      - name: Audit promotions with verified publication times
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
-          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY }}
           BRAVE_API_KEY: ${{ secrets.BRAVE_API_KEY }}
-          TEST_TELEGRAM: ${{ inputs.test_telegram }}
         run: |
-          if [[ "$TEST_TELEGRAM" == true ]]; then
-            python -m promo_hunter --test-telegram
-          else
-            python -m promo_hunter
-          fi
-      - name: Save seen state
-        if: ${{ !cancelled() && (steps.hunt.outcome == 'success' || steps.hunt.outcome == 'failure') }}
-        run: |
-          if git diff --quiet -- seen.json; then
-            exit 0
-          fi
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add -- seen.json
-          git commit -m 'Update seen promotions'
-          git push origin "HEAD:refs/heads/$GITHUB_REF_NAME"
+          python - <<'PY'
+          import json
+          import logging
+          import os
+          from collections import Counter
+          from datetime import datetime, timedelta, timezone
+          from pathlib import Path
+          from tempfile import TemporaryDirectory
+          from urllib.parse import urlsplit
+
+          import requests
+          from google.genai.errors import APIError
+
+          from promo_hunter.__main__ import select_candidates
+          from promo_hunter.filtering import DEFAULT_MODEL, classify
+          from promo_hunter.sources import discover
+          from promo_hunter.state import Seen
+
+
+          def source(post):
+              provider = post.source_id.partition(":")[0]
+              if provider != "web":
+                  return provider
+              host = urlsplit(post.url).hostname
+              return "x" if host == "x.com" or host.endswith(".x.com") else "threads"
+
+
+          logging.basicConfig(level=logging.WARNING, format="%(levelname)s: %(message)s")
+          logging.getLogger("httpx").setLevel(logging.WARNING)
+          now = datetime.now(timezone.utc)
+          since = now - timedelta(hours=24)
+          print(f"Publication window: {since.isoformat()} to {now.isoformat()}", flush=True)
+          tavily = os.getenv("TAVILY_API_KEY", "").strip()
+          brave = os.getenv("BRAVE_API_KEY", "").strip()
+          print("Search provider:", "Tavily" if tavily else "Brave" if brave else "none", flush=True)
+          key = os.getenv("GEMINI_API_KEY", "").strip()
+          if not key:
+              raise SystemExit("Missing Gemini API key")
+          try:
+              with requests.Session() as session:
+                  discovered = discover(session, since, tavily, brave)
+              dated = [post for post in discovered if post.published is not None and since <= post.published <= now]
+              unknown = Counter(source(post) for post in discovered if post.published is None)
+              print("In-window source results:", json.dumps(Counter(map(source, dated))), flush=True)
+              print("Excluded without publication time:", json.dumps(unknown), flush=True)
+              with TemporaryDirectory() as folder:
+                  batch = select_candidates(dated, Seen(Path(folder) / "seen.json"))
+              print("Selected for classification:", json.dumps(Counter(map(source, batch))), flush=True)
+              model = os.getenv("GEMINI_MODEL", "").strip() or DEFAULT_MODEL
+              offers = classify(key, model, batch, now) if batch else []
+              approved = 0
+              for post, offer in zip(batch, offers, strict=True):
+                  if offer is None:
+                      continue
+                  approved += 1
+                  print("Candidate offer:", json.dumps({
+                      "tool": offer.tool_name,
+                      "summary": offer.offer_summary,
+                      "deadline": offer.deadline,
+                      "how_to_claim": offer.how_to_claim,
+                      "url": offer.url,
+                      "source_url": post.url,
+                      "published_utc": post.published.isoformat(),
+                      "source_only": offer.source_only,
+                  }, ensure_ascii=False))
+              print(f"Audit result: {approved} approved out of {len(batch)} classified; no alerts sent or state saved")
+          except APIError as exc:
+              raise SystemExit(f"Gemini returned HTTP {exc.code}") from None
+          except Exception as exc:
+              raise SystemExit(f"Audit failed ({type(exc).__name__})") from None
+          PY
