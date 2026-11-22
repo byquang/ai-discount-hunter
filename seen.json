@@ -432,5 +432,33 @@
       "https://ismailblogger.com/blog/earn-1000-dollars-per-month-pakistan"
     ],
     "alerted": false
+  },
+  {
+    "keys": [
+      "web:https://x.com/kawaidgaf/status/2124137276334821513",
+      "https://x.com/kawaidgaf/status/2124137276334821513"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "web:https://x.com/StudentOffersHQ/status/2123916388314321108",
+      "https://x.com/StudentOffersHQ/status/2123916388314321108"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "web:https://www.threads.com/@mikes.lab55/post/Df-pnY4DxRp/what-i-love-is-if-you-get-the-claude-plan-you-also-get-of-api-credit-per-month",
+      "https://threads.com/@mikes.lab55/post/Df-pnY4DxRp/what-i-love-is-if-you-get-the-claude-plan-you-also-get-of-api-credit-per-month"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "web:https://www.threads.com/@mktpavlenko/post/DgAi397lt8z/two-months-ago-the-x-subscription-was-one-of-the-best-deals-in-ai-now-the-model",
+      "https://threads.com/@mktpavlenko/post/DgAi397lt8z/two-months-ago-the-x-subscription-was-one-of-the-best-deals-in-ai-now-the-model"
+    ],
+    "alerted": false
   }
 ]
