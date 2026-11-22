@@ -250,5 +250,68 @@
       "https://facebook.com/Realromanknox/videos/16-billion-free-tokens-a-month-for-claude-code-from-free-tiers-four-free-tools-t/2085052772208105"
     ],
     "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://instantly.startupworld.com",
+      "https://instantly.startupworld.com/"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://www.instagram.com/reel/Dfme979pNFq",
+      "https://instagram.com/reel/Dfme979pNFq"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://www.startupgrantsindia.com/perks/jetbrains-ai-for-startups",
+      "https://startupgrantsindia.com/perks/jetbrains-ai-for-startups"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://www.masaischool.com/blog/best-ai-research-tools-2027",
+      "https://masaischool.com/blog/best-ai-research-tools-2027"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://www.pinecone.io/pinecone-answers",
+      "https://pinecone.io/pinecone-answers"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://www.facebook.com/crestschoolbangkok/videos/free-engineering-ai-trial-class-led-by-cmkl-university-join-us-for-an-exclusive-/2693539091066031",
+      "https://facebook.com/crestschoolbangkok/videos/free-engineering-ai-trial-class-led-by-cmkl-university-join-us-for-an-exclusive-/2693539091066031"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://www.instagram.com/reel/Dfo0yCrR4nr",
+      "https://instagram.com/reel/Dfo0yCrR4nr"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://www.instagram.com/p/Dfg1PDTiI7b",
+      "https://instagram.com/p/Dfg1PDTiI7b"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://www.instagram.com/reel/Df_c1CCsc-a",
+      "https://instagram.com/reel/Df_c1CCsc-a"
+    ],
+    "alerted": false
   }
 ]
