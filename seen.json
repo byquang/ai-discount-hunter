@@ -544,5 +544,12 @@
       "https://techcrunch.com/2026/11/22/techcrunch-mobility-a-b-testing-robots-vs-humans"
     ],
     "alerted": false
+  },
+  {
+    "keys": [
+      "hn:50604007",
+      "https://apps.apple.com/us/app/flighttrack-flight-tracker/id6788552553"
+    ],
+    "alerted": false
   }
 ]
