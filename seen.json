@@ -509,5 +509,40 @@
       "https://activepieces.com/blog/apty-pricing-quote-based-digital-adoption-2026"
     ],
     "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://www.youtube.com/watch?v=NbKdfnzCRJY",
+      "https://youtube.com/watch?v=NbKdfnzCRJY"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://www.startupgrantsindia.com/competitions/ai-tools-that-earn-a-hackathon-by-apify",
+      "https://startupgrantsindia.com/competitions/ai-tools-that-earn-a-hackathon-by-apify"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://www.makeuseof.com/legit-ways-to-use-paid-ai-models-for-free-right-now",
+      "https://makeuseof.com/legit-ways-to-use-paid-ai-models-for-free-right-now"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://www.facebook.com/aniksingal/videos/run-claude-code-on-free-modelstwo-open-source-repos-let-claude-code-run-on-free-/4047363005571650",
+      "https://facebook.com/aniksingal/videos/run-claude-code-on-free-modelstwo-open-source-repos-let-claude-code-run-on-free-/4047363005571650"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://techcrunch.com/2026/11/22/techcrunch-mobility-a-b-testing-robots-vs-humans",
+      "https://techcrunch.com/2026/11/22/techcrunch-mobility-a-b-testing-robots-vs-humans"
+    ],
+    "alerted": false
   }
 ]
