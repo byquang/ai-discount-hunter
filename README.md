@@ -1,6 +1,6 @@
 # AI Promo Hunter
 
-Finds time-limited free credits, free paid-plan months, and 100%-off offers for AI and developer tools. GitHub Actions runs the Python bot every 30 minutes; Gemini filters out noise and Telegram delivers alerts in Vietnamese.
+Finds time-limited free credits, free paid-plan months, and 100%-off offers for AI and developer tools. The Python bot is scheduled every 30 minutes on GitHub Actions; Gemini filters out noise and Telegram delivers alerts in Vietnamese.
 
 ## Set up on GitHub
 
@@ -19,6 +19,8 @@ Finds time-limited free credits, free paid-plan months, and 100%-off offers for 
 4. Once the workflow is on the default branch, open [AI Promo Hunter](https://github.com/byquang/ai-discount-hunter/actions/workflows/hunt.yml) → **Run workflow**. Select **Send one test message instead of hunting** to verify Telegram independently; clear it to run a real hunt. A real hunt can pass without an alert if it finds no new eligible offer.
 
 The hunt uses its job-scoped `GITHUB_TOKEN` to push only changes to `seen.json`. No personal access token is needed. The default branch and Actions policy must allow the workflow's state push; restrictions that block all direct pushes will also block this step. Pull requests run credential-free tests, not the hunt.
+
+The `*/30` cron uses Kathmandu's fixed UTC+05:45 offset, targeting `:15` and `:45` UTC (`:15` and `:45` in Vietnam too). This avoids GitHub's [top-of-hour scheduling peak](https://docs.github.com/en/actions/how-tos/troubleshoot-workflows#scheduled-workflows-running-at-unexpected-times). GitHub may still delay or drop runs.
 
 ## Sources and cost
 
