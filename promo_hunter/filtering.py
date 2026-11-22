@@ -28,7 +28,8 @@ A recent search result does not make an old promotion active. Reject if there is
 evidence that the offer is still claimable (for example, a future deadline or a current vendor
 offer page with a live claim path). A generic coupon listing is not enough.
 Return exactly one verdict per index. For approved offers, name the tool and write the summary and
-claim instructions in Vietnamese, including eligibility, limits or payment requirements if known.
+claim instructions in English, translating non-English sources. Include eligibility, limits or
+payment requirements if known.
 Set deadline to YYYY-MM-DD only for an explicit calendar date; otherwise use null.
 If there is a claim window relative to the provided post's publication time (e.g. "within 24 hours
 of this post"), set claim_window_minutes to that duration in whole minutes. Reject if the post's
