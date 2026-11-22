@@ -355,5 +355,40 @@
       "https://x.com/undefinedKi/status/2123785008259211653"
     ],
     "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://techpilot.ai/best-ai-for-coding-free",
+      "https://techpilot.ai/best-ai-for-coding-free"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://ryunapp.com/student-perks",
+      "https://ryunapp.com/student-perks"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://www.startupgrantsindia.com/events/claude-workshop-2",
+      "https://startupgrantsindia.com/events/claude-workshop-2"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://faisalitebtools.com/guides",
+      "https://faisalitebtools.com/guides"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://shattered.io/cursor-vs-copilot-survey-raking-reweight-python-12-steps-2026",
+      "https://shattered.io/cursor-vs-copilot-survey-raking-reweight-python-12-steps-2026"
+    ],
+    "alerted": false
   }
 ]
