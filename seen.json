@@ -313,5 +313,47 @@
       "https://instagram.com/reel/Df_c1CCsc-a"
     ],
     "alerted": false
+  },
+  {
+    "keys": [
+      "web:https://x.com/AIVerseUday/status/2123793503746445659",
+      "https://x.com/AIVerseUday/status/2123793503746445659"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "web:https://www.threads.com/@titcreates/post/Df-Dri5jxyk/want-the-best-ai-models-but-each-one-wants-its-own-monthly-bill-meet-ap-inex",
+      "https://threads.com/@titcreates/post/Df-Dri5jxyk/want-the-best-ai-models-but-each-one-wants-its-own-monthly-bill-meet-ap-inex"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "web:https://www.threads.com/@vikuchotala/post/Df_YEKOlKX7/the-api-is-for-software-making-model-requests-the-claude-subscription-is-a",
+      "https://threads.com/@vikuchotala/post/Df_YEKOlKX7/the-api-is-for-software-making-model-requests-the-claude-subscription-is-a"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "web:https://www.threads.com/@loveable_aiart/post/Df9X5ZKiSWa/video-sign-up-for-tripo-through-my-link-in-bio-to-receive-bonus-credits-and-off-your",
+      "https://threads.com/@loveable_aiart/post/Df9X5ZKiSWa/video-sign-up-for-tripo-through-my-link-in-bio-to-receive-bonus-credits-and-off-your"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "web:https://www.threads.com/@bythetweaks/post/DgAOriRIAYd/googles-black-friday-deal-up-to-off-google-ai-plus-and-annual-pro-plans-its",
+      "https://threads.com/@bythetweaks/post/DgAOriRIAYd/googles-black-friday-deal-up-to-off-google-ai-plus-and-annual-pro-plans-its"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "web:https://x.com/undefinedKi/status/2123785008259211653",
+      "https://x.com/undefinedKi/status/2123785008259211653"
+    ],
+    "alerted": false
   }
 ]
