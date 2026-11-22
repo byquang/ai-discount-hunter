@@ -3,6 +3,7 @@ name: AI Promo Hunter
 on:
   schedule:
     - cron: '*/30 * * * *'
+      timezone: 'Asia/Kathmandu'
   workflow_dispatch:
     inputs:
       test_telegram:
