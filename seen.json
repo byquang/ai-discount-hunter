@@ -474,5 +474,40 @@
       "https://github.com/impizulu/rayclay"
     ],
     "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://ribbonpost.com/free/ai-tools",
+      "https://ribbonpost.com/free/ai-tools"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://rushtechhub.com/use-cases/ai-coding-tools",
+      "https://rushtechhub.com/use-cases/ai-coding-tools"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://www.youtube.com/watch?v=L9iYmDzZh3k",
+      "https://youtube.com/watch?v=L9iYmDzZh3k"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://www.powerfulai.tools/blog/best-free-ai-tools",
+      "https://powerfulai.tools/blog/best-free-ai-tools"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://www.activepieces.com/blog/apty-pricing-quote-based-digital-adoption-2026",
+      "https://activepieces.com/blog/apty-pricing-quote-based-digital-adoption-2026"
+    ],
+    "alerted": false
   }
 ]
