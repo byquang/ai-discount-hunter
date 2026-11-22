@@ -1,4 +1,6 @@
 import json
+import os
+import sys
 import tempfile
 import unittest
 from dataclasses import replace
@@ -8,9 +10,10 @@ from unittest.mock import Mock, patch
 
 import requests
 
-from promo_hunter.__main__ import process_batch, select_candidates
+from promo_hunter.__main__ import main, process_batch, select_candidates
 from promo_hunter.candidate import Candidate, url_key, web_url
 from promo_hunter.filtering import MAX_BATCH, Offer, classify, keyword_score, parse_verdicts
+from promo_hunter.sources import DiscoveryResult
 from promo_hunter.state import Seen
 from promo_hunter.telegram import TelegramError, format_alert, send_message
 
@@ -25,13 +28,13 @@ VERDICT = {
     "index": 0,
     "approved": True,
     "tool_name": "Devin",
-    "offer_summary": "Tặng tín dụng trải nghiệm",
+    "offer_summary": "Free trial credits",
     "deadline": "2026-11-30",
     "claim_window_minutes": None,
-    "how_to_claim": "Đăng ký trên website",
+    "how_to_claim": "Sign up on the website",
     "url": TEMPORARY_OFFER,
 }
-OFFER = Offer("Devin", "Tặng tín dụng trải nghiệm", "2026-11-30", "Đăng ký trên website", TEMPORARY_OFFER)
+OFFER = Offer("Devin", "Free trial credits", "2026-11-30", "Sign up on the website", TEMPORARY_OFFER)
 
 
 class PrefilterTests(unittest.TestCase):
@@ -105,7 +108,7 @@ class StateTests(unittest.TestCase):
         self.assertTrue(Seen(self.path).contains(SECOND_POST.keys))
 
     def test_failed_send_can_retry_and_earlier_delivery_is_saved(self):
-        second_offer = Offer("Cursor", "Tặng một tháng", None, "Đăng ký", "https://cursor.example/new")
+        second_offer = Offer("Cursor", "One month free", None, "Sign up", "https://cursor.example/new")
         notify = Mock(side_effect=[None, TelegramError("Timeout")])
         with self.assertRaises(TelegramError):
             process_batch([POST, SECOND_POST], [OFFER, second_offer], self.seen, notify)
@@ -121,6 +124,79 @@ class StateTests(unittest.TestCase):
         notify.assert_not_called()
 
 
+class ScanTests(unittest.TestCase):
+    def setUp(self):
+        folder = tempfile.TemporaryDirectory()
+        self.addCleanup(folder.cleanup)
+        self.seen = Seen(Path(folder.name) / "seen.json")
+        env = {"GEMINI_API_KEY": "fake-key", "TELEGRAM_BOT_TOKEN": "fake-token", "TELEGRAM_CHAT_ID": "fake-chat"}
+        argv_patch = patch.object(sys, "argv", ["promo_hunter"])
+        env_patch = patch.dict(os.environ, env, clear=True)
+        for setup in (argv_patch, env_patch, patch("promo_hunter.__main__.Seen", return_value=self.seen)):
+            setup.start()
+            self.addCleanup(setup.stop)
+        for name in ("discover", "classify", "send_message"):
+            setup = patch(f"promo_hunter.__main__.{name}")
+            setattr(self, name, setup.start())
+            self.addCleanup(setup.stop)
+
+    def test_no_candidates_sends_one_update_without_classification(self):
+        self.discover.return_value = DiscoveryResult([])
+        self.assertEqual(main(), 0)
+        self.classify.assert_not_called()
+        self.assertEqual(self.send_message.call_count, 1)
+        self.assertIn("No new promotions found in this scan", self.send_message.call_args.args[-1])
+
+    def test_all_rejected_sends_one_update_and_records_the_checked_post(self):
+        self.discover.return_value = DiscoveryResult([POST])
+        self.classify.return_value = [None]
+        self.assertEqual(main(), 0)
+        self.assertEqual(self.send_message.call_count, 1)
+        self.assertIn("No new promotions found", self.send_message.call_args.args[-1])
+        self.assertTrue(Seen(self.seen.path).contains(POST.keys))
+
+    def test_duplicate_claim_still_gets_an_empty_scan_update(self):
+        self.seen.remember((url_key(OFFER.url),), alerted=True)
+        self.discover.return_value = DiscoveryResult([POST])
+        self.classify.return_value = [OFFER]
+        self.assertEqual(main(), 0)
+        self.assertEqual(self.send_message.call_count, 1)
+        self.assertIn("No new promotions found", self.send_message.call_args.args[-1])
+
+    def test_partial_scan_discloses_missing_sources(self):
+        self.discover.return_value = DiscoveryResult([], partial=True)
+        self.assertEqual(main(), 0)
+        self.assertEqual(self.send_message.call_count, 1)
+        self.assertIn("Some sources could not be checked", self.send_message.call_args.args[-1])
+
+    def test_promotion_is_not_followed_by_an_empty_update(self):
+        self.discover.return_value = DiscoveryResult([POST])
+        self.classify.return_value = [OFFER]
+        self.assertEqual(main(), 0)
+        self.assertEqual(self.send_message.call_count, 1)
+        self.assertEqual(self.send_message.call_args.args[-1], format_alert(OFFER))
+
+    def test_total_source_failure_does_not_send_an_empty_update(self):
+        self.discover.side_effect = RuntimeError("All promotion sources failed")
+        with self.assertLogs("promo_hunter.__main__", level="ERROR"):
+            self.assertEqual(main(), 1)
+        self.send_message.assert_not_called()
+
+    def test_classification_failure_does_not_send_an_empty_update(self):
+        self.discover.return_value = DiscoveryResult([POST])
+        self.classify.side_effect = ValueError("Unusable verdict")
+        with self.assertLogs("promo_hunter.__main__", level="ERROR"):
+            self.assertEqual(main(), 1)
+        self.send_message.assert_not_called()
+
+    def test_telegram_connection_test_only_sends_its_english_test_message(self):
+        with patch.object(sys, "argv", ["promo_hunter", "--test-telegram"]):
+            self.assertEqual(main(), 0)
+        self.discover.assert_not_called()
+        self.assertEqual(self.send_message.call_count, 1)
+        self.assertIn("Telegram connection test passed", self.send_message.call_args.args[-1])
+
+
 class VerdictTests(unittest.TestCase):
     def test_success_and_invented_url_falls_back_to_source(self):
         self.assertEqual(parse_verdicts(json.dumps([VERDICT]), [POST], NOW), [OFFER])
@@ -128,7 +204,7 @@ class VerdictTests(unittest.TestCase):
         offer = parse_verdicts(json.dumps([altered]), [POST], NOW)[0]
         self.assertEqual(offer.url, POST.url)
         self.assertTrue(offer.source_only)
-        self.assertIn(f"[Xem bài đăng nguồn]({POST.url})", format_alert(offer))
+        self.assertIn(f"[View source post]({POST.url})", format_alert(offer))
 
     def test_expired_and_explicit_rejection(self):
         for change in ({"deadline": "2026-11-20"}, {"approved": False}):
@@ -165,30 +241,31 @@ class VerdictTests(unittest.TestCase):
         request = models.generate_content.call_args.kwargs
         self.assertEqual(request["config"].response_mime_type, "application/json")
         self.assertEqual(request["config"].response_json_schema["type"], "array")
+        self.assertIn("in English", request["config"].system_instruction)
         self.assertIn(TEMPORARY_OFFER, request["contents"])
 
 
 class TelegramTests(unittest.TestCase):
-    def test_formats_vietnamese_and_escapes_dynamic_markdown(self):
+    def test_formats_english_and_escapes_dynamic_markdown(self):
         offer = Offer(
-            "AI_Pro (Max)!*", "Tặng 100% + mã [FREE].", "2026-12-01",
+            "AI_Pro (Max)!*", "100% off + code [FREE].", "2026-12-01",
             "Use a #code | then go!", "https://vendor.example/deal(a)?code=1",
         )
         self.assertEqual(
             format_alert(offer).splitlines(),
             [
-                r"*Ưu đãi: AI\_Pro \(Max\)\!\**",
-                r"*Nội dung:* Tặng 100% \+ mã \[FREE\]\.",
-                r"*Hạn chót:* 2026\-12\-01",
-                r"*Cách nhận:* Use a \#code \| then go\!",
-                r"[Mở trang nhận ưu đãi](https://vendor.example/deal(a\)?code=1)",
+                r"*Promotion: AI\_Pro \(Max\)\!\**",
+                r"*Offer:* 100% off \+ code \[FREE\]\.",
+                r"*Deadline:* 2026\-12\-01",
+                r"*How to claim:* Use a \#code \| then go\!",
+                r"[Open claim page](https://vendor.example/deal(a\)?code=1)",
             ],
         )
 
     def test_unknown_deadline_is_readable_and_message_is_bounded(self):
         offer = Offer("Claude", "!" * 5000, None, "_" * 5000, TEMPORARY_OFFER)
         text = format_alert(offer)
-        self.assertIn("Chưa công bố", text)
+        self.assertIn("Not announced", text)
         self.assertLess(len(text), 4096)
 
     def test_requests_markdown_v2_and_handles_api_failure(self):

@@ -12,7 +12,7 @@ from .candidate import Candidate, url_key
 from .filtering import DEFAULT_MODEL, MAX_BATCH, Offer, classify, keyword_score
 from .sources import discover, scheduled_web_scopes
 from .state import Seen
-from .telegram import TelegramError, format_alert, send_message
+from .telegram import TelegramError, format_alert, format_empty_scan, send_message
 
 LOG = logging.getLogger(__name__)
 
@@ -90,25 +90,27 @@ def main() -> int:
 
         try:
             if args.test_telegram:
-                notify("*AI Promo Hunter:* Kiểm tra kết nối Telegram thành công")
+                notify("*AI Promo Hunter:* Telegram connection test passed")
                 return 0
             seen = Seen(Path("seen.json"))
             now = datetime.now(timezone.utc)
             search_keys = (env["TAVILY_API_KEY"], env["BRAVE_API_KEY"])
             if os.getenv("GITHUB_EVENT_NAME") == "schedule":
                 web_targets = scheduled_web_scopes(now)
-                candidates = discover(session, now, *search_keys, web_targets, include_feeds=bool(web_targets))
+                result = discover(session, now, *search_keys, web_targets, include_feeds=bool(web_targets))
             else:
-                candidates = discover(session, now, *search_keys)
+                result = discover(session, now, *search_keys)
+            candidates = result.candidates
             batch = select_candidates(candidates, seen)
-            if not batch:
-                LOG.info("No new keyword matches among %s source results", len(candidates))
-                return 0
-            try:
-                offers = classify(env["GEMINI_API_KEY"], env["GEMINI_MODEL"] or DEFAULT_MODEL, batch, now)
-                sent = process_batch(batch, offers, seen, notify)
-            finally:
-                seen.save()
+            sent = 0
+            if batch:
+                try:
+                    offers = classify(env["GEMINI_API_KEY"], env["GEMINI_MODEL"] or DEFAULT_MODEL, batch, now)
+                    sent = process_batch(batch, offers, seen, notify)
+                finally:
+                    seen.save()
+            if not sent:
+                notify(format_empty_scan(result.partial))
             LOG.info("Classified %s of %s source results; sent %s alerts", len(batch), len(candidates), sent)
             return 0
         except APIError as exc:

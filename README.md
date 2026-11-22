@@ -1,6 +1,6 @@
 # AI Promo Hunter
 
-Finds time-limited free credits, free paid-plan months, and 100%-off offers for AI and developer tools. The Python bot is scheduled every 30 minutes on GitHub Actions; Gemini filters out noise and Telegram delivers alerts in Vietnamese.
+Finds time-limited free credits, free paid-plan months, and 100%-off offers for AI and developer tools. The Python bot is scheduled every 30 minutes on GitHub Actions; Gemini filters out noise and Telegram delivers updates in English.
 
 ## Set up on GitHub
 
@@ -16,7 +16,7 @@ Finds time-limited free credits, free paid-plan months, and 100%-off offers for 
    | `TAVILY_API_KEY` | No | Tavily's free Researcher plan key |
    | `BRAVE_API_KEY` | No | Brave Search key; used only if Tavily is unset |
 
-4. Once the workflow is on the default branch, open [AI Promo Hunter](https://github.com/byquang/ai-discount-hunter/actions/workflows/hunt.yml) → **Run workflow**. Select **Send one test message instead of hunting** to verify Telegram independently; clear it to run a real hunt. A real hunt can pass without an alert if it finds no new eligible offer.
+4. Once the workflow is on the default branch, open [AI Promo Hunter](https://github.com/byquang/ai-discount-hunter/actions/workflows/hunt.yml) → **Run workflow**. Select **Send one test message instead of hunting** to verify Telegram independently; clear it to run a real hunt.
 
 The hunt uses its job-scoped `GITHUB_TOKEN` to push only changes to `seen.json`. No personal access token is needed. The default branch and Actions policy must allow the workflow's state push; restrictions that block all direct pushes will also block this step. Pull requests run credential-free tests, not the hunt.
 
@@ -33,6 +33,8 @@ The `*/30` cron uses Kathmandu's fixed UTC+05:45 offset, targeting `:15` and `:4
 Use [Gemini Free Tier](https://ai.google.dev/gemini-api/docs/pricing) and leave optional web search off or use [Tavily's free allocation](https://docs.tavily.com/documentation/api-credits). [Brave includes monthly credits](https://brave.com/search/api/) but requires a card and may bill above those credits; leave it unset if you need to rule out overages. GitHub-hosted standard runners are free on public repos; **this private repo uses your account's included compute**. Check your [GitHub Actions budget](https://docs.github.com/en/billing/how-tos/set-up-budgets) and prevent billable usage before turning on the schedule. The bot stops getting runs if GitHub blocks usage after its allowance; schedule timing is best-effort.
 
 ## Behavior
+
+Each completed hunt sends new offer alerts or one “No new promotions found” message. If some sources fail, the empty-scan message notes the reduced coverage. A hunt that fails before it can determine a result does not send an empty-scan message; see its GitHub Actions log.
 
 The bot looks back two days on community sources and up to 14 days on official feeds and open-web search. It sends up to 12 unseen candidates in one structured Gemini request per run. It rejects expired offers, evergreen free tiers, paid discounts, and tutorials. For claim windows relative to a post (such as “within 24 hours”), it calculates the deadline from publication time and skips the offer if that time is unknown. X publication times come from post IDs. Alerts distinguish a claim link found in the source data from a link to the source post itself. Search and feed coverage is not exhaustive; verify an offer on the vendor's site before entering credentials or payment details.
 

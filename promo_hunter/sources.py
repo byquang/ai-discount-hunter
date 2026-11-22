@@ -1,5 +1,6 @@
 import logging
 import re
+from dataclasses import dataclass
 from datetime import datetime, timedelta, timezone
 from email.utils import parsedate_to_datetime
 from html.parser import HTMLParser
@@ -36,6 +37,12 @@ X_EPOCH_MS = 1288834974657
 X_STATUS_PATH = re.compile(r"^/(?:i/web|[^/]+)/status/([0-9]{1,19})(?:/|$)")
 TIMEOUT = (5, 15)
 LOG = logging.getLogger(__name__)
+
+
+@dataclass(frozen=True)
+class DiscoveryResult:
+    candidates: list[Candidate]
+    partial: bool = False
 
 
 class PostHTML(HTMLParser):
@@ -223,7 +230,7 @@ def discover(
     brave_key: str = "",
     web_targets: tuple[SearchScope, ...] = ("web", "social", "reddit"),
     include_feeds: bool = True,
-) -> list[Candidate]:
+) -> DiscoveryResult:
     community_since = now - COMMUNITY_WINDOW
     promo_since = now - PROMOTION_WINDOW
 
@@ -243,9 +250,10 @@ def discover(
 
     candidates = []
     succeeded = 0
+    partial = False
 
     def ingest(label, cutoff, fetch, *args) -> bool:
-        nonlocal succeeded
+        nonlocal succeeded, partial
         try:
             fresh = [
                 post for post in fetch(*args) if post.published is None or cutoff <= post.published <= now
@@ -254,10 +262,12 @@ def discover(
             succeeded += 1
             LOG.debug("%s returned %s in-window results", label, len(fresh))
         except requests.HTTPError as exc:
+            partial = True
             status = exc.response.status_code
             LOG.warning("%s returned HTTP %s", label, status)
             return status != 429
         except (requests.RequestException, ValueError, KeyError, TypeError, AttributeError) as exc:
+            partial = True
             LOG.warning("%s unavailable (%s)", label, type(exc).__name__)
         return True
 
@@ -275,4 +285,4 @@ def discover(
                 break
     if not succeeded:
         raise RuntimeError("All promotion sources failed")
-    return candidates
+    return DiscoveryResult(candidates, partial=partial)

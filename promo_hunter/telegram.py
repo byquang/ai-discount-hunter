@@ -17,14 +17,20 @@ def escape(text: str, limit: int) -> str:
 
 def format_alert(offer: Offer) -> str:
     url = offer.url.replace("\\", "\\\\").replace(")", "\\)")
-    link_label = "Xem bài đăng nguồn" if offer.source_only else "Mở trang nhận ưu đãi"
+    link_label = "View source post" if offer.source_only else "Open claim page"
     return "\n".join([
-        f"*Ưu đãi: {escape(offer.tool_name, 75)}*",
-        f"*Nội dung:* {escape(offer.offer_summary, 500)}",
-        f"*Hạn chót:* {escape(offer.deadline or 'Chưa công bố', 30)}",
-        f"*Cách nhận:* {escape(offer.how_to_claim, 300)}",
+        f"*Promotion: {escape(offer.tool_name, 75)}*",
+        f"*Offer:* {escape(offer.offer_summary, 500)}",
+        f"*Deadline:* {escape(offer.deadline or 'Not announced', 30)}",
+        f"*How to claim:* {escape(offer.how_to_claim, 300)}",
         f"[{link_label}]({url})",
     ])
+
+
+def format_empty_scan(partial: bool) -> str:
+    if partial:
+        return "*AI Promo Hunter:* No new promotions found in the sources checked\nSome sources could not be checked"
+    return "*AI Promo Hunter:* No new promotions found in this scan"
 
 
 def send_message(session: requests.Session, token: str, chat_id: str, text: str) -> None:

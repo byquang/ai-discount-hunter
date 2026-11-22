@@ -47,7 +47,9 @@ class SourceTests(unittest.TestCase):
         hn = Mock()
         hn.json.return_value = HN_RESPONSE
         session.get.side_effect = lambda url, **kwargs: hn if url == HN_URL else rss
-        posts = discover(session, NOW)
+        result = discover(session, NOW)
+        self.assertFalse(result.partial)
+        posts = result.candidates
         official = [post for post in posts if post.source_id.startswith("official:")]
         self.assertEqual(len(official), len(OFFICIAL_FEEDS))
         self.assertEqual(official[0].published, datetime(2026, 11, 17, 16, tzinfo=timezone.utc))
@@ -64,8 +66,9 @@ class SourceTests(unittest.TestCase):
         session.get.return_value.json.return_value = HN_RESPONSE
         session.post.side_effect = requests.Timeout()
         with self.assertLogs("promo_hunter.sources", level="WARNING"):
-            candidates = discover(session, NOW, tavily_key="fake", include_feeds=False)
-        self.assertTrue(candidates)
+            result = discover(session, NOW, tavily_key="fake", include_feeds=False)
+        self.assertTrue(result.candidates)
+        self.assertTrue(result.partial)
         self.assertEqual(session.post.call_count, 3)
 
     def test_all_sources_failing_is_an_error(self):
@@ -130,7 +133,7 @@ class SourceTests(unittest.TestCase):
             {"url": "https://x.com/user/status/123", "title": "Free credits"},
             {"url": "https://vendor.example/old", "title": "Expired giveaway", "published_date": "2026-11-01"},
         ]}
-        posts = discover(session, NOW, tavily_key="fake", web_targets=("web",), include_feeds=False)
+        posts = discover(session, NOW, tavily_key="fake", web_targets=("web",), include_feeds=False).candidates
         self.assertEqual([post.url for post in posts], [url, other])
         self.assertTrue(all(post.source_id.startswith("open-web:") for post in posts))
         payload = session.post.call_args.kwargs["json"]
@@ -143,7 +146,9 @@ class SourceTests(unittest.TestCase):
         session.get.return_value.json.return_value = HN_RESPONSE
         with patch("promo_hunter.sources.fetch_official", side_effect=ValueError("Invalid XML")):
             with self.assertLogs("promo_hunter.sources", level="WARNING"):
-                self.assertTrue(discover(session, NOW))
+                result = discover(session, NOW)
+                self.assertTrue(result.candidates)
+                self.assertTrue(result.partial)
 
     def test_rss_allows_html_doctype_in_article_content_but_not_the_feed(self):
         html_article = RSS.replace(b"<![CDATA[", b"<![CDATA[<!DOCTYPE html>", 1)
