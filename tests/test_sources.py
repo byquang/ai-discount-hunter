@@ -106,7 +106,10 @@ class SourceTests(unittest.TestCase):
 
     def test_tavily_reddit_query_includes_all_requested_subreddits(self):
         session = Mock()
-        session.post.return_value.json.return_value = {"results": [{"url": REDDIT_URL, "title": "Offer"}]}
+        session.post.return_value.json.return_value = {"results": [
+            {"url": REDDIT_URL, "title": "Offer"},
+            {"url": f"{REDDIT_URL}/def/", "title": "Comment on the offer"},
+        ]}
         posts = fetch_web(session, "tavily-secret", "brave-secret", SINCE, "reddit")
         self.assertEqual([post.url for post in posts], [REDDIT_URL])
         payload = session.post.call_args.kwargs["json"]

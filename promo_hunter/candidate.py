@@ -5,7 +5,7 @@ from urllib.parse import parse_qsl, urlencode, urlsplit, urlunsplit
 
 X_EPOCH_MS = 1288834974657
 X_STATUS_PATH = re.compile(r"^/(?:i/web|[^/]+)/status/([0-9]{1,19})(?:/|$)")
-REDDIT_POST_PATH = re.compile(r"^/(?:r/[^/]+/)?comments/([a-z0-9]+)(?:/|$)", re.IGNORECASE)
+REDDIT_POST_PATH = re.compile(r"/(?:r/[^/]+/)?comments/([a-z0-9]+)(?:/[^/]+)?/?", re.IGNORECASE)
 
 
 def web_url(value: object) -> str | None:
@@ -50,6 +50,15 @@ def x_post_time(url: str) -> datetime | None:
     return None
 
 
+def reddit_post_id(url: str) -> str | None:
+    parts = urlsplit(url)
+    host = parts.hostname or ""
+    if host == "reddit.com" or host.endswith(".reddit.com"):
+        if post := REDDIT_POST_PATH.fullmatch(parts.path):
+            return post[1].lower()
+    return None
+
+
 @dataclass(frozen=True)
 class Candidate:
     source_id: str
@@ -62,13 +71,10 @@ class Candidate:
     @property
     def keys(self) -> tuple[str, ...]:
         keys = (self.source_id, url_key(self.url))
-        parts = urlsplit(self.url)
-        host = parts.hostname or ""
-        if host == "reddit.com" or host.endswith(".reddit.com"):
-            if post := REDDIT_POST_PATH.match(parts.path):
-                reddit_key = f"reddit:{post[1].lower()}"
-                if reddit_key != self.source_id:
-                    return (*keys, reddit_key)
+        if post_id := reddit_post_id(self.url):
+            reddit_key = f"reddit:{post_id}"
+            if reddit_key != self.source_id:
+                return (*keys, reddit_key)
         return keys
 
     @property

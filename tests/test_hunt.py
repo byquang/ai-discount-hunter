@@ -89,6 +89,13 @@ class StateTests(unittest.TestCase):
         self.seen.remember(repost.keys)
         self.assertEqual(select_candidates([alias], self.seen, prioritize_search=True), [])
 
+    def test_reddit_comment_does_not_mark_parent_post_seen(self):
+        url = "https://www.reddit.com/r/cursor/comments/abc/limited_offer/"
+        comment = Candidate("hn:99", "Comment on the deal", "", f"{url}def/")
+        parent = Candidate("reddit:abc", "Free trial credits", "", url)
+        self.seen.remember(comment.keys)
+        self.assertEqual(select_candidates([parent], self.seen, prioritize_search=True), [parent])
+
     def test_select_reserves_room_for_open_web_matches_without_increasing_the_batch(self):
         community = [
             Candidate(f"hn:{i}", "Free credits", "", f"https://example.org/community/{i}", NOW)

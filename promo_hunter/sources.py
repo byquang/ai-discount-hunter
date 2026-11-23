@@ -9,7 +9,7 @@ from xml.etree import ElementTree
 
 import requests
 
-from .candidate import Candidate, web_url, x_post_time
+from .candidate import Candidate, reddit_post_id, web_url, x_post_time
 
 SUBREDDITS = ("ClaudeAI", "OpenAI", "cursor", "LocalLLaMA", "vibecoding", "ArtificialInteligence")
 HN_URL = "https://hn.algolia.com/api/v1/search_by_date"
@@ -151,15 +151,13 @@ def web_posts(results: list[dict], scope: SearchScope = "social") -> list[Candid
         if scope == "reddit":
             path = parts.path.lower().strip("/").split("/")
             if (
-                not reddit_host
-                or len(path) < 4
+                len(path) < 2
                 or path[0] != "r"
                 or path[1] not in allowed_subreddits
-                or path[2] != "comments"
-                or not path[3]
+                or not (post_id := reddit_post_id(url))
             ):
                 continue
-            source_id = f"reddit:{path[3]}"
+            source_id = f"reddit:{post_id}"
         elif (scope == "social" and not social_host) or (scope == "web" and (social_host or reddit_host)):
             continue
         elif host == "x.com" or host.endswith(".x.com"):
