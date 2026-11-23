@@ -217,6 +217,24 @@ class ScanTests(unittest.TestCase):
                 self.assertEqual(main(), 0)
         self.assertEqual(self.classify.call_args.args[2], social + community[:2])
 
+    def test_batch_keeps_scheduled_search_hits_and_room_for_a_community_feed_match(self):
+        vendor_posts = [
+            Candidate(f"official:{i}", "Free AI credits", "", f"https://vendor.example/{i}", NOW)
+            for i in range(MAX_BATCH)
+        ]
+        social = [
+            Candidate(f"web:{i}", "Cursor Pro", "", f"https://x.com/vendor/status/{i}")
+            for i in range(10)
+        ]
+        post = Candidate("community:1", "Pro plan free through Sunday", "", "https://deals.example/1")
+        batch = select_candidates(vendor_posts + social + [post], self.seen, prioritize_search=True)
+        self.assertEqual(batch, social + [post, vendor_posts[0]])
+
+    def test_community_feed_priority_does_not_displace_stronger_evidence_for_same_url(self):
+        community = Candidate("community:1", "Free credits", "", "https://vendor.example/offer")
+        official = Candidate("official:1", "100% off", "Claim by Friday", community.url)
+        self.assertEqual(select_candidates([community, official], self.seen), [official])
+
     def test_all_rejected_sends_one_update_and_records_the_checked_post(self):
         self.discover.return_value = DiscoveryResult([POST])
         self.classify.return_value = [None]

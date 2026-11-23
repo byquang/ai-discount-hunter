@@ -43,11 +43,16 @@ def select_candidates(
             batch.append(post)
             selected_keys.update(post.keys)
 
+    def keys_for(prefixes: tuple[str, ...], minimum_score: int = 1) -> set[str]:
+        return {
+            key for score, post in ranked
+            if score >= minimum_score and post.source_id.startswith(prefixes)
+            for key in post.keys
+        }
+
     prefixes = ("open-web:", "web:", "reddit:") if prioritize_search else ("open-web:",)
-    priority_keys = {
-        key for score, post in ranked if score and post.source_id.startswith(prefixes) for key in post.keys
-    }
-    take(MAX_BATCH if prioritize_search else MAX_BATCH // 4, priority_keys)
+    take(MAX_BATCH if prioritize_search else MAX_BATCH // 4, keys_for(prefixes))
+    take(min(len(batch) + 1, MAX_BATCH), keys_for(("community:",), minimum_score=2))
     take(MAX_BATCH)
     return batch
 
