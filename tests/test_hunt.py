@@ -171,6 +171,23 @@ class ScanTests(unittest.TestCase):
             self.assertEqual(self.discover.call_args.args[-1], ())
         self.assertFalse((self.seen.path.parent / "web-search-hour.txt").exists())
 
+    def test_scheduled_search_results_are_classified_even_with_a_full_community_batch(self):
+        community = [
+            Candidate(f"hn:{i}", "Free AI credits", "", f"https://news.ycombinator.com/item?id={i}")
+            for i in range(MAX_BATCH)
+        ]
+        social = [
+            Candidate(f"web:{i}", "Cursor Pro", "", f"https://x.com/vendor/status/{i}")
+            for i in range(10)
+        ]
+        self.discover.return_value = DiscoveryResult(community + social)
+        self.classify.return_value = [None] * MAX_BATCH
+        with patch.dict(os.environ, {"GITHUB_EVENT_NAME": "schedule", "TAVILY_API_KEY": "test"}):
+            with patch("promo_hunter.__main__.datetime") as clock:
+                clock.now.return_value = NOW.replace(hour=2)
+                self.assertEqual(main(), 0)
+        self.assertEqual(self.classify.call_args.args[2], social + community[:2])
+
     def test_all_rejected_sends_one_update_and_records_the_checked_post(self):
         self.discover.return_value = DiscoveryResult([POST])
         self.classify.return_value = [None]

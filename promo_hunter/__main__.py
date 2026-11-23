@@ -17,7 +17,9 @@ from .telegram import TelegramError, format_alert, format_empty_scan, send_messa
 LOG = logging.getLogger(__name__)
 
 
-def select_candidates(candidates: list[Candidate], seen: Seen) -> list[Candidate]:
+def select_candidates(
+    candidates: list[Candidate], seen: Seen, *, prioritize_search: bool = False
+) -> list[Candidate]:
     ranked = sorted(
         ((keyword_score(post.title, post.text), post) for post in candidates),
         key=lambda item: (
@@ -30,18 +32,21 @@ def select_candidates(candidates: list[Candidate], seen: Seen) -> list[Candidate
     batch = []
     selected_keys = set()
 
-    def take(limit: int, *, open_web_only: bool = False) -> None:
+    def take(limit: int, source_prefixes: tuple[str, ...] = ()) -> None:
         for score, post in ranked:
             if not score or len(batch) == limit:
                 break
-            if open_web_only and not post.source_id.startswith("open-web:"):
+            if source_prefixes and not post.source_id.startswith(source_prefixes):
                 continue
             if seen.contains(post.keys) or selected_keys.intersection(post.keys):
                 continue
             batch.append(post)
             selected_keys.update(post.keys)
 
-    take(MAX_BATCH // 4, open_web_only=True)
+    if prioritize_search:
+        take(MAX_BATCH, ("open-web:", "web:", "reddit:"))
+    else:
+        take(MAX_BATCH // 4, ("open-web:",))
     take(MAX_BATCH)
     return batch
 
@@ -96,15 +101,15 @@ def main() -> int:
             seen = Seen(Path("seen.json"))
             now = datetime.now(timezone.utc)
             search_keys = (env["TAVILY_API_KEY"], env["BRAVE_API_KEY"])
+            web_targets = ()
             if os.getenv("GITHUB_EVENT_NAME") == "schedule":
-                web_targets = ()
                 if any(search_keys) and reserve_search_hour(Path("web-search-hour.txt"), now):
                     web_targets = (scheduled_web_scope(now),)
                 result = discover(session, now, *search_keys, web_targets, include_feeds=now.hour % 2 == 0)
             else:
                 result = discover(session, now, *search_keys)
             candidates = result.candidates
-            batch = select_candidates(candidates, seen)
+            batch = select_candidates(candidates, seen, prioritize_search=bool(web_targets))
             sent = 0
             if batch:
                 try:
