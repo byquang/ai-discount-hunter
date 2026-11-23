@@ -551,5 +551,12 @@
       "https://apps.apple.com/us/app/flighttrack-flight-tracker/id6788552553"
     ],
     "alerted": false
+  },
+  {
+    "keys": [
+      "hn:50605439",
+      "https://lexisworld.org/"
+    ],
+    "alerted": false
   }
 ]
