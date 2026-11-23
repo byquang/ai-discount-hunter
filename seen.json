@@ -1004,5 +1004,89 @@
       "https://dev.to/abdullah_almania_be4b69d4/how-to-install-ollama-for-a-private-ai-on-your-pc-4dmc"
     ],
     "alerted": false
+  },
+  {
+    "keys": [
+      "web:https://x.com/free_ai_guides/status/2124820515617710290",
+      "https://x.com/free_ai_guides/status/2124820515617710290"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "web:https://www.threads.com/@shakeuplearning/post/DgDxlIvFL5R/make-holiday-life-a-little-easier-get-ai-for-the-holidays-prompts-to-simplify",
+      "https://threads.com/@shakeuplearning/post/DgDxlIvFL5R/make-holiday-life-a-little-easier-get-ai-for-the-holidays-prompts-to-simplify"
+    ],
+    "alerted": true
+  },
+  {
+    "keys": [
+      "community:https://dev.to/ai-ksk/z-image-turbo-four-second-generation-and-bilingual-text-that-actually-renders-7og",
+      "https://dev.to/ai-ksk/z-image-turbo-four-second-generation-and-bilingual-text-that-actually-renders-7og"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/ai-ksk/flux2-dev-a-32b-image-model-a-12gb-floor-and-a-48gb-reality-23i3",
+      "https://dev.to/ai-ksk/flux2-dev-a-32b-image-model-a-12gb-floor-and-a-48gb-reality-23i3"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "hn:50615222",
+      "https://modeloop.app/"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "hn:50615047",
+      "https://whoreallyownsamerica.com/"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "hn:50614568",
+      "https://maido.place/"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "hn:50614327",
+      "https://codeyam.com/apps/cadyam"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "hn:50612033",
+      "https://blobbyapp.com/"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "hn:50611887",
+      "https://top10q.app/"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "official:https://vercel.com/changelog/choose-ai-gateway-providers-by-headquarters-country",
+      "https://vercel.com/changelog/choose-ai-gateway-providers-by-headquarters-country"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "official:https://aws.amazon.com/blogs/machine-learning/how-standard-bank-group-automates-ai-risk-assessment-for-generative-ai/",
+      "https://aws.amazon.com/blogs/machine-learning/how-standard-bank-group-automates-ai-risk-assessment-for-generative-ai"
+    ],
+    "alerted": false
   }
 ]
