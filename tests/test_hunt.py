@@ -171,6 +171,15 @@ class ScanTests(unittest.TestCase):
             self.assertEqual(self.discover.call_args.args[-1], ())
         self.assertFalse((self.seen.path.parent / "web-search-hour.txt").exists())
 
+    def test_scheduled_search_priority_preserves_the_better_ranked_duplicate(self):
+        url = "https://x.com/vendor/status/2124540873098875293"
+        social = Candidate("web:1", "Cursor Pro", "", url)
+        community = Candidate("hn:1", "Cursor Pro free for a week", "Sign-ups close Friday", url)
+        self.assertEqual(
+            select_candidates([social, community], self.seen, prioritize_search=True),
+            [community],
+        )
+
     def test_scheduled_search_results_are_classified_even_with_a_full_community_batch(self):
         community = [
             Candidate(f"hn:{i}", "Free AI credits", "", f"https://news.ycombinator.com/item?id={i}")

@@ -32,21 +32,22 @@ def select_candidates(
     batch = []
     selected_keys = set()
 
-    def take(limit: int, source_prefixes: tuple[str, ...] = ()) -> None:
+    def take(limit: int, priority_keys: set[str] | None = None) -> None:
         for score, post in ranked:
             if not score or len(batch) == limit:
                 break
-            if source_prefixes and not post.source_id.startswith(source_prefixes):
+            if priority_keys is not None and priority_keys.isdisjoint(post.keys):
                 continue
             if seen.contains(post.keys) or selected_keys.intersection(post.keys):
                 continue
             batch.append(post)
             selected_keys.update(post.keys)
 
-    if prioritize_search:
-        take(MAX_BATCH, ("open-web:", "web:", "reddit:"))
-    else:
-        take(MAX_BATCH // 4, ("open-web:",))
+    prefixes = ("open-web:", "web:", "reddit:") if prioritize_search else ("open-web:",)
+    priority_keys = {
+        key for score, post in ranked if score and post.source_id.startswith(prefixes) for key in post.keys
+    }
+    take(MAX_BATCH if prioritize_search else MAX_BATCH // 4, priority_keys)
     take(MAX_BATCH)
     return batch
 
