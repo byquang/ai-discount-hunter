@@ -720,5 +720,43 @@
       "https://aws.amazon.com/blogs/machine-learning/inside-amazon-connect-talent-the-science-of-structured-ai-interviews"
     ],
     "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://www.ozbargain.com.au/node/984667",
+      "https://ozbargain.com.au/node/984667",
+      "https://erla.app/black-friday"
+    ],
+    "alerted": true
+  },
+  {
+    "keys": [
+      "official:https://devblogs.microsoft.com/foundry/browser-automation-tool-ignite/",
+      "https://devblogs.microsoft.com/foundry/browser-automation-tool-ignite"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://www.ozbargain.com.au/node/983719",
+      "https://ozbargain.com.au/node/983719",
+      "https://rolepath.com.au/"
+    ],
+    "alerted": true
+  },
+  {
+    "keys": [
+      "community:https://www.ozbargain.com.au/node/983682",
+      "https://ozbargain.com.au/node/983682",
+      "https://tomverse.app/pricing"
+    ],
+    "alerted": true
+  },
+  {
+    "keys": [
+      "official:https://devblogs.microsoft.com/foundry/hosted-agents-foundry-agent-service-ignite-2026/",
+      "https://devblogs.microsoft.com/foundry/hosted-agents-foundry-agent-service-ignite-2026"
+    ],
+    "alerted": false
   }
 ]
