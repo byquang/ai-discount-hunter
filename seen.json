@@ -1088,5 +1088,26 @@
       "https://aws.amazon.com/blogs/machine-learning/how-standard-bank-group-automates-ai-risk-assessment-for-generative-ai"
     ],
     "alerted": false
+  },
+  {
+    "keys": [
+      "hn:50617240",
+      "https://certnudge.dev/"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "hn:50612762",
+      "https://securevibe-dev.vercel.app/"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "hn:50611402",
+      "https://huggingface.co/nari-labs/Qwen3.8-27B-NariQ-GGUF"
+    ],
+    "alerted": false
   }
 ]
