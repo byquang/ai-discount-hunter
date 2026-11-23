@@ -828,5 +828,89 @@
       "https://producthunt.com/products/mobile-agent-testers"
     ],
     "alerted": false
+  },
+  {
+    "keys": [
+      "web:https://www.threads.com/@meta.ai/post/DgDXQ3NCdyg/its-legit-devin-is-cognitions-autonomous-ai-software-engineer-not-just",
+      "https://threads.com/@meta.ai/post/DgDXQ3NCdyg/its-legit-devin-is-cognitions-autonomous-ai-software-engineer-not-just"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/ai8888uk/i-cancelled-6-ai-subscriptions-and-replaced-them-with-one-api-honest-30-day-notes-4ge5",
+      "https://dev.to/ai8888uk/i-cancelled-6-ai-subscriptions-and-replaced-them-with-one-api-honest-30-day-notes-4ge5"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "official:https://aws.amazon.com/blogs/machine-learning/amazon-polly-launches-voice-cloning-a-unique-voice-for-your-brand/",
+      "https://aws.amazon.com/blogs/machine-learning/amazon-polly-launches-voice-cloning-a-unique-voice-for-your-brand"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "official:https://blog.cloudflare.com/internet-traffic-2026-us-election/",
+      "https://blog.cloudflare.com/internet-traffic-2026-us-election"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "official:https://vercel.com/changelog/priority-projects-now-in-public-beta",
+      "https://vercel.com/changelog/priority-projects-now-in-public-beta"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "official:https://vercel.com/changelog/parallel-web-search-is-free-on-ai-gateway-and-eve-through-january-31",
+      "https://vercel.com/changelog/parallel-web-search-is-free-on-ai-gateway-and-eve-through-january-31"
+    ],
+    "alerted": true
+  },
+  {
+    "keys": [
+      "official:https://vercel.com/blog/vercel-x",
+      "https://vercel.com/blog/vercel-x"
+    ],
+    "alerted": true
+  },
+  {
+    "keys": [
+      "official:https://blog.cloudflare.com/quad9-withdrawal-from-france/",
+      "https://blog.cloudflare.com/quad9-withdrawal-from-france"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "official:https://vercel.com/changelog/standard-build-billing-new-teams",
+      "https://vercel.com/changelog/standard-build-billing-new-teams"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "official:https://vercel.com/changelog/vercel-blob-now-supports-ttls-for-automatic-deletion",
+      "https://vercel.com/changelog/vercel-blob-now-supports-ttls-for-automatic-deletion"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "official:https://vercel.com/changelog/decision-1-1-now-available-on-ai-gateway",
+      "https://vercel.com/changelog/decision-1-1-now-available-on-ai-gateway"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "official:https://vercel.com/changelog/hy4-flash-now-available-on-ai-gateway-for-50-off",
+      "https://vercel.com/changelog/hy4-flash-now-available-on-ai-gateway-for-50-off"
+    ],
+    "alerted": false
   }
 ]
