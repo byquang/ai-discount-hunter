@@ -635,5 +635,90 @@
       "https://threads.com/@tech_elyra/post/DgClzWhmwTm/most-people-are-paying-monthly-for-ai-tools-they-could-run-for-free-on-their"
     ],
     "alerted": false
+  },
+  {
+    "keys": [
+      "web:https://x.com/buildwithrajath/status/2124090048723427462",
+      "https://x.com/buildwithrajath/status/2124090048723427462"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "web:https://x.com/that_promo_app/status/2124055185437724843",
+      "https://x.com/that_promo_app/status/2124055185437724843"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "web:https://www.threads.com/@dooo.sth.design/post/DgA8GClkzBH/ai-%E9%96%8B%E6%BA%90%E5%B7%A5%E5%85%B7%E5%AD%B8%E7%BF%92kwakseongjaeoh-my-design-598-stars-javascript-mit-licensegive-your-ai-c",
+      "https://threads.com/@dooo.sth.design/post/DgA8GClkzBH/ai-%E9%96%8B%E6%BA%90%E5%B7%A5%E5%85%B7%E5%AD%B8%E7%BF%92kwakseongjaeoh-my-design-598-stars-javascript-mit-licensegive-your-ai-c"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "web:https://x.com/so_sthbryan/status/2124260061975564500",
+      "https://x.com/so_sthbryan/status/2124260061975564500"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "web:https://x.com/jumperz/status/2124124055896809735",
+      "https://x.com/jumperz/status/2124124055896809735"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/saraebden/choosing-a-platform-for-coding-agent-team-collaboration-5b5p",
+      "https://dev.to/saraebden/choosing-a-platform-for-coding-agent-team-collaboration-5b5p"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "official:https://blog.cloudflare.com/ruby2shell-waf-protection/",
+      "https://blog.cloudflare.com/ruby2shell-waf-protection"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "official:https://aws.amazon.com/blogs/machine-learning/announcing-amazon-textract-insights-verifiable-generative-ai-for-documents/",
+      "https://aws.amazon.com/blogs/machine-learning/announcing-amazon-textract-insights-verifiable-generative-ai-for-documents"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "official:https://blog.cloudflare.com/phpaftershell-waf-protection/",
+      "https://blog.cloudflare.com/phpaftershell-waf-protection"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "official:https://blog.cloudflare.com/nginx2root/",
+      "https://blog.cloudflare.com/nginx2root"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "official:https://aws.amazon.com/blogs/machine-learning/run-your-whole-selling-business-in-aws-quick/",
+      "https://aws.amazon.com/blogs/machine-learning/run-your-whole-selling-business-in-aws-quick",
+      "https://quick.aws.com/sn?offer_type=sp-quick-promo"
+    ],
+    "alerted": true
+  },
+  {
+    "keys": [
+      "official:https://aws.amazon.com/blogs/machine-learning/inside-amazon-connect-talent-the-science-of-structured-ai-interviews/",
+      "https://aws.amazon.com/blogs/machine-learning/inside-amazon-connect-talent-the-science-of-structured-ai-interviews"
+    ],
+    "alerted": false
   }
 ]
