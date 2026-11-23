@@ -134,7 +134,11 @@ def classify(api_key: str, model: str, candidates: list[Candidate], now: datetim
             for index, post in enumerate(candidates)
         ],
     }
-    with genai.Client(api_key=api_key, vertexai=False, http_options={"timeout": 35000}) as client:
+    http_options = types.HttpOptions(
+        timeout=35000,
+        retry_options=types.HttpRetryOptions(attempts=3, max_delay=4),
+    )
+    with genai.Client(api_key=api_key, vertexai=False, http_options=http_options) as client:
         response = client.models.generate_content(
             model=model,
             contents=json.dumps(payload, ensure_ascii=False),

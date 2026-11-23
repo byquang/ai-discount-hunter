@@ -219,8 +219,8 @@ def fetch_web(
     return web_posts(response.json().get("web", {}).get("results", []), scope)
 
 
-def scheduled_web_scopes(now: datetime) -> tuple[SearchScope, ...]:
-    return {0: ("web",), 2: ("social",), 4: ("web",), 6: ("reddit",)}.get(now.hour % 8, ())
+def scheduled_web_scope(now: datetime) -> SearchScope:
+    return ("social", "web", "social", "reddit")[now.astimezone(timezone.utc).hour % 4]
 
 
 def discover(
@@ -281,6 +281,7 @@ def discover(
         provider = "Tavily" if tavily_key else "Brave Search"
         for scope in web_targets:
             cutoff = promo_since if scope == "web" else community_since
+            LOG.info("Searching %s (%s)", provider, scope)
             if not ingest(f"{provider} ({scope})", cutoff, fetch_web, session, tavily_key, brave_key, cutoff, scope):
                 break
     if not succeeded:

@@ -1,13 +1,17 @@
+import tempfile
 import unittest
+from collections import Counter
 from datetime import datetime, timedelta, timezone
+from pathlib import Path
 from unittest.mock import Mock, patch
 
 import requests
 
 from promo_hunter.sources import (
     HN_QUERIES, HN_URL, OFFICIAL_FEEDS, SUBREDDITS, discover, fetch_web, hn_posts, official_posts,
-    scheduled_web_scopes, web_posts,
+    scheduled_web_scope, web_posts,
 )
+from promo_hunter.state import reserve_search_hour
 
 NOW = datetime(2026, 11, 21, tzinfo=timezone.utc)
 SINCE = NOW - timedelta(days=2)
@@ -156,7 +160,17 @@ class SourceTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "Unexpected document type"):
             official_posts(b"<!DOCTYPE rss><rss><channel/></rss>", SINCE, NOW)
 
-    def test_scheduled_scopes_stay_within_the_previous_search_budget(self):
-        slots = [scheduled_web_scopes(NOW + timedelta(minutes=30*i)) for i in range(31*48)]
-        self.assertEqual(sum(map(len, slots)), 744)
-        self.assertEqual(set(filter(None, slots)), {("web",), ("social",), ("reddit",)})
+    def test_scheduled_scopes_stay_within_the_free_search_budget(self):
+        with tempfile.TemporaryDirectory() as folder:
+            path = Path(folder) / "web-search-hour.txt"
+            starts = (NOW + timedelta(minutes=30*i) for i in range(31*48))
+            scopes = Counter(scheduled_web_scope(now) for now in starts if reserve_search_hour(path, now))
+        self.assertEqual(scopes, {"social": 372, "web": 186, "reddit": 186})
+
+    def test_hourly_rotation_uses_utc_even_if_a_run_starts_late(self):
+        local = timezone(timedelta(hours=5, minutes=45))
+        starts = (NOW + timedelta(hours=i, minutes=59) for i in range(4))
+        self.assertEqual(
+            [scheduled_web_scope(now.astimezone(local)) for now in starts],
+            ["social", "web", "social", "reddit"],
+        )

@@ -10,8 +10,8 @@ from google.genai.errors import APIError
 
 from .candidate import Candidate, url_key
 from .filtering import DEFAULT_MODEL, MAX_BATCH, Offer, classify, keyword_score
-from .sources import discover, scheduled_web_scopes
-from .state import Seen
+from .sources import discover, scheduled_web_scope
+from .state import Seen, reserve_search_hour
 from .telegram import TelegramError, format_alert, format_empty_scan, send_message
 
 LOG = logging.getLogger(__name__)
@@ -71,6 +71,7 @@ def main() -> int:
     args = parser.parse_args()
     logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
     logging.getLogger("httpx").setLevel(logging.WARNING)
+    logging.getLogger("google_genai").setLevel(logging.WARNING)
 
     env = {name: os.getenv(name, "").strip() for name in (
         "TELEGRAM_BOT_TOKEN", "TELEGRAM_CHAT_ID", "GEMINI_API_KEY", "GEMINI_MODEL",
@@ -96,8 +97,10 @@ def main() -> int:
             now = datetime.now(timezone.utc)
             search_keys = (env["TAVILY_API_KEY"], env["BRAVE_API_KEY"])
             if os.getenv("GITHUB_EVENT_NAME") == "schedule":
-                web_targets = scheduled_web_scopes(now)
-                result = discover(session, now, *search_keys, web_targets, include_feeds=bool(web_targets))
+                web_targets = ()
+                if any(search_keys) and reserve_search_hour(Path("web-search-hour.txt"), now):
+                    web_targets = (scheduled_web_scope(now),)
+                result = discover(session, now, *search_keys, web_targets, include_feeds=now.hour % 2 == 0)
             else:
                 result = discover(session, now, *search_keys)
             candidates = result.candidates
