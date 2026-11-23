@@ -558,5 +558,61 @@
       "https://lexisworld.org/"
     ],
     "alerted": false
+  },
+  {
+    "keys": [
+      "web:https://x.com/hasantoxr/status/2124540873098875293",
+      "https://x.com/hasantoxr/status/2124540873098875293"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "web:https://x.com/rubenhassid/status/2124472974900351281",
+      "https://x.com/rubenhassid/status/2124472974900351281"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "web:https://www.threads.com/@meta.ai/post/DgAgvxCDybN/its-a-legit-promo-cognition-is-running-this-week-text-poke-at-pitch-what-you",
+      "https://threads.com/@meta.ai/post/DgAgvxCDybN/its-a-legit-promo-cognition-is-running-this-week-text-poke-at-pitch-what-you"
+    ],
+    "alerted": true
+  },
+  {
+    "keys": [
+      "web:https://www.threads.com/@mktpavlenko/post/DgBZla6iIif/free-credits-spent-first-is-the-nice-part-then-the-top-up-just-sits-there-as-a",
+      "https://threads.com/@mktpavlenko/post/DgBZla6iIif/free-credits-spent-first-is-the-nice-part-then-the-top-up-just-sits-there-as-a"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "web:https://www.threads.com/@shakeuplearning/post/DgBMxkYlNQe/make-holiday-life-a-little-easier-get-ai-for-the-holidays-prompts-to-simplify",
+      "https://threads.com/@shakeuplearning/post/DgBMxkYlNQe/make-holiday-life-a-little-easier-get-ai-for-the-holidays-prompts-to-simplify"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "hn:50606386",
+      "https://plantsresearch.pro/chess-lab"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "web:https://www.threads.com/@tr_thanq.1503/post/Df_yiuUGiKN/em-nh%E1%BA%ADn-n%C3%A2ng-devin-ai-g%C3%B3i-max-plan-200-th%C3%A1ng-gi%C3%A1-c%E1%BB%B1c-k%E1%BB%B3-y%C3%AAu-th%C6%B0%C6%A1ngx%C3%A0i-%C4%91%C6%B0%E1%BB%A3c-c%C3%A1c-m",
+      "https://threads.com/@tr_thanq.1503/post/Df_yiuUGiKN/em-nh%E1%BA%ADn-n%C3%A2ng-devin-ai-g%C3%B3i-max-plan-200-th%C3%A1ng-gi%C3%A1-c%E1%BB%B1c-k%E1%BB%B3-y%C3%AAu-th%C6%B0%C6%A1ngx%C3%A0i-%C4%91%C6%B0%E1%BB%A3c-c%C3%A1c-m"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "web:https://www.threads.com/@claudeyoudaily/post/DgAm_eRGsEn/breaking-i-made-in-my-first-month-as-a-virtual-assistant-claude-helped-me-find",
+      "https://threads.com/@claudeyoudaily/post/DgAm_eRGsEn/breaking-i-made-in-my-first-month-as-a-virtual-assistant-claude-helped-me-find"
+    ],
+    "alerted": false
   }
 ]
