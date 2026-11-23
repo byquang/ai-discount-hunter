@@ -758,5 +758,75 @@
       "https://devblogs.microsoft.com/foundry/hosted-agents-foundry-agent-service-ignite-2026"
     ],
     "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://make.startupworld.com",
+      "https://make.startupworld.com/"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://github.com/dqhieu/black-friday-deals",
+      "https://github.com/dqhieu/black-friday-deals"
+    ],
+    "alerted": true
+  },
+  {
+    "keys": [
+      "open-web:https://1min.ai/free-ai-chat-with-gpt-6-2-sol",
+      "https://1min.ai/free-ai-chat-with-gpt-6-2-sol"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://www.taskade.com/blog/ai-flashcard-makers",
+      "https://taskade.com/blog/ai-flashcard-makers"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://aitoolsrecap.com/Blog/aitoolsrecap-vs-product-hunt",
+      "https://aitoolsrecap.com/Blog/aitoolsrecap-vs-product-hunt"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://www.instagram.com/p/DfkN2Y9pfwi",
+      "https://instagram.com/p/DfkN2Y9pfwi"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://www.aipricing.guru/subscriptions",
+      "https://aipricing.guru/subscriptions"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://dealroom.co/news/174847-oymotion-raises-hundreds-of-millions-in-series-d-for-embodied-ai-hands",
+      "https://dealroom.co/news/174847-oymotion-raises-hundreds-of-millions-in-series-d-for-embodied-ai-hands"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://shattered.io/cursor-vs-copilot-survey-overlap-jaccard-lift-12-steps-2026",
+      "https://shattered.io/cursor-vs-copilot-survey-overlap-jaccard-lift-12-steps-2026"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://www.producthunt.com/products/mobile-agent-testers",
+      "https://producthunt.com/products/mobile-agent-testers"
+    ],
+    "alerted": false
   }
 ]
