@@ -354,6 +354,13 @@ class VerdictTests(unittest.TestCase):
         offer = parse_verdicts(relative, [post], NOW)[0]
         self.assertEqual(offer.deadline, "2026-11-21 17:00 UTC")
 
+    def test_deal_feed_expiry_is_an_upper_bound_even_when_gemini_approves(self):
+        post = replace(POST, expires_at=NOW)
+        self.assertEqual(parse_verdicts(json.dumps([VERDICT]), [post], NOW), [None])
+        post = replace(post, expires_at=NOW + timedelta(hours=1))
+        offer = parse_verdicts(json.dumps([VERDICT]), [post], NOW)[0]
+        self.assertEqual(offer.deadline, "2026-11-21 16:55 UTC")
+
     def test_relative_x_deadline_uses_original_time_instead_of_hacker_news_repost_time(self):
         repost = replace(POST, url="https://x.com/someone/status/2123392055573385525", published=NOW)
         relative = json.dumps([dict(VERDICT, deadline=None, claim_window_minutes=1440)])
@@ -365,15 +372,17 @@ class VerdictTests(unittest.TestCase):
                 parse_verdicts(json.dumps(bad_output), [POST], NOW)
 
     def test_sdk_receives_structured_config_and_all_evidence(self):
+        post = replace(POST, expires_at=datetime(2026, 12, 1, tzinfo=timezone.utc))
         with patch("promo_hunter.filtering.genai.Client") as Client:
             models = Client.return_value.__enter__.return_value.models
             models.generate_content.return_value.text = json.dumps([VERDICT])
-            self.assertEqual(classify("fake-key", "test-model", [POST], NOW), [OFFER])
+            self.assertEqual(classify("fake-key", "test-model", [post], NOW), [OFFER])
         request = models.generate_content.call_args.kwargs
         self.assertEqual(request["config"].response_mime_type, "application/json")
         self.assertEqual(request["config"].response_json_schema["type"], "array")
         self.assertIn("in English", request["config"].system_instruction)
         self.assertIn(TEMPORARY_OFFER, request["contents"])
+        self.assertEqual(json.loads(request["contents"])["posts"][0]["expires_utc"], "2026-12-01T00:00:00+00:00")
 
 
 class TelegramTests(unittest.TestCase):

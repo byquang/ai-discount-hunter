@@ -8,8 +8,8 @@ from unittest.mock import Mock, patch
 import requests
 
 from promo_hunter.sources import (
-    COMMUNITY_FEEDS, HN_QUERIES, HN_URL, OFFICIAL_FEEDS, SUBREDDITS, discover, feed_posts, fetch_web, hn_posts,
-    scheduled_web_scope, web_posts,
+    COMMUNITY_FEEDS, DEAL_FEEDS, HN_QUERIES, HN_URL, OFFICIAL_FEEDS, SUBREDDITS, discover, feed_posts,
+    fetch_web, hn_posts, scheduled_web_scope, web_posts,
 )
 from promo_hunter.state import reserve_search_hour
 
@@ -48,6 +48,18 @@ Claim at <a href="https://vendor.example/claim">the offer page</a><a href="javas
 <entry><title>Scheduled for the future</title><link href="https://vendor.example/future"/>
 <published>2026-11-22T00:00:00Z</published></entry>
 </feed>"""
+OZB_RSS = b"""<rss xmlns:ozb="https://www.ozbargain.com.au"><channel>
+<item><title>Free credits</title><link>https://www.ozbargain.com.au/node/42</link>
+<pubDate>Tue, 17 Nov 2026 08:00:00 +1100</pubDate>
+<ozb:meta url="https://vendor.example/credits" link="https://www.ozbargain.com.au/goto/42"
+ starting="2026-11-19T00:00:00+11:00" expiry="2026-11-22T00:00:00+11:00"/></item>
+<item><title>Expired today</title><link>https://www.ozbargain.com.au/node/43</link>
+<pubDate>Fri, 20 Nov 2026 08:00:00 +1100</pubDate>
+<ozb:meta url="https://vendor.example/expired" expiry="2026-11-21T10:59:00+11:00"/></item>
+<item><title>Coming soon</title><link>https://www.ozbargain.com.au/node/44</link>
+<pubDate>Fri, 20 Nov 2026 08:00:00 +1100</pubDate>
+<ozb:meta url="https://vendor.example/future" starting="2026-11-22T00:00:00+11:00"/></item>
+</channel></rss>"""
 
 
 def rss_response(body):
@@ -76,6 +88,8 @@ class SourceTests(unittest.TestCase):
         def fetch(url, **kwargs):
             if url == HN_URL:
                 return hn
+            if url in DEAL_FEEDS.values():
+                return rss_response(OZB_RSS)
             return rss_response(community if url in COMMUNITY_FEEDS.values() else RSS)
 
         session.get.side_effect = fetch
@@ -87,10 +101,12 @@ class SourceTests(unittest.TestCase):
         self.assertEqual(official[0].published, datetime(2026, 11, 17, 16, tzinfo=timezone.utc))
         self.assertEqual(official[0].links, ("https://vendor.example/claim",))
         deals = [post for post in posts if post.source_id.startswith("community:")]
-        self.assertEqual(len(deals), len(COMMUNITY_FEEDS))
+        self.assertEqual(len(deals), len(COMMUNITY_FEEDS) + len(DEAL_FEEDS))
         self.assertEqual(deals[0].published, datetime(2026, 11, 20, 16, tzinfo=timezone.utc))
+        self.assertLess(deals[-1].published, SINCE)
+        self.assertEqual(deals[-1].url, "https://www.ozbargain.com.au/node/42")
         self.assertEqual([post.source_id for post in posts if post.source_id.startswith("hn:")], ["hn:42"] * 5)
-        feed_count = len(OFFICIAL_FEEDS) + len(COMMUNITY_FEEDS)
+        feed_count = len(OFFICIAL_FEEDS) + len(COMMUNITY_FEEDS) + len(DEAL_FEEDS)
         self.assertEqual(session.get.call_count, feed_count + len(HN_QUERIES))
         for call in session.get.call_args_list[feed_count:]:
             self.assertEqual(call.args, (HN_URL,))
@@ -110,7 +126,7 @@ class SourceTests(unittest.TestCase):
         self.assertTrue(even)
         self.assertTrue(odd)
         self.assertFalse(even & odd)
-        self.assertEqual(even | odd, {*OFFICIAL_FEEDS.values(), *COMMUNITY_FEEDS.values()})
+        self.assertEqual(even | odd, {*OFFICIAL_FEEDS.values(), *COMMUNITY_FEEDS.values(), *DEAL_FEEDS.values()})
         self.assertLessEqual(abs(len(even) - len(odd)), 1)
 
     def test_atom_uses_alternate_url_and_preserves_html_and_xhtml_evidence(self):
@@ -125,6 +141,12 @@ class SourceTests(unittest.TestCase):
 
     def test_older_community_feed_items_do_not_run_through_promo_lookback(self):
         self.assertEqual(feed_posts(RSS, SINCE, NOW, "community"), [])
+
+    def test_ozbargain_preserves_merchant_and_expiry_without_alerting_on_inactive_deals(self):
+        deal, = feed_posts(OZB_RSS, NOW - timedelta(days=14), NOW, "community")
+        self.assertEqual(deal.url, "https://www.ozbargain.com.au/node/42")
+        self.assertEqual(deal.links, ("https://vendor.example/credits",))
+        self.assertEqual(deal.expires_at, datetime(2026, 11, 21, 13, tzinfo=timezone.utc))
 
     def test_optional_web_failure_does_not_block_hacker_news(self):
         session = Mock()

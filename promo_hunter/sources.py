@@ -37,6 +37,8 @@ OFFICIAL_FEEDS = {
 COMMUNITY_FEEDS = {
     "Product Hunt": "https://www.producthunt.com/feed",
     "DEV Community (AI)": "https://dev.to/feed/tag/ai",
+}
+DEAL_FEEDS = {
     "OzBargain (AI)": "https://www.ozbargain.com.au/tag/artificial-intelligence/feed",
 }
 COMMUNITY_WINDOW = timedelta(days=2)
@@ -44,6 +46,7 @@ PROMOTION_WINDOW = timedelta(days=14)
 MAX_FEED_BYTES = 2 * 1024 * 1024
 ATOM = "{http://www.w3.org/2005/Atom}"
 XHTML = "{http://www.w3.org/1999/xhtml}"
+OZB = "{https://www.ozbargain.com.au}"
 SearchScope = Literal["web", "social", "reddit"]
 FeedMode = Literal["all", "rotating", "none"]
 TIMEOUT = (5, 15)
@@ -167,7 +170,17 @@ def feed_posts(raw: bytes, since: datetime, now: datetime, prefix: str) -> list[
             item.findtext("{http://purl.org/rss/1.0/modules/content/}encoded")
             or item.findtext("description", "")
         )
-        posts.append(Candidate(f"{prefix}:{url}", title, body, url, published.astimezone(timezone.utc), links))
+        expires = None
+        if (meta := item.find(OZB + "meta")) is not None:
+            starts = timestamp(meta.get("starting"))
+            expires = timestamp(meta.get("expiry"))
+            if (starts and starts > now) or (expires and expires <= now):
+                continue
+            if merchant := web_url(meta.get("url")):
+                links = tuple(dict.fromkeys((merchant, *links)))[:8]
+        posts.append(Candidate(
+            f"{prefix}:{url}", title, body, url, published.astimezone(timezone.utc), links, expires_at=expires
+        ))
     return posts
 
 
@@ -323,6 +336,7 @@ def discover(
             for prefix, group, cutoff in (
                 ("official", OFFICIAL_FEEDS, promo_since),
                 ("community", COMMUNITY_FEEDS, community_since),
+                ("community", DEAL_FEEDS, promo_since),
             )
             for label, url in group.items()
         ]

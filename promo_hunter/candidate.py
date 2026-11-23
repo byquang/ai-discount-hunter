@@ -68,6 +68,7 @@ class Candidate:
     published: datetime | None = None
     links: tuple[str, ...] = ()
     updated: datetime | None = None
+    expires_at: datetime | None = None
 
     @property
     def freshness(self) -> datetime | None:

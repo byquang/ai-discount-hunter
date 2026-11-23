@@ -27,6 +27,7 @@ normal evergreen trials, paid discounts, referral spam and phishing. If evidence
 A recent search result does not make an old promotion active. Reject if there is no credible
 evidence that the offer is still claimable (for example, a future deadline or a current vendor
 offer page with a live claim path). A generic coupon listing is not enough.
+When a deal feed supplies expires_utc, it is an upper bound, not proof of a qualifying deal.
 Return exactly one verdict per index. For approved offers, name the tool and write the summary and
 claim instructions in English, translating non-English sources. Include eligibility, limits or
 payment requirements if known.
@@ -103,13 +104,16 @@ def parse_verdicts(raw: str, candidates: list[Candidate], now: datetime) -> list
             if calendar_date < now.date():
                 continue
         window = verdict["claim_window_minutes"]
+        cutoff = candidate.expires_at
         if window is not None:
             if type(window) is not int or window <= 0:
                 raise ValueError("Invalid Gemini claim window")
             published = candidate.source_published
             if published is None or published > now:
                 continue
-            cutoff = published + timedelta(minutes=window)
+            relative_cutoff = published + timedelta(minutes=window)
+            cutoff = min(cutoff, relative_cutoff) if cutoff else relative_cutoff
+        if cutoff is not None:
             if cutoff <= now:
                 continue
             if calendar_date is None or cutoff.date() <= calendar_date:
@@ -131,6 +135,7 @@ def classify(api_key: str, model: str, candidates: list[Candidate], now: datetim
                 "source_url": post.url,
                 "links": post.links,
                 "published_utc": published.isoformat() if (published := post.source_published) else None,
+                **({"expires_utc": post.expires_at.isoformat()} if post.expires_at else {}),
             }
             for index, post in enumerate(candidates)
         ],
