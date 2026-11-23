@@ -1,5 +1,19 @@
 import json
+from datetime import datetime, timezone
 from pathlib import Path
+
+
+def reserve_search_hour(path: Path, now: datetime) -> bool:
+    hour = now.astimezone(timezone.utc).isoformat(timespec="hours")
+    try:
+        if path.read_text(encoding="utf-8").strip() == hour:
+            return False
+    except FileNotFoundError:
+        pass
+    tmp = path.with_suffix(".tmp")
+    tmp.write_text(hour + "\n", encoding="utf-8")
+    tmp.replace(path)
+    return True
 
 
 class Seen:

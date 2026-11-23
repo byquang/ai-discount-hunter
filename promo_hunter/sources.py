@@ -1,5 +1,4 @@
 import logging
-import re
 from dataclasses import dataclass
 from datetime import datetime, timedelta, timezone
 from email.utils import parsedate_to_datetime
@@ -10,7 +9,7 @@ from xml.etree import ElementTree
 
 import requests
 
-from .candidate import Candidate, web_url
+from .candidate import Candidate, reddit_post_id, web_url, x_post_time
 
 SUBREDDITS = ("ClaudeAI", "OpenAI", "cursor", "LocalLLaMA", "vibecoding", "ArtificialInteligence")
 HN_URL = "https://hn.algolia.com/api/v1/search_by_date"
@@ -33,8 +32,6 @@ COMMUNITY_WINDOW = timedelta(days=2)
 PROMOTION_WINDOW = timedelta(days=14)
 MAX_FEED_BYTES = 2 * 1024 * 1024
 SearchScope = Literal["web", "social", "reddit"]
-X_EPOCH_MS = 1288834974657
-X_STATUS_PATH = re.compile(r"^/(?:i/web|[^/]+)/status/([0-9]{1,19})(?:/|$)")
 TIMEOUT = (5, 15)
 LOG = logging.getLogger(__name__)
 
@@ -154,23 +151,19 @@ def web_posts(results: list[dict], scope: SearchScope = "social") -> list[Candid
         if scope == "reddit":
             path = parts.path.lower().strip("/").split("/")
             if (
-                not reddit_host
-                or len(path) < 4
+                len(path) < 2
                 or path[0] != "r"
                 or path[1] not in allowed_subreddits
-                or path[2] != "comments"
-                or not path[3]
+                or not (post_id := reddit_post_id(url))
             ):
                 continue
-            source_id = f"reddit:{path[3]}"
+            source_id = f"reddit:{post_id}"
         elif (scope == "social" and not social_host) or (scope == "web" and (social_host or reddit_host)):
             continue
         elif host == "x.com" or host.endswith(".x.com"):
-            status = X_STATUS_PATH.match(parts.path)
-            if not status or not 0 < (post_id := int(status[1])) < 2**63:
+            published = x_post_time(url)
+            if published is None:
                 continue
-            # X's post ID encodes publication time, unlike the search index date.
-            published = datetime.fromtimestamp(((post_id >> 22) + X_EPOCH_MS) / 1000, timezone.utc)
         body, links = post_content(result.get("content") or result.get("description") or "")
         posts.append(Candidate(source_id, title, body, url, published, links))
     return posts
@@ -219,8 +212,8 @@ def fetch_web(
     return web_posts(response.json().get("web", {}).get("results", []), scope)
 
 
-def scheduled_web_scopes(now: datetime) -> tuple[SearchScope, ...]:
-    return {0: ("web",), 2: ("social",), 4: ("web",), 6: ("reddit",)}.get(now.hour % 8, ())
+def scheduled_web_scope(now: datetime) -> SearchScope:
+    return ("social", "web", "social", "reddit")[now.astimezone(timezone.utc).hour % 4]
 
 
 def discover(
@@ -281,6 +274,7 @@ def discover(
         provider = "Tavily" if tavily_key else "Brave Search"
         for scope in web_targets:
             cutoff = promo_since if scope == "web" else community_since
+            LOG.info("Searching %s (%s)", provider, scope)
             if not ingest(f"{provider} ({scope})", cutoff, fetch_web, session, tavily_key, brave_key, cutoff, scope):
                 break
     if not succeeded:
