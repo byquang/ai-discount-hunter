@@ -77,6 +77,18 @@ class StateTests(unittest.TestCase):
         self.seen.remember(POST.keys)
         self.assertEqual(select_candidates([with_same_id, with_same_url], self.seen), [])
 
+    def test_reddit_post_identity_survives_selection_of_a_hacker_news_repost(self):
+        url = "https://www.reddit.com/r/cursor/comments/abc/limited_offer"
+        repost = Candidate("hn:99", "Cursor free trial credits", "", url)
+        reddit = Candidate("reddit:abc", "Cursor Pro", "", url)
+        alias = replace(reddit, url="https://old.reddit.com/r/cursor/comments/abc/")
+        self.assertEqual(
+            select_candidates([alias, reddit, repost], self.seen, prioritize_search=True),
+            [repost],
+        )
+        self.seen.remember(repost.keys)
+        self.assertEqual(select_candidates([alias], self.seen, prioritize_search=True), [])
+
     def test_select_reserves_room_for_open_web_matches_without_increasing_the_batch(self):
         community = [
             Candidate(f"hn:{i}", "Free credits", "", f"https://example.org/community/{i}", NOW)
@@ -306,6 +318,11 @@ class VerdictTests(unittest.TestCase):
         relative = json.dumps([dict(VERDICT, deadline=None, claim_window_minutes=1440)])
         offer = parse_verdicts(relative, [post], NOW)[0]
         self.assertEqual(offer.deadline, "2026-11-21 17:00 UTC")
+
+    def test_relative_x_deadline_uses_original_time_instead_of_hacker_news_repost_time(self):
+        repost = replace(POST, url="https://x.com/someone/status/2123392055573385525", published=NOW)
+        relative = json.dumps([dict(VERDICT, deadline=None, claim_window_minutes=1440)])
+        self.assertEqual(parse_verdicts(relative, [repost], NOW), [None])
 
     def test_incomplete_duplicate_or_invalid_output_raises(self):
         for bad_output in ([], [VERDICT, VERDICT], [dict(VERDICT, approved="true")]):

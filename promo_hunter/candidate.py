@@ -1,6 +1,11 @@
+import re
 from dataclasses import dataclass
-from datetime import datetime
+from datetime import datetime, timezone
 from urllib.parse import parse_qsl, urlencode, urlsplit, urlunsplit
+
+X_EPOCH_MS = 1288834974657
+X_STATUS_PATH = re.compile(r"^/(?:i/web|[^/]+)/status/([0-9]{1,19})(?:/|$)")
+REDDIT_POST_PATH = re.compile(r"^/(?:r/[^/]+/)?comments/([a-z0-9]+)(?:/|$)", re.IGNORECASE)
 
 
 def web_url(value: object) -> str | None:
@@ -35,6 +40,16 @@ def url_key(url: str) -> str:
     return urlunsplit(("https", host, parts.path.rstrip("/") or "/", urlencode(sorted(query)), ""))
 
 
+def x_post_time(url: str) -> datetime | None:
+    parts = urlsplit(url)
+    host = parts.hostname or ""
+    if host == "x.com" or host.endswith(".x.com"):
+        status = X_STATUS_PATH.match(parts.path)
+        if status and 0 < (post_id := int(status[1])) < 2**63:
+            return datetime.fromtimestamp(((post_id >> 22) + X_EPOCH_MS) / 1000, timezone.utc)
+    return None
+
+
 @dataclass(frozen=True)
 class Candidate:
     source_id: str
@@ -45,5 +60,17 @@ class Candidate:
     links: tuple[str, ...] = ()
 
     @property
-    def keys(self) -> tuple[str, str]:
-        return self.source_id, url_key(self.url)
+    def keys(self) -> tuple[str, ...]:
+        keys = (self.source_id, url_key(self.url))
+        parts = urlsplit(self.url)
+        host = parts.hostname or ""
+        if host == "reddit.com" or host.endswith(".reddit.com"):
+            if post := REDDIT_POST_PATH.match(parts.path):
+                reddit_key = f"reddit:{post[1].lower()}"
+                if reddit_key != self.source_id:
+                    return (*keys, reddit_key)
+        return keys
+
+    @property
+    def source_published(self) -> datetime | None:
+        return x_post_time(self.url) or self.published

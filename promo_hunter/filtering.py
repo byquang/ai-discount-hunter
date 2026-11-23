@@ -106,9 +106,10 @@ def parse_verdicts(raw: str, candidates: list[Candidate], now: datetime) -> list
         if window is not None:
             if type(window) is not int or window <= 0:
                 raise ValueError("Invalid Gemini claim window")
-            if candidate.published is None or candidate.published > now:
+            published = candidate.source_published
+            if published is None or published > now:
                 continue
-            cutoff = candidate.published + timedelta(minutes=window)
+            cutoff = published + timedelta(minutes=window)
             if cutoff <= now:
                 continue
             if calendar_date is None or cutoff.date() <= calendar_date:
@@ -129,7 +130,7 @@ def classify(api_key: str, model: str, candidates: list[Candidate], now: datetim
                 "text": post.text,
                 "source_url": post.url,
                 "links": post.links,
-                "published_utc": post.published.isoformat() if post.published else None,
+                "published_utc": published.isoformat() if (published := post.source_published) else None,
             }
             for index, post in enumerate(candidates)
         ],
