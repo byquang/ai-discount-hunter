@@ -919,5 +919,90 @@
       "https://news.ycombinator.com/item?id=50609394"
     ],
     "alerted": false
+  },
+  {
+    "keys": [
+      "web:https://x.com/thtbee_/status/2124768084280103400",
+      "https://x.com/thtbee_/status/2124768084280103400"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "web:https://x.com/buildwithhassan/status/2124592847277965342",
+      "https://x.com/buildwithhassan/status/2124592847277965342"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/bowmandown/what-it-really-costs-to-run-an-ai-agent-247-in-2027-the-server-bill-vs-the-model-bill-1li2",
+      "https://dev.to/bowmandown/what-it-really-costs-to-run-an-ai-agent-247-in-2027-the-server-bill-vs-the-model-bill-1li2"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "official:https://vercel.com/changelog/vercel-token-pass-now-includes-one-hundred-fifty-dollars-of-monthly-tokens",
+      "https://vercel.com/changelog/vercel-token-pass-now-includes-one-hundred-fifty-dollars-of-monthly-tokens"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "official:https://vercel.com/changelog/parallel-decisions-now-available-on-ai-gateway-for-free",
+      "https://vercel.com/changelog/parallel-decisions-now-available-on-ai-gateway-for-free"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "official:https://vercel.com/changelog/kimi-k3-1-pro-is-now-available-in-token-pass",
+      "https://vercel.com/changelog/kimi-k3-1-pro-is-now-available-in-token-pass"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "official:https://vercel.com/changelog/minimax-h3-image-and-highspeed-now-available-on-ai-gateway",
+      "https://vercel.com/changelog/minimax-h3-image-and-highspeed-now-available-on-ai-gateway"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/zxpmail/after-ai-maxes-out-language-the-real-split-is-not-human-vs-machine-36h6",
+      "https://dev.to/zxpmail/after-ai-maxes-out-language-the-real-split-is-not-human-vs-machine-36h6"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/aiexplore369zoho/model-distillation-explained-a-bigger-model-wrote-420-questions-for-49-cents-and-three-small-4862",
+      "https://dev.to/aiexplore369zoho/model-distillation-explained-a-bigger-model-wrote-420-questions-for-49-cents-and-three-small-4862"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/henadz_453c70fee36bf148a4/apollo-clay-alternative-why-12mo-byok-live-google-search-grounding-beats-stale-b2b-databases-5bom",
+      "https://dev.to/henadz_453c70fee36bf148a4/apollo-clay-alternative-why-12mo-byok-live-google-search-grounding-beats-stale-b2b-databases-5bom"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/tapixai/we-publish-every-llm-api-price-and-you-can-check-it-with-one-curl-33bm",
+      "https://dev.to/tapixai/we-publish-every-llm-api-price-and-you-can-check-it-with-one-curl-33bm",
+      "https://tapixai.com/"
+    ],
+    "alerted": true
+  },
+  {
+    "keys": [
+      "community:https://dev.to/abdullah_almania_be4b69d4/how-to-install-ollama-for-a-private-ai-on-your-pc-4dmc",
+      "https://dev.to/abdullah_almania_be4b69d4/how-to-install-ollama-for-a-private-ai-on-your-pc-4dmc"
+    ],
+    "alerted": false
   }
 ]
