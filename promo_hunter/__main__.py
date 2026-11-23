@@ -25,7 +25,7 @@ def select_candidates(
         key=lambda item: (
             item[0],
             item[1].source_id.startswith("official:"),
-            item[1].published.timestamp() if item[1].published else 0,
+            freshness.timestamp() if (freshness := item[1].freshness) else 0,
         ),
         reverse=True,
     )

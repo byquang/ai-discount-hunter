@@ -131,11 +131,12 @@ def atom_posts(root: ElementTree.Element, since: datetime, now: datetime, prefix
             None,
         )
         published = timestamp(item.findtext(ATOM + "published"))
+        updated = timestamp(item.findtext(ATOM + "updated"))
         # An edit can make an item relevant now, but cannot restart a relative claim window.
-        freshness = published or timestamp(item.findtext(ATOM + "updated"))
+        freshness = published or updated
         if title and url and freshness and since <= freshness <= now:
             body, links = atom_content(item)
-            posts.append(Candidate(f"{prefix}:{url}", title, body, url, published, links))
+            posts.append(Candidate(f"{prefix}:{url}", title, body, url, published, links, updated=updated))
     return posts
 
 
@@ -300,7 +301,8 @@ def discover(
         nonlocal succeeded, partial
         try:
             fresh = [
-                post for post in fetch(*args) if post.published is None or cutoff <= post.published <= now
+                post for post in fetch(*args)
+                if (freshness := post.freshness) is None or cutoff <= freshness <= now
             ]
             candidates.extend(fresh)
             succeeded += 1

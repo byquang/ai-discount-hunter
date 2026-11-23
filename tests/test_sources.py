@@ -120,6 +120,7 @@ class SourceTests(unittest.TestCase):
         self.assertEqual(offer.links, ("https://vendor.example/claim",))
         self.assertIn("Claim at the offer page", offer.text)
         self.assertIsNone(edit.source_published)
+        self.assertEqual(edit.freshness, datetime(2026, 11, 20, 17, tzinfo=timezone.utc))
         self.assertEqual(edit.links, ("https://vendor.example/details",))
 
     def test_older_community_feed_items_do_not_run_through_promo_lookback(self):

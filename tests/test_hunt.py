@@ -4,7 +4,7 @@ import sys
 import tempfile
 import unittest
 from dataclasses import replace
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from unittest.mock import Mock, patch
 
@@ -76,6 +76,15 @@ class StateTests(unittest.TestCase):
         self.assertEqual(select_candidates([POST, with_same_id, with_same_url, unrelated], self.seen), [POST])
         self.seen.remember(POST.keys)
         self.assertEqual(select_candidates([with_same_id, with_same_url], self.seen), [])
+
+    def test_update_only_feed_entry_is_ranked_by_recency_without_a_publication_date(self):
+        rss = [
+            Candidate(f"official:{i}", "Free credits", "", f"https://vendor.example/{i}", NOW - timedelta(days=1))
+            for i in range(MAX_BATCH)
+        ]
+        atom = Candidate("official:atom", "New free credits", "", "https://vendor.example/new", updated=NOW)
+        self.assertEqual(select_candidates(rss + [atom], self.seen), [atom, *rss[:-1]])
+        self.assertIsNone(atom.source_published)
 
     def test_reddit_post_identity_survives_selection_of_a_hacker_news_repost(self):
         url = "https://www.reddit.com/r/cursor/comments/abc/limited_offer"

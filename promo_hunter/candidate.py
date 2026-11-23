@@ -67,6 +67,11 @@ class Candidate:
     url: str
     published: datetime | None = None
     links: tuple[str, ...] = ()
+    updated: datetime | None = None
+
+    @property
+    def freshness(self) -> datetime | None:
+        return self.published or self.updated
 
     @property
     def keys(self) -> tuple[str, ...]:
