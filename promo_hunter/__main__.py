@@ -106,7 +106,7 @@ def main() -> int:
             if os.getenv("GITHUB_EVENT_NAME") == "schedule":
                 if any(search_keys) and reserve_search_hour(Path("web-search-hour.txt"), now):
                     web_targets = (scheduled_web_scope(now),)
-                result = discover(session, now, *search_keys, web_targets, include_feeds=now.hour % 2 == 0)
+                result = discover(session, now, *search_keys, web_targets, feeds="rotating")
             else:
                 result = discover(session, now, *search_keys)
             candidates = result.candidates

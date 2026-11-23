@@ -179,6 +179,7 @@ class ScanTests(unittest.TestCase):
                 for _ in range(3):
                     self.assertEqual(main(), 0)
         self.assertEqual([call.args[-1] for call in self.discover.call_args_list], [("social",), (), ("reddit",)])
+        self.assertTrue(all(call.kwargs["feeds"] == "rotating" for call in self.discover.call_args_list))
 
     def test_manual_and_keyless_runs_do_not_reserve_a_search_hour(self):
         self.discover.return_value = DiscoveryResult([])
