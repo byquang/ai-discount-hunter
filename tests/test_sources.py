@@ -8,8 +8,8 @@ from unittest.mock import Mock, patch
 import requests
 
 from promo_hunter.sources import (
-    HN_QUERIES, HN_URL, OFFICIAL_FEEDS, SUBREDDITS, discover, fetch_web, hn_posts, official_posts,
-    scheduled_web_scope, web_posts,
+    COMMUNITY_FEEDS, DEAL_FEEDS, HN_QUERIES, HN_URL, OFFICIAL_FEEDS, SUBREDDITS, discover, feed_posts,
+    fetch_web, hn_posts, scheduled_web_scope, web_posts,
 )
 from promo_hunter.state import reserve_search_hour
 
@@ -33,6 +33,41 @@ RSS = b"""<?xml version="1.0" encoding="UTF-8"?>
 <description><![CDATA[Claim by November 24 at <a href="https://vendor.example/claim">the offer page</a>.]]></description></item>
 <item><title>Old promo</title><link>https://vendor.example/old</link><pubDate>Sun, 01 Nov 2026 00:00:00 GMT</pubDate></item>
 </channel></rss>"""
+ATOM = b"""<feed xmlns="http://www.w3.org/2005/Atom">
+<entry><title>Free credits this week</title>
+<link rel="self" href="https://vendor.example/feed-entry"/>
+<link rel="alternate" href="https://vendor.example/offer"/>
+<published>2026-11-19T08:00:00-08:00</published><updated>2026-11-20T17:00:00Z</updated>
+<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml">
+Claim at <a href="https://vendor.example/claim">the offer page</a><a href="javascript:void(0)">.</a>
+</div></content></entry>
+<entry><title>An update without a publication date</title><link href="https://vendor.example/update"/>
+<updated>2026-11-20T17:00:00Z</updated><summary type="html">Read &lt;a href="https://vendor.example/details"&gt;details&lt;/a&gt;</summary></entry>
+<entry><title>Old offer with a new edit</title><link href="https://vendor.example/old"/>
+<published>2026-11-01T00:00:00Z</published><updated>2026-11-20T23:00:00Z</updated></entry>
+<entry><title>Scheduled for the future</title><link href="https://vendor.example/future"/>
+<published>2026-11-22T00:00:00Z</published></entry>
+</feed>"""
+OZB_RSS = b"""<rss xmlns:ozb="https://www.ozbargain.com.au"><channel>
+<item><title>Free credits</title><link>https://www.ozbargain.com.au/node/42</link>
+<pubDate>Tue, 17 Nov 2026 08:00:00 +1100</pubDate>
+<ozb:meta url="https://vendor.example/credits" link="https://www.ozbargain.com.au/goto/42"
+ starting="2026-11-19T00:00:00+11:00" expiry="2026-11-22T00:00:00+11:00"/></item>
+<item><title>Expired today</title><link>https://www.ozbargain.com.au/node/43</link>
+<pubDate>Fri, 20 Nov 2026 08:00:00 +1100</pubDate>
+<ozb:meta url="https://vendor.example/expired" expiry="2026-11-21T10:59:00+11:00"/></item>
+<item><title>Coming soon</title><link>https://www.ozbargain.com.au/node/44</link>
+<pubDate>Fri, 20 Nov 2026 08:00:00 +1100</pubDate>
+<ozb:meta url="https://vendor.example/future" starting="2026-11-22T00:00:00+11:00"/></item>
+</channel></rss>"""
+
+
+def rss_response(body):
+    response = requests.Response()
+    response.status_code = 200
+    response._content = body
+    response._content_consumed = True
+    return response
 
 
 class SourceTests(unittest.TestCase):
@@ -42,15 +77,22 @@ class SourceTests(unittest.TestCase):
         self.assertEqual(post.text, "Free & available Link")
         self.assertEqual(post.links, ("https://vendor.example/new",))
 
-    def test_keyless_discovery_checks_official_feeds_and_keeps_older_announcements(self):
+    def test_keyless_discovery_checks_vendor_and_community_feeds_at_their_lookback(self):
         session = Mock()
-        rss = requests.Response()
-        rss.status_code = 200
-        rss._content = RSS
-        rss._content_consumed = True
+        community = RSS.replace(b"Tue, 17 Nov", b"Fri, 20 Nov").replace(
+            b"https://vendor.example/blog/credits", b"https://community.example/promo"
+        )
         hn = Mock()
         hn.json.return_value = HN_RESPONSE
-        session.get.side_effect = lambda url, **kwargs: hn if url == HN_URL else rss
+
+        def fetch(url, **kwargs):
+            if url == HN_URL:
+                return hn
+            if url in DEAL_FEEDS.values():
+                return rss_response(OZB_RSS)
+            return rss_response(community if url in COMMUNITY_FEEDS.values() else RSS)
+
+        session.get.side_effect = fetch
         result = discover(session, NOW)
         self.assertFalse(result.partial)
         posts = result.candidates
@@ -58,19 +100,60 @@ class SourceTests(unittest.TestCase):
         self.assertEqual(len(official), len(OFFICIAL_FEEDS))
         self.assertEqual(official[0].published, datetime(2026, 11, 17, 16, tzinfo=timezone.utc))
         self.assertEqual(official[0].links, ("https://vendor.example/claim",))
+        deals = [post for post in posts if post.source_id.startswith("community:")]
+        self.assertEqual(len(deals), len(COMMUNITY_FEEDS) + len(DEAL_FEEDS))
+        self.assertEqual(deals[0].published, datetime(2026, 11, 20, 16, tzinfo=timezone.utc))
+        self.assertLess(deals[-1].published, SINCE)
+        self.assertEqual(deals[-1].url, "https://www.ozbargain.com.au/node/42")
         self.assertEqual([post.source_id for post in posts if post.source_id.startswith("hn:")], ["hn:42"] * 5)
-        self.assertEqual(session.get.call_count, len(OFFICIAL_FEEDS) + len(HN_QUERIES))
-        for call in session.get.call_args_list[len(OFFICIAL_FEEDS):]:
+        feed_count = len(OFFICIAL_FEEDS) + len(COMMUNITY_FEEDS) + len(DEAL_FEEDS)
+        self.assertEqual(session.get.call_count, feed_count + len(HN_QUERIES))
+        for call in session.get.call_args_list[feed_count:]:
             self.assertEqual(call.args, (HN_URL,))
             self.assertEqual(call.kwargs["params"]["numericFilters"], f"created_at_i>{int(SINCE.timestamp())}")
         session.post.assert_not_called()
+
+    def test_rotating_feeds_check_every_feed_once_over_two_utc_hours(self):
+        session = Mock()
+        session.get.return_value.json.return_value = {"hits": []}
+        local = timezone(timedelta(hours=5))
+        with patch("promo_hunter.sources.fetch_feed", return_value=[]) as fetch:
+            discover(session, NOW.astimezone(local), feeds="rotating")
+            even = {call.args[1] for call in fetch.call_args_list}
+            fetch.reset_mock()
+            discover(session, NOW + timedelta(hours=1), feeds="rotating")
+            odd = {call.args[1] for call in fetch.call_args_list}
+        self.assertTrue(even)
+        self.assertTrue(odd)
+        self.assertFalse(even & odd)
+        self.assertEqual(even | odd, {*OFFICIAL_FEEDS.values(), *COMMUNITY_FEEDS.values(), *DEAL_FEEDS.values()})
+        self.assertLessEqual(abs(len(even) - len(odd)), 1)
+
+    def test_atom_uses_alternate_url_and_preserves_html_and_xhtml_evidence(self):
+        offer, edit = feed_posts(ATOM, SINCE, NOW, "official")
+        self.assertEqual(offer.source_id, "official:https://vendor.example/offer")
+        self.assertEqual(offer.published, datetime(2026, 11, 19, 16, tzinfo=timezone.utc))
+        self.assertEqual(offer.links, ("https://vendor.example/claim",))
+        self.assertIn("Claim at the offer page", offer.text)
+        self.assertIsNone(edit.source_published)
+        self.assertEqual(edit.freshness, datetime(2026, 11, 20, 17, tzinfo=timezone.utc))
+        self.assertEqual(edit.links, ("https://vendor.example/details",))
+
+    def test_older_community_feed_items_do_not_run_through_promo_lookback(self):
+        self.assertEqual(feed_posts(RSS, SINCE, NOW, "community"), [])
+
+    def test_ozbargain_preserves_merchant_and_expiry_without_alerting_on_inactive_deals(self):
+        deal, = feed_posts(OZB_RSS, NOW - timedelta(days=14), NOW, "community")
+        self.assertEqual(deal.url, "https://www.ozbargain.com.au/node/42")
+        self.assertEqual(deal.links, ("https://vendor.example/credits",))
+        self.assertEqual(deal.expires_at, datetime(2026, 11, 21, 13, tzinfo=timezone.utc))
 
     def test_optional_web_failure_does_not_block_hacker_news(self):
         session = Mock()
         session.get.return_value.json.return_value = HN_RESPONSE
         session.post.side_effect = requests.Timeout()
         with self.assertLogs("promo_hunter.sources", level="WARNING"):
-            result = discover(session, NOW, tavily_key="fake", include_feeds=False)
+            result = discover(session, NOW, tavily_key="fake", feeds="none")
         self.assertTrue(result.candidates)
         self.assertTrue(result.partial)
         self.assertEqual(session.post.call_count, 3)
@@ -140,7 +223,7 @@ class SourceTests(unittest.TestCase):
             {"url": "https://x.com/user/status/123", "title": "Free credits"},
             {"url": "https://vendor.example/old", "title": "Expired giveaway", "published_date": "2026-11-01"},
         ]}
-        posts = discover(session, NOW, tavily_key="fake", web_targets=("web",), include_feeds=False).candidates
+        posts = discover(session, NOW, tavily_key="fake", web_targets=("web",), feeds="none").candidates
         self.assertEqual([post.url for post in posts], [url, other])
         self.assertTrue(all(post.source_id.startswith("open-web:") for post in posts))
         payload = session.post.call_args.kwargs["json"]
@@ -151,7 +234,7 @@ class SourceTests(unittest.TestCase):
     def test_rss_failure_does_not_break_community_discovery(self):
         session = Mock()
         session.get.return_value.json.return_value = HN_RESPONSE
-        with patch("promo_hunter.sources.fetch_official", side_effect=ValueError("Invalid XML")):
+        with patch("promo_hunter.sources.fetch_feed", side_effect=ValueError("Invalid XML")):
             with self.assertLogs("promo_hunter.sources", level="WARNING"):
                 result = discover(session, NOW)
                 self.assertTrue(result.candidates)
@@ -159,9 +242,11 @@ class SourceTests(unittest.TestCase):
 
     def test_rss_allows_html_doctype_in_article_content_but_not_the_feed(self):
         html_article = RSS.replace(b"<![CDATA[", b"<![CDATA[<!DOCTYPE html>", 1)
-        self.assertEqual(len(official_posts(html_article, NOW - timedelta(days=14), NOW)), 1)
+        self.assertEqual(len(feed_posts(html_article, NOW - timedelta(days=14), NOW, "official")), 1)
         with self.assertRaisesRegex(ValueError, "Unexpected document type"):
-            official_posts(b"<!DOCTYPE rss><rss><channel/></rss>", SINCE, NOW)
+            feed_posts(b"<!DOCTYPE rss><rss><channel/></rss>", SINCE, NOW, "official")
+        with self.assertRaisesRegex(ValueError, "Unexpected document type"):
+            feed_posts(b"<!DOCTYPE feed>" + ATOM, SINCE, NOW, "official")
 
     def test_scheduled_scopes_stay_within_the_free_search_budget(self):
         with tempfile.TemporaryDirectory() as folder:

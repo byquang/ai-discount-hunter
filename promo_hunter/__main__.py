@@ -25,7 +25,7 @@ def select_candidates(
         key=lambda item: (
             item[0],
             item[1].source_id.startswith("official:"),
-            item[1].published.timestamp() if item[1].published else 0,
+            freshness.timestamp() if (freshness := item[1].freshness) else 0,
         ),
         reverse=True,
     )
@@ -43,11 +43,16 @@ def select_candidates(
             batch.append(post)
             selected_keys.update(post.keys)
 
+    def keys_for(prefixes: tuple[str, ...], minimum_score: int = 1) -> set[str]:
+        return {
+            key for score, post in ranked
+            if score >= minimum_score and post.source_id.startswith(prefixes)
+            for key in post.keys
+        }
+
     prefixes = ("open-web:", "web:", "reddit:") if prioritize_search else ("open-web:",)
-    priority_keys = {
-        key for score, post in ranked if score and post.source_id.startswith(prefixes) for key in post.keys
-    }
-    take(MAX_BATCH if prioritize_search else MAX_BATCH // 4, priority_keys)
+    take(MAX_BATCH if prioritize_search else MAX_BATCH // 4, keys_for(prefixes))
+    take(min(len(batch) + 1, MAX_BATCH), keys_for(("community:",), minimum_score=2))
     take(MAX_BATCH)
     return batch
 
@@ -106,7 +111,7 @@ def main() -> int:
             if os.getenv("GITHUB_EVENT_NAME") == "schedule":
                 if any(search_keys) and reserve_search_hour(Path("web-search-hour.txt"), now):
                     web_targets = (scheduled_web_scope(now),)
-                result = discover(session, now, *search_keys, web_targets, include_feeds=now.hour % 2 == 0)
+                result = discover(session, now, *search_keys, web_targets, feeds="rotating")
             else:
                 result = discover(session, now, *search_keys)
             candidates = result.candidates

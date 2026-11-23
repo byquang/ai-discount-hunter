@@ -27,12 +27,30 @@ OFFICIAL_FEEDS = {
     "GitHub Copilot": "https://github.blog/ai-and-ml/github-copilot/feed/",
     "Google AI": "https://blog.google/innovation-and-ai/technology/ai/rss/",
     "Replit": "https://replit.com/blog/feed.xml",
+    "Claude": "https://claude.com/resources/articles/rss.xml",
+    "Vercel": "https://vercel.com/atom",
+    "Hugging Face": "https://huggingface.co/blog/feed.xml",
+    "Cloudflare": "https://blog.cloudflare.com/rss/",
+    "Microsoft Foundry": "https://devblogs.microsoft.com/foundry/feed/",
+    "AWS Machine Learning": "https://aws.amazon.com/blogs/machine-learning/feed/",
+}
+COMMUNITY_FEEDS = {
+    "Product Hunt": "https://www.producthunt.com/feed",
+    "DEV Community (AI)": "https://dev.to/feed/tag/ai",
+}
+DEAL_FEEDS = {
+    "OzBargain (AI)": "https://www.ozbargain.com.au/tag/artificial-intelligence/feed",
 }
 COMMUNITY_WINDOW = timedelta(days=2)
 PROMOTION_WINDOW = timedelta(days=14)
 MAX_FEED_BYTES = 2 * 1024 * 1024
+ATOM = "{http://www.w3.org/2005/Atom}"
+XHTML = "{http://www.w3.org/1999/xhtml}"
+OZB = "{https://www.ozbargain.com.au}"
 SearchScope = Literal["web", "social", "reddit"]
+FeedMode = Literal["all", "rotating", "none"]
 TIMEOUT = (5, 15)
+FEED_TIMEOUT = (4, 8)
 LOG = logging.getLogger(__name__)
 
 
@@ -88,17 +106,52 @@ def hn_posts(data: dict) -> list[Candidate]:
     return posts
 
 
-class RSSBuilder(ElementTree.TreeBuilder):
+class FeedBuilder(ElementTree.TreeBuilder):
     def doctype(self, name: str, pubid: str | None, system: str | None) -> None:
-        raise ValueError("Unexpected document type in RSS")
+        raise ValueError("Unexpected document type in feed")
 
 
-def official_posts(raw: bytes, since: datetime, now: datetime) -> list[Candidate]:
+def atom_content(item: ElementTree.Element) -> tuple[str, tuple[str, ...]]:
+    content = item.find(ATOM + "content")
+    if content is None or content.get("src"):
+        content = item.find(ATOM + "summary")
+    if content is None:
+        return "", ()
+    if content.get("type") != "xhtml":
+        return post_content(content.text or "")
+    body = " ".join(" ".join(content.itertext()).split())[:1800]
+    links = (link for anchor in content.iter(XHTML + "a") if (link := web_url(anchor.get("href"))))
+    return body, tuple(dict.fromkeys(links))[:8]
+
+
+def atom_posts(root: ElementTree.Element, since: datetime, now: datetime, prefix: str) -> list[Candidate]:
+    posts = []
+    for item in root.iterfind(ATOM + "entry"):
+        title = item.findtext(ATOM + "title")
+        url = next(
+            (url for link in item.iterfind(ATOM + "link")
+             if link.get("rel", "alternate") == "alternate" and (url := web_url(link.get("href")))),
+            None,
+        )
+        published = timestamp(item.findtext(ATOM + "published"))
+        updated = timestamp(item.findtext(ATOM + "updated"))
+        # An edit can make an item relevant now, but cannot restart a relative claim window.
+        freshness = published or updated
+        if title and url and freshness and since <= freshness <= now:
+            body, links = atom_content(item)
+            posts.append(Candidate(f"{prefix}:{url}", title, body, url, published, links, updated=updated))
+    return posts
+
+
+def feed_posts(raw: bytes, since: datetime, now: datetime, prefix: str) -> list[Candidate]:
     try:
-        parser = ElementTree.XMLParser(target=RSSBuilder())
-        channel = ElementTree.fromstring(raw, parser=parser).find("channel")
+        parser = ElementTree.XMLParser(target=FeedBuilder())
+        root = ElementTree.fromstring(raw, parser=parser)
     except ElementTree.ParseError as exc:
-        raise ValueError("Invalid RSS") from exc
+        raise ValueError("Invalid feed XML") from exc
+    if root.tag == ATOM + "feed":
+        return atom_posts(root, since, now, prefix)
+    channel = root.find("channel") if root.tag == "rss" else None
     if channel is None:
         raise ValueError("Missing RSS channel")
     posts = []
@@ -117,21 +170,33 @@ def official_posts(raw: bytes, since: datetime, now: datetime) -> list[Candidate
             item.findtext("{http://purl.org/rss/1.0/modules/content/}encoded")
             or item.findtext("description", "")
         )
-        posts.append(Candidate(f"official:{url}", title, body, url, published.astimezone(timezone.utc), links))
+        expires = None
+        if (meta := item.find(OZB + "meta")) is not None:
+            starts = timestamp(meta.get("starting"))
+            expires = timestamp(meta.get("expiry"))
+            if (starts and starts > now) or (expires and expires <= now):
+                continue
+            if merchant := web_url(meta.get("url")):
+                links = tuple(dict.fromkeys((merchant, *links)))[:8]
+        posts.append(Candidate(
+            f"{prefix}:{url}", title, body, url, published.astimezone(timezone.utc), links, expires_at=expires
+        ))
     return posts
 
 
-def fetch_official(session: requests.Session, url: str, since: datetime, now: datetime) -> list[Candidate]:
-    with session.get(url, stream=True, timeout=TIMEOUT, allow_redirects=False) as response:
+def fetch_feed(
+    session: requests.Session, url: str, since: datetime, now: datetime, prefix: str
+) -> list[Candidate]:
+    with session.get(url, stream=True, timeout=FEED_TIMEOUT, allow_redirects=False) as response:
         response.raise_for_status()
         if response.status_code != 200:
-            raise ValueError("Unexpected RSS response")
+            raise ValueError("Unexpected feed response")
         payload = bytearray()
         for chunk in response.iter_content(65536):
             payload.extend(chunk)
             if len(payload) > MAX_FEED_BYTES:
-                raise ValueError("RSS feed too large")
-        return official_posts(bytes(payload), since, now)
+                raise ValueError("Feed too large")
+        return feed_posts(bytes(payload), since, now, prefix)
 
 
 def web_posts(results: list[dict], scope: SearchScope = "social") -> list[Candidate]:
@@ -222,7 +287,7 @@ def discover(
     tavily_key: str = "",
     brave_key: str = "",
     web_targets: tuple[SearchScope, ...] = ("web", "social", "reddit"),
-    include_feeds: bool = True,
+    feeds: FeedMode = "all",
 ) -> DiscoveryResult:
     community_since = now - COMMUNITY_WINDOW
     promo_since = now - PROMOTION_WINDOW
@@ -249,7 +314,8 @@ def discover(
         nonlocal succeeded, partial
         try:
             fresh = [
-                post for post in fetch(*args) if post.published is None or cutoff <= post.published <= now
+                post for post in fetch(*args)
+                if (freshness := post.freshness) is None or cutoff <= freshness <= now
             ]
             candidates.extend(fresh)
             succeeded += 1
@@ -264,9 +330,20 @@ def discover(
             LOG.warning("%s unavailable (%s)", label, type(exc).__name__)
         return True
 
-    if include_feeds:
-        for vendor, url in OFFICIAL_FEEDS.items():
-            ingest(f"{vendor} RSS", promo_since, fetch_official, session, url, promo_since, now)
+    if feeds != "none":
+        feeds_to_check = [
+            (label, url, cutoff, prefix)
+            for prefix, group, cutoff in (
+                ("official", OFFICIAL_FEEDS, promo_since),
+                ("community", COMMUNITY_FEEDS, community_since),
+                ("community", DEAL_FEEDS, promo_since),
+            )
+            for label, url in group.items()
+        ]
+        if feeds == "rotating":
+            feeds_to_check = feeds_to_check[now.astimezone(timezone.utc).hour % 2::2]
+        for label, url, cutoff, prefix in feeds_to_check:
+            ingest(f"{label} feed", cutoff, fetch_feed, session, url, cutoff, now, prefix)
     for query in HN_QUERIES:
         if not ingest("Hacker News", community_since, fetch_hn, query):
             break

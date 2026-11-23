@@ -4,7 +4,7 @@ import sys
 import tempfile
 import unittest
 from dataclasses import replace
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from unittest.mock import Mock, patch
 
@@ -76,6 +76,15 @@ class StateTests(unittest.TestCase):
         self.assertEqual(select_candidates([POST, with_same_id, with_same_url, unrelated], self.seen), [POST])
         self.seen.remember(POST.keys)
         self.assertEqual(select_candidates([with_same_id, with_same_url], self.seen), [])
+
+    def test_update_only_feed_entry_is_ranked_by_recency_without_a_publication_date(self):
+        rss = [
+            Candidate(f"official:{i}", "Free credits", "", f"https://vendor.example/{i}", NOW - timedelta(days=1))
+            for i in range(MAX_BATCH)
+        ]
+        atom = Candidate("official:atom", "New free credits", "", "https://vendor.example/new", updated=NOW)
+        self.assertEqual(select_candidates(rss + [atom], self.seen), [atom, *rss[:-1]])
+        self.assertIsNone(atom.source_published)
 
     def test_reddit_post_identity_survives_selection_of_a_hacker_news_repost(self):
         url = "https://www.reddit.com/r/cursor/comments/abc/limited_offer"
@@ -179,6 +188,7 @@ class ScanTests(unittest.TestCase):
                 for _ in range(3):
                     self.assertEqual(main(), 0)
         self.assertEqual([call.args[-1] for call in self.discover.call_args_list], [("social",), (), ("reddit",)])
+        self.assertTrue(all(call.kwargs["feeds"] == "rotating" for call in self.discover.call_args_list))
 
     def test_manual_and_keyless_runs_do_not_reserve_a_search_hour(self):
         self.discover.return_value = DiscoveryResult([])
@@ -215,6 +225,24 @@ class ScanTests(unittest.TestCase):
                 clock.now.return_value = NOW.replace(hour=2)
                 self.assertEqual(main(), 0)
         self.assertEqual(self.classify.call_args.args[2], social + community[:2])
+
+    def test_batch_keeps_scheduled_search_hits_and_room_for_a_community_feed_match(self):
+        vendor_posts = [
+            Candidate(f"official:{i}", "Free AI credits", "", f"https://vendor.example/{i}", NOW)
+            for i in range(MAX_BATCH)
+        ]
+        social = [
+            Candidate(f"web:{i}", "Cursor Pro", "", f"https://x.com/vendor/status/{i}")
+            for i in range(10)
+        ]
+        post = Candidate("community:1", "Pro plan free through Sunday", "", "https://deals.example/1")
+        batch = select_candidates(vendor_posts + social + [post], self.seen, prioritize_search=True)
+        self.assertEqual(batch, social + [post, vendor_posts[0]])
+
+    def test_community_feed_priority_does_not_displace_stronger_evidence_for_same_url(self):
+        community = Candidate("community:1", "Free credits", "", "https://vendor.example/offer")
+        official = Candidate("official:1", "100% off", "Claim by Friday", community.url)
+        self.assertEqual(select_candidates([community, official], self.seen), [official])
 
     def test_all_rejected_sends_one_update_and_records_the_checked_post(self):
         self.discover.return_value = DiscoveryResult([POST])
@@ -326,6 +354,13 @@ class VerdictTests(unittest.TestCase):
         offer = parse_verdicts(relative, [post], NOW)[0]
         self.assertEqual(offer.deadline, "2026-11-21 17:00 UTC")
 
+    def test_deal_feed_expiry_is_an_upper_bound_even_when_gemini_approves(self):
+        post = replace(POST, expires_at=NOW)
+        self.assertEqual(parse_verdicts(json.dumps([VERDICT]), [post], NOW), [None])
+        post = replace(post, expires_at=NOW + timedelta(hours=1))
+        offer = parse_verdicts(json.dumps([VERDICT]), [post], NOW)[0]
+        self.assertEqual(offer.deadline, "2026-11-21 16:55 UTC")
+
     def test_relative_x_deadline_uses_original_time_instead_of_hacker_news_repost_time(self):
         repost = replace(POST, url="https://x.com/someone/status/2123392055573385525", published=NOW)
         relative = json.dumps([dict(VERDICT, deadline=None, claim_window_minutes=1440)])
@@ -337,15 +372,17 @@ class VerdictTests(unittest.TestCase):
                 parse_verdicts(json.dumps(bad_output), [POST], NOW)
 
     def test_sdk_receives_structured_config_and_all_evidence(self):
+        post = replace(POST, expires_at=datetime(2026, 12, 1, tzinfo=timezone.utc))
         with patch("promo_hunter.filtering.genai.Client") as Client:
             models = Client.return_value.__enter__.return_value.models
             models.generate_content.return_value.text = json.dumps([VERDICT])
-            self.assertEqual(classify("fake-key", "test-model", [POST], NOW), [OFFER])
+            self.assertEqual(classify("fake-key", "test-model", [post], NOW), [OFFER])
         request = models.generate_content.call_args.kwargs
         self.assertEqual(request["config"].response_mime_type, "application/json")
         self.assertEqual(request["config"].response_json_schema["type"], "array")
         self.assertIn("in English", request["config"].system_instruction)
         self.assertIn(TEMPORARY_OFFER, request["contents"])
+        self.assertEqual(json.loads(request["contents"])["posts"][0]["expires_utc"], "2026-12-01T00:00:00+00:00")
 
 
 class TelegramTests(unittest.TestCase):
