@@ -912,5 +912,12 @@
       "https://vercel.com/changelog/hy4-flash-now-available-on-ai-gateway-for-50-off"
     ],
     "alerted": false
+  },
+  {
+    "keys": [
+      "hn:50609394",
+      "https://news.ycombinator.com/item?id=50609394"
+    ],
+    "alerted": false
   }
 ]
