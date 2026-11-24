@@ -1410,5 +1410,47 @@
       "https://dev.to/linkgents/you-are-the-clipboard-your-ai-agents-need-each-other-not-you-in-the-middle-lmc"
     ],
     "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/ai_superapp/chrome-controls-which-sites-can-use-your-camera-who-does-that-for-desktop-agents-4j7l",
+      "https://dev.to/ai_superapp/chrome-controls-which-sites-can-use-your-camera-who-does-that-for-desktop-agents-4j7l"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/mork_studio/railnap-is-out-a-missed-stop-alarm-for-us-commuter-trains-20ka",
+      "https://dev.to/mork_studio/railnap-is-out-a-missed-stop-alarm-for-us-commuter-trains-20ka"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/sascha-ms/your-ai-chat-needs-a-safety-layer-the-system-prompt-cannot-replace-2kag",
+      "https://dev.to/sascha-ms/your-ai-chat-needs-a-safety-layer-the-system-prompt-cannot-replace-2kag"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/sami_akt_57e8cc8e3ca3bf6e/how-businesses-can-hire-freelancers-and-build-a-strong-remote-team-4mp7",
+      "https://dev.to/sami_akt_57e8cc8e3ca3bf6e/how-businesses-can-hire-freelancers-and-build-a-strong-remote-team-4mp7"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/kinseytylor45/i-explored-how-ai-coding-assistants-handle-real-development-tasks-2m5e",
+      "https://dev.to/kinseytylor45/i-explored-how-ai-coding-assistants-handle-real-development-tasks-2m5e"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/fabiancooper/buying-the-black-box-how-to-vet-an-ai-vendor-before-you-sign-1o7o",
+      "https://dev.to/fabiancooper/buying-the-black-box-how-to-vet-an-ai-vendor-before-you-sign-1o7o"
+    ],
+    "alerted": false
   }
 ]
