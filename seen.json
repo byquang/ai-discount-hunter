@@ -1452,5 +1452,19 @@
       "https://dev.to/fabiancooper/buying-the-black-box-how-to-vet-an-ai-vendor-before-you-sign-1o7o"
     ],
     "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://www.facebook.com/PHfreecoder/videos/ever-wondered-if-an-ai-coding-assistant-could-do-more-than-write-code-and-actual/3637122013117161",
+      "https://facebook.com/PHfreecoder/videos/ever-wondered-if-an-ai-coding-assistant-could-do-more-than-write-code-and-actual/3637122013117161"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://mashable.com/tech/nov-21-1minai-advanced-business-plan-lifetime-subscription",
+      "https://mashable.com/tech/nov-21-1minai-advanced-business-plan-lifetime-subscription"
+    ],
+    "alerted": false
   }
 ]
