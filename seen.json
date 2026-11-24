@@ -1606,5 +1606,26 @@
       "https://github.com/clockoli/clockoli"
     ],
     "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/shreya/how-foxit-mcp-connects-ai-agents-to-pdf-tools-39g5",
+      "https://dev.to/shreya/how-foxit-mcp-connects-ai-agents-to-pdf-tools-39g5"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/flisk/e2b-alternatives-6-sandboxes-that-passed-a-real-end-to-end-run-29lg",
+      "https://dev.to/flisk/e2b-alternatives-6-sandboxes-that-passed-a-real-end-to-end-run-29lg"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "official:https://vercel.com/changelog/inkling-2-mini-now-available-on-ai-gateway",
+      "https://vercel.com/changelog/inkling-2-mini-now-available-on-ai-gateway"
+    ],
+    "alerted": false
   }
 ]
