@@ -1326,5 +1326,54 @@
       "https://blog.cloudflare.com/adapting-to-ai-penetration-testing-orchestrators"
     ],
     "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://fabricso.envirogadget.com",
+      "https://fabricso.envirogadget.com/"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://www.facebook.com/OrangeDigitalCenterLB/posts/entrepreneurs-finish-the-year-with-new-skills-for-your-business-applications-are/1140554452063867",
+      "https://facebook.com/OrangeDigitalCenterLB/posts/entrepreneurs-finish-the-year-with-new-skills-for-your-business-applications-are/1140554452063867"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://www.instagram.com/p/Dfi1VcLy_Fh",
+      "https://instagram.com/p/Dfi1VcLy_Fh"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://www.taskade.com/blog/ai-quiz-generators",
+      "https://taskade.com/blog/ai-quiz-generators"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://www.livewebinar.com/blog/alternatives/black-friday-2026",
+      "https://livewebinar.com/blog/alternatives/black-friday-2026"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://www.godaddy.com/resources/au/skills/how-to-build-a-restaurant-website",
+      "https://godaddy.com/resources/au/skills/how-to-build-a-restaurant-website"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://dealroom.co/news/175147-bill-takes-2m-seed-stake-in-board-member-s-ai-startup",
+      "https://dealroom.co/news/175147-bill-takes-2m-seed-stake-in-board-member-s-ai-startup"
+    ],
+    "alerted": false
   }
 ]
