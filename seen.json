@@ -1634,5 +1634,89 @@
       "https://news.ycombinator.com/item?id=50631103"
     ],
     "alerted": false
+  },
+  {
+    "keys": [
+      "web:https://x.com/EyeingAI/status/2124932049576591717",
+      "https://x.com/EyeingAI/status/2124932049576591717"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "web:https://x.com/heyrobinai/status/2124920780261617908",
+      "https://x.com/heyrobinai/status/2124920780261617908"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "web:https://x.com/PrajwalTomar_/status/2124918674599575846",
+      "https://x.com/PrajwalTomar_/status/2124918674599575846"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "web:https://www.threads.com/@fatimabuildsai/post/DgHpB0zgmXB/whats-one-free-tool-or-open-source-repo-in-your-tech-stack-that-feels-like-it",
+      "https://threads.com/@fatimabuildsai/post/DgHpB0zgmXB/whats-one-free-tool-or-open-source-repo-in-your-tech-stack-that-feels-like-it"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/duhbob/printhello-world-3p88",
+      "https://dev.to/duhbob/printhello-world-3p88"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "official:https://vercel.com/changelog/aws-privatelink-endpoints-are-now-available-on-secure-compute",
+      "https://vercel.com/changelog/aws-privatelink-endpoints-are-now-available-on-secure-compute"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "hn:50635240",
+      "https://wsj.com/world/asia/south-korea-offers-375-000-reward-to-catch-test-cheaters-using-ai-5908db9d"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/apxagent/test-who-answers-each-contact-before-opening-your-ai-inbox-ld2",
+      "https://dev.to/apxagent/test-who-answers-each-contact-before-opening-your-ai-inbox-ld2"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/mycute_97b39c4e34027570f9/atom-zero-0400-the-loop-promotes-on-its-own-and-a-copy-tool-for-the-wall-4p8b",
+      "https://dev.to/mycute_97b39c4e34027570f9/atom-zero-0400-the-loop-promotes-on-its-own-and-a-copy-tool-for-the-wall-4p8b"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/papajams/rank-1-on-a-model-editing-leaderboard-with-25-and-zero-training-4el2",
+      "https://dev.to/papajams/rank-1-on-a-model-editing-leaderboard-with-25-and-zero-training-4el2"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "hn:50633601",
+      "https://news.ycombinator.com/item?id=50633601"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "hn:50633321",
+      "https://stetup.com/capture"
+    ],
+    "alerted": false
   }
 ]
