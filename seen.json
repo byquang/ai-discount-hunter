@@ -1123,5 +1123,61 @@
       "https://news.ycombinator.com/item?id=50618910"
     ],
     "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://www.facebook.com/theunforgottenhaven/videos/its-the-gobble-till-you-wobble-turkey-shuffle-update-as-always-we-have-been-bles/4737409426535446",
+      "https://facebook.com/theunforgottenhaven/videos/its-the-gobble-till-you-wobble-turkey-shuffle-update-as-always-we-have-been-bles/4737409426535446"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://colab.research.google.com/drive/1ktf9wnAE8gfzk7RUdY12gsHVw65sHlFf",
+      "https://colab.research.google.com/drive/1ktf9wnAE8gfzk7RUdY12gsHVw65sHlFf"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://www.aalto.fi/en/events/python-for-scientific-computing-24-26112026",
+      "https://aalto.fi/en/events/python-for-scientific-computing-24-26112026"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://eweb.tei.org/eweb/DynamicPage.aspx?webcode=EventInfo&Reg_evt_key=af63a69f-1ece-46ab-869b-019497ae7b18",
+      "https://eweb.tei.org/eweb/DynamicPage.aspx?Reg_evt_key=af63a69f-1ece-46ab-869b-019497ae7b18&webcode=EventInfo"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://www.facebook.com/theunforgottenhaven/posts/its-the-gobble-till-you-wobble-turkey-shuffle-update-as-always-we-have-been-bles/1583531740469591",
+      "https://facebook.com/theunforgottenhaven/posts/its-the-gobble-till-you-wobble-turkey-shuffle-update-as-always-we-have-been-bles/1583531740469591"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://www.instagram.com/p/DgD7OhKvUkZ",
+      "https://instagram.com/p/DgD7OhKvUkZ"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://www.isba.org/barnews/2026/11/dontmisstheseupcomingpracticetoolboxseriesseminars",
+      "https://isba.org/barnews/2026/11/dontmisstheseupcomingpracticetoolboxseriesseminars"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://www.orangecountyva.gov/m/calendar/event/detail/5467",
+      "https://orangecountyva.gov/m/calendar/event/detail/5467"
+    ],
+    "alerted": false
   }
 ]
