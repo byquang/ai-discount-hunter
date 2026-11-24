@@ -1627,5 +1627,12 @@
       "https://vercel.com/changelog/inkling-2-mini-now-available-on-ai-gateway"
     ],
     "alerted": false
+  },
+  {
+    "keys": [
+      "hn:50631103",
+      "https://news.ycombinator.com/item?id=50631103"
+    ],
+    "alerted": false
   }
 ]
