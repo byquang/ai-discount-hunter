@@ -1179,5 +1179,89 @@
       "https://orangecountyva.gov/m/calendar/event/detail/5467"
     ],
     "alerted": false
+  },
+  {
+    "keys": [
+      "web:https://x.com/testingcatalog/status/2124927026834350253",
+      "https://x.com/testingcatalog/status/2124927026834350253"
+    ],
+    "alerted": true
+  },
+  {
+    "keys": [
+      "web:https://x.com/coreyganim/status/2124925205185241209",
+      "https://x.com/coreyganim/status/2124925205185241209"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "web:https://x.com/heynavtoor/status/2124923630081720739",
+      "https://x.com/heynavtoor/status/2124923630081720739"
+    ],
+    "alerted": true
+  },
+  {
+    "keys": [
+      "web:https://x.com/avneer_bh/status/2124842065599303973",
+      "https://x.com/avneer_bh/status/2124842065599303973"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "web:https://x.com/Harry_The_Nerd/status/2124840894004351313",
+      "https://x.com/Harry_The_Nerd/status/2124840894004351313"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "web:https://www.threads.com/@harry.motion/post/DgFhsWMmNGi/video-everyone-keeps-asking-how-i-make-my-ai-videos-heres-where-to-actually-learn-it",
+      "https://threads.com/@harry.motion/post/DgFhsWMmNGi/video-everyone-keeps-asking-how-i-make-my-ai-videos-heres-where-to-actually-learn-it"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/dnaiacademy/rules-or-llms-for-purchase-requests-designing-a-control-flow-for-small-businesses-53ce",
+      "https://dev.to/dnaiacademy/rules-or-llms-for-purchase-requests-designing-a-control-flow-for-small-businesses-53ce"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/isabelle_dubuis_d858453d7/ai-ad-disclosure-is-not-claim-proof-a-two-ledger-launch-checklist-4d4c",
+      "https://dev.to/isabelle_dubuis_d858453d7/ai-ad-disclosure-is-not-claim-proof-a-two-ledger-launch-checklist-4d4c"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/proofai/how-to-check-your-thesis-or-dissertation-for-ai-before-submission-india-2je5",
+      "https://dev.to/proofai/how-to-check-your-thesis-or-dissertation-for-ai-before-submission-india-2je5"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/shawdaimarie/epistemic-honesty-in-formal-verification-guarding-against-reward-hacking-and-spec-gaps-5gng",
+      "https://dev.to/shawdaimarie/epistemic-honesty-in-formal-verification-guarding-against-reward-hacking-and-spec-gaps-5gng"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "official:https://vercel.com/changelog/vercel-drives-adds-cli-commands-and-standalone-sdks",
+      "https://vercel.com/changelog/vercel-drives-adds-cli-commands-and-standalone-sdks"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "official:https://aws.amazon.com/blogs/machine-learning/use-kimi-code-cli-with-models-on-amazon-bedrock/",
+      "https://aws.amazon.com/blogs/machine-learning/use-kimi-code-cli-with-models-on-amazon-bedrock"
+    ],
+    "alerted": false
   }
 ]
