@@ -1263,5 +1263,68 @@
       "https://aws.amazon.com/blogs/machine-learning/use-kimi-code-cli-with-models-on-amazon-bedrock"
     ],
     "alerted": false
+  },
+  {
+    "keys": [
+      "web:https://x.com/undefinedKi/status/2124968257912512698",
+      "https://x.com/undefinedKi/status/2124968257912512698"
+    ],
+    "alerted": true
+  },
+  {
+    "keys": [
+      "web:https://x.com/avneer_bh/status/2124836719128383897",
+      "https://x.com/avneer_bh/status/2124836719128383897"
+    ],
+    "alerted": true
+  },
+  {
+    "keys": [
+      "community:https://dev.to/sbcinternational/an-ai-policy-for-smes-that-people-actually-follow-4bce",
+      "https://dev.to/sbcinternational/an-ai-policy-for-smes-that-people-actually-follow-4bce"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/martinpisacreta/my-autonomous-agent-made-037-in-7-weeks-so-i-gave-claude-code-a-second-brain-j23",
+      "https://dev.to/martinpisacreta/my-autonomous-agent-made-037-in-7-weeks-so-i-gave-claude-code-a-second-brain-j23"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "official:https://blog.cloudflare.com/java4shell-waf-protection/",
+      "https://blog.cloudflare.com/java4shell-waf-protection"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "official:https://vercel.com/blog/eve-is-now-generally-available",
+      "https://vercel.com/blog/eve-is-now-generally-available"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "official:https://vercel.com/changelog/set-budgets-for-projects-and-products-in-spend-management",
+      "https://vercel.com/changelog/set-budgets-for-projects-and-products-in-spend-management"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "official:https://vercel.com/changelog/qwen4-max-now-available-on-ai-gateway",
+      "https://vercel.com/changelog/qwen4-max-now-available-on-ai-gateway"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "official:https://blog.cloudflare.com/adapting-to-ai-penetration-testing-orchestrators/",
+      "https://blog.cloudflare.com/adapting-to-ai-penetration-testing-orchestrators"
+    ],
+    "alerted": false
   }
 ]
