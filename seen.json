@@ -1375,5 +1375,40 @@
       "https://dealroom.co/news/175147-bill-takes-2m-seed-stake-in-board-member-s-ai-startup"
     ],
     "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/shubhampalriwala/clickhouse-acquired-langfuse-is-langfuse-still-open-source-and-safe-to-use-and-what-are-the-1pna",
+      "https://dev.to/shubhampalriwala/clickhouse-acquired-langfuse-is-langfuse-still-open-source-and-safe-to-use-and-what-are-the-1pna"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "official:https://aws.amazon.com/blogs/machine-learning/introducing-the-amazon-bedrock-trusted-access-api-with-anthropics-enterprise-frontier-safeguards-and-enterprise-data-controls/",
+      "https://aws.amazon.com/blogs/machine-learning/introducing-the-amazon-bedrock-trusted-access-api-with-anthropics-enterprise-frontier-safeguards-and-enterprise-data-controls"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/ai8888uk/i-cancelled-6-ai-subscriptions-and-replaced-them-with-one-api-honest-30-day-notes-mgm",
+      "https://dev.to/ai8888uk/i-cancelled-6-ai-subscriptions-and-replaced-them-with-one-api-honest-30-day-notes-mgm"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/davejohnsonn15/the-impact-of-ai-writing-tools-on-blogging-and-online-publishing-f9f",
+      "https://dev.to/davejohnsonn15/the-impact-of-ai-writing-tools-on-blogging-and-online-publishing-f9f"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/linkgents/you-are-the-clipboard-your-ai-agents-need-each-other-not-you-in-the-middle-lmc",
+      "https://dev.to/linkgents/you-are-the-clipboard-your-ai-agents-need-each-other-not-you-in-the-middle-lmc"
+    ],
+    "alerted": false
   }
 ]
