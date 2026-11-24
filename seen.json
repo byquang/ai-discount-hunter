@@ -1529,5 +1529,19 @@
       "https://dev.to/krish_verma_77e28d3fd63ca/how-i-built-memory-that-forgets-on-purpose-90-days-to-stale-365-to-gone-and-a-pin-that-never-12gk"
     ],
     "alerted": false
+  },
+  {
+    "keys": [
+      "reddit:1y2onwo",
+      "https://reddit.com/r/ClaudeAI/comments/1y2onwo/free_unused_200_api_credits"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "reddit:1y47iuv",
+      "https://reddit.com/r/vibecoding/comments/1y47iuv/claude_free_or_pro_for_short_coding_sessions"
+    ],
+    "alerted": false
   }
 ]
