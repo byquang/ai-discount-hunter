@@ -1543,5 +1543,68 @@
       "https://reddit.com/r/vibecoding/comments/1y47iuv/claude_free_or_pro_for_short_coding_sessions"
     ],
     "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/shiva_kannan_bb2a214af6c0/why-your-lovable-app-looks-done-at-80-and-then-burns-150-credits-adding-details-one-by-one-3nhb",
+      "https://dev.to/shiva_kannan_bb2a214af6c0/why-your-lovable-app-looks-done-at-80-and-then-burns-150-credits-adding-details-one-by-one-3nhb"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/felipe0liveira/agents-are-getting-their-own-sandboxes-gateways-and-factories-pa6",
+      "https://dev.to/felipe0liveira/agents-are-getting-their-own-sandboxes-gateways-and-factories-pa6"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/frankchu/perplexity-fell-014-nats-when-i-trained-on-75-code-295f",
+      "https://dev.to/frankchu/perplexity-fell-014-nats-when-i-trained-on-75-code-295f"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/frankchu/64-of-agent-spend-went-to-failed-runs-i-re-ran-the-data-k5p",
+      "https://dev.to/frankchu/64-of-agent-spend-went-to-failed-runs-i-re-ran-the-data-k5p"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/giulianaolmos/a-daily-job-finder-with-n8n-tavily-and-openai-4m4i",
+      "https://dev.to/giulianaolmos/a-daily-job-finder-with-n8n-tavily-and-openai-4m4i"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "hn:50628249",
+      "https://usestorypass.com/"
+    ],
+    "alerted": true
+  },
+  {
+    "keys": [
+      "hn:50627633",
+      "https://aisma.ai/developers"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "hn:50627625",
+      "https://ribbonarchitect.com/"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "hn:50627008",
+      "https://github.com/clockoli/clockoli"
+    ],
+    "alerted": false
   }
 ]
