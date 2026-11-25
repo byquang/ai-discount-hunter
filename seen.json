@@ -1963,5 +1963,12 @@
       "https://dev.to/buluo/qwen4-max-architecture-explained-24t-parameters-71b-active-and-three-visual-tests-2ep4"
     ],
     "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://www.producthunt.com/products/vybe-4",
+      "https://producthunt.com/products/vybe-4"
+    ],
+    "alerted": false
   }
 ]
