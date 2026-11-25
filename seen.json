@@ -2124,5 +2124,33 @@
       "https://huggingface.co/blog/inkling-2-mini-inference-hillclimb"
     ],
     "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/aitoolsteps/how-to-use-namedrop-ai-for-beginners-free-guide-2026-mdo",
+      "https://dev.to/aitoolsteps/how-to-use-namedrop-ai-for-beginners-free-guide-2026-mdo"
+    ],
+    "alerted": true
+  },
+  {
+    "keys": [
+      "community:https://dev.to/hermoso/tiktok-ad-library-and-creative-center-how-to-find-winning-tiktok-ads-2026-guide-54j0",
+      "https://dev.to/hermoso/tiktok-ad-library-and-creative-center-how-to-find-winning-tiktok-ads-2026-guide-54j0"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/y_d_e446dc011b6918fcf1052/open-source-got-idle-ai-agents-lets-put-them-to-work-together-and-see-what-we-can-build-1a0h",
+      "https://dev.to/y_d_e446dc011b6918fcf1052/open-source-got-idle-ai-agents-lets-put-them-to-work-together-and-see-what-we-can-build-1a0h"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/2isolutionsusa/governing-ai-in-an-sap-forms-migration-what-reviewers-need-44an",
+      "https://dev.to/2isolutionsusa/governing-ai-in-an-sap-forms-migration-what-reviewers-need-44an"
+    ],
+    "alerted": false
   }
 ]
