@@ -1788,5 +1788,54 @@
       "https://news.ycombinator.com/item?id=50635452"
     ],
     "alerted": false
+  },
+  {
+    "keys": [
+      "web:https://x.com/swarms_corp/status/2125373279263490294",
+      "https://x.com/swarms_corp/status/2125373279263490294"
+    ],
+    "alerted": true
+  },
+  {
+    "keys": [
+      "web:https://x.com/Argona0x/status/2124935195870572962",
+      "https://x.com/Argona0x/status/2124935195870572962"
+    ],
+    "alerted": true
+  },
+  {
+    "keys": [
+      "community:https://dev.to/neuraitool/best-ai-design-tools-in-2027-7-compared-1o3l",
+      "https://dev.to/neuraitool/best-ai-design-tools-in-2027-7-compared-1o3l"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/skillsmp/a-searchable-index-of-42m-agent-skills-what-skillsmp-actually-gives-you-27im",
+      "https://dev.to/skillsmp/a-searchable-index-of-42m-agent-skills-what-skillsmp-actually-gives-you-27im"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/shinobi_999/i-built-13-free-tools-for-creators-no-sign-up-no-downloads-2c4c",
+      "https://dev.to/shinobi_999/i-built-13-free-tools-for-creators-no-sign-up-no-downloads-2c4c"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/chenwengui23/a-customer-asked-for-the-free-inspection-your-website-advertises-your-ai-booked-1203-site-visits-5a78",
+      "https://dev.to/chenwengui23/a-customer-asked-for-the-free-inspection-your-website-advertises-your-ai-booked-1203-site-visits-5a78"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/cooyun/how-we-cut-10-turn-coding-agent-api-costs-by-76-using-4-breakpoint-prompt-caching-and-a-1512",
+      "https://dev.to/cooyun/how-we-cut-10-turn-coding-agent-api-costs-by-76-using-4-breakpoint-prompt-caching-and-a-1512"
+    ],
+    "alerted": false
   }
 ]
