@@ -2012,5 +2012,47 @@
       "https://dev.to/sh20raj/anthropics-siren-what-happens-when-your-ai-agent-finds-a-way-out-of-its-sandbox-1ib5"
     ],
     "alerted": false
+  },
+  {
+    "keys": [
+      "web:https://www.threads.com/@claudeyoudaily/post/DgIw2EEDxbF/breaking-i-paid-off-of-credit-card-debt-in-months-claude-built-the-plan-i-just",
+      "https://threads.com/@claudeyoudaily/post/DgIw2EEDxbF/breaking-i-paid-off-of-credit-card-debt-in-months-claude-built-the-plan-i-just"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/arlind0xbb/measuring-github-copilot-impact-when-your-code-lives-on-gitlab-or-azure-devops-1ned",
+      "https://dev.to/arlind0xbb/measuring-github-copilot-impact-when-your-code-lives-on-gitlab-or-azure-devops-1ned"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "official:https://blog.cloudflare.com/search-for-agents/",
+      "https://blog.cloudflare.com/search-for-agents"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "hn:50641798",
+      "https://bowerbird.gallery/"
+    ],
+    "alerted": true
+  },
+  {
+    "keys": [
+      "hn:50641746",
+      "https://spendgap.ai/"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "hn:50642145",
+      "https://longyan.app/"
+    ],
+    "alerted": false
   }
 ]
