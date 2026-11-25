@@ -1970,5 +1970,47 @@
       "https://producthunt.com/products/vybe-4"
     ],
     "alerted": false
+  },
+  {
+    "keys": [
+      "web:https://www.threads.com/@vaiurenetwork/post/DgGqLyfks4r/ai-tools-for-month-byte-plus-black-friday-is-live-starter-reg-growth-reg-pro",
+      "https://threads.com/@vaiurenetwork/post/DgGqLyfks4r/ai-tools-for-month-byte-plus-black-friday-is-live-starter-reg-growth-reg-pro"
+    ],
+    "alerted": true
+  },
+  {
+    "keys": [
+      "community:https://dev.to/timur_sharapudin_db08a63f/how-we-turn-any-learning-goal-into-a-game-map-product-breakdown-flc",
+      "https://dev.to/timur_sharapudin_db08a63f/how-we-turn-any-learning-goal-into-a-game-map-product-breakdown-flc"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/byteaugur/running-hermes-agent-on-nous-portal-setup-and-what-the-20-plan-gets-you-l48",
+      "https://dev.to/byteaugur/running-hermes-agent-on-nous-portal-setup-and-what-the-20-plan-gets-you-l48"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/graham_morgan_fe784f51a3d/choosing-the-right-web-application-testing-tools-for-better-software-quality-479o",
+      "https://dev.to/graham_morgan_fe784f51a3d/choosing-the-right-web-application-testing-tools-for-better-software-quality-479o"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/neeraj_singh_fa5f9097d308/fast-issue-resolution-written-as-code-3pma",
+      "https://dev.to/neeraj_singh_fa5f9097d308/fast-issue-resolution-written-as-code-3pma"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/sh20raj/anthropics-siren-what-happens-when-your-ai-agent-finds-a-way-out-of-its-sandbox-1ib5",
+      "https://dev.to/sh20raj/anthropics-siren-what-happens-when-your-ai-agent-finds-a-way-out-of-its-sandbox-1ib5"
+    ],
+    "alerted": false
   }
 ]
