@@ -2103,5 +2103,26 @@
       "https://vercel.com/blog/how-cozey-turns-its-operators-into-software-builders-on-vercel"
     ],
     "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://www.facebook.com/tonennorcal/videos/topdon-one-pro-is-the-newest-scan-tool-from-topdon-which-will-have-many-more-fea/1654231773115264",
+      "https://facebook.com/tonennorcal/videos/topdon-one-pro-is-the-newest-scan-tool-from-topdon-which-will-have-many-more-fea/1654231773115264"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://www.instagram.com/p/DfysLAEFFKh",
+      "https://instagram.com/p/DfysLAEFFKh"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "official:https://huggingface.co/blog/inkling-2-mini-inference-hillclimb",
+      "https://huggingface.co/blog/inkling-2-mini-inference-hillclimb"
+    ],
+    "alerted": false
   }
 ]
