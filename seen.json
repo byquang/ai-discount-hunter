@@ -1837,5 +1837,40 @@
       "https://dev.to/cooyun/how-we-cut-10-turn-coding-agent-api-costs-by-76-using-4-breakpoint-prompt-caching-and-a-1512"
     ],
     "alerted": false
+  },
+  {
+    "keys": [
+      "web:https://www.threads.com/@haoyi.im/post/DgHQVsqlYKQ/free-to-start-no-credit-card-hoody-ai-is-built-in-you-can-also-plug-in-your-own",
+      "https://threads.com/@haoyi.im/post/DgHQVsqlYKQ/free-to-start-no-credit-card-hoody-ai-is-built-in-you-can-also-plug-in-your-own"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/thng_trngthanh_f9a91c/connected-json-ld-graph-schema-for-ai-overviews-chatgpt-search-2026-blueprint-151j",
+      "https://dev.to/thng_trngthanh_f9a91c/connected-json-ld-graph-schema-for-ai-overviews-chatgpt-search-2026-blueprint-151j"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/paullovelace/claude-artifacts-can-now-become-real-desktop-apps-on-mac-and-windows-2jn5",
+      "https://dev.to/paullovelace/claude-artifacts-can-now-become-real-desktop-apps-on-mac-and-windows-2jn5"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/nivolacoffeetable/nivola-coffee-table-4h12",
+      "https://dev.to/nivolacoffeetable/nivola-coffee-table-4h12"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/thng_trngthanh_f9a91c/otterly-vs-peec-vs-semrush-vs-profound-vs-scrunch-ai-visibility-tools-compared-4hge",
+      "https://dev.to/thng_trngthanh_f9a91c/otterly-vs-peec-vs-semrush-vs-profound-vs-scrunch-ai-visibility-tools-compared-4hge"
+    ],
+    "alerted": false
   }
 ]
