@@ -2152,5 +2152,48 @@
       "https://dev.to/2isolutionsusa/governing-ai-in-an-sap-forms-migration-what-reviewers-need-44an"
     ],
     "alerted": false
+  },
+  {
+    "keys": [
+      "web:https://www.threads.com/@michaelpope.dev/post/DgF2cgSFEME/giving-away-a-free-ai-packed-with-my-software-engineering-knowledge-built-over",
+      "https://threads.com/@michaelpope.dev/post/DgF2cgSFEME/giving-away-a-free-ai-packed-with-my-software-engineering-knowledge-built-over"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "web:https://www.threads.com/@gptcheats/post/DgGRlfoCpqW/free-bonus-the-ultimate-ai-toolkit-ai-tools-for-every-need-right-in-your-pocket",
+      "https://threads.com/@gptcheats/post/DgGRlfoCpqW/free-bonus-the-ultimate-ai-toolkit-ai-tools-for-every-need-right-in-your-pocket"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/ai-ksk/wan-21-cloud-image-28-flows-native-vace-triton-and-sageattention-h3d",
+      "https://dev.to/ai-ksk/wan-21-cloud-image-28-flows-native-vace-triton-and-sageattention-h3d"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/bondarchuk_bohdan_7777/gatrends-is-now-in-the-claude-connectors-directory-ask-claude-what-is-spiking-right-now-free-no-2f0c",
+      "https://dev.to/bondarchuk_bohdan_7777/gatrends-is-now-in-the-claude-connectors-directory-ask-claude-what-is-spiking-right-now-free-no-2f0c"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/gudmundur_kristjansson/i-built-a-nonprofit-a-website-for-free-heres-what-it-actually-cost-7fa",
+      "https://dev.to/gudmundur_kristjansson/i-built-a-nonprofit-a-website-for-free-heres-what-it-actually-cost-7fa",
+      "https://amplify.is/"
+    ],
+    "alerted": true
+  },
+  {
+    "keys": [
+      "community:https://dev.to/ai-ksk/flux1-kontext-consistent-character-and-object-editing-tested-against-gpt-image-1ec9",
+      "https://dev.to/ai-ksk/flux1-kontext-consistent-character-and-object-editing-tested-against-gpt-image-1ec9"
+    ],
+    "alerted": false
   }
 ]
