@@ -2054,5 +2054,19 @@
       "https://longyan.app/"
     ],
     "alerted": false
+  },
+  {
+    "keys": [
+      "hn:50642976",
+      "https://rocketcrab.com/"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://www.ozbargain.com.au/node/985460",
+      "https://ozbargain.com.au/node/985460"
+    ],
+    "alerted": false
   }
 ]
