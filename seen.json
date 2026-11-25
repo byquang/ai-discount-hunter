@@ -1879,5 +1879,54 @@
       "https://dev.to/jakubgalczyk/choosing-an-on-premises-ai-risk-management-tool-a-decision-guide-423"
     ],
     "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/sirayb96080876b90914/pixverse-api-alternatives-v6-c1-and-siray-ai-38i7",
+      "https://dev.to/sirayb96080876b90914/pixverse-api-alternatives-v6-c1-and-siray-ai-38i7"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "official:https://vercel.com/changelog/standard-builds-for-existing-pro-teams-have-moved-to-usage-based-billing",
+      "https://vercel.com/changelog/standard-builds-for-existing-pro-teams-have-moved-to-usage-based-billing"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/laiba_chauhdry_18642145d2/synthetic-audience-and-digital-twin-in-marketing-simulating-consumer-reactions-before-campaign-4bnj",
+      "https://dev.to/laiba_chauhdry_18642145d2/synthetic-audience-and-digital-twin-in-marketing-simulating-consumer-reactions-before-campaign-4bnj"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/vishvaisadev123/stop-guessing-check-if-your-20mo-ai-sub-is-cheaper-than-the-api-plus-live-latency-radar-85f",
+      "https://dev.to/vishvaisadev123/stop-guessing-check-if-your-20mo-ai-sub-is-cheaper-than-the-api-plus-live-latency-radar-85f"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/hensting/we-audited-1190-websites-selling-to-ai-agents-75-dont-say-who-they-are-4ij0",
+      "https://dev.to/hensting/we-audited-1190-websites-selling-to-ai-agents-75-dont-say-who-they-are-4ij0"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "hn:50639615",
+      "https://lightscale.ai/"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/chmoez/wordpress-to-nextjs-migration-keep-wordpress-modernize-the-frontend-lh1",
+      "https://dev.to/chmoez/wordpress-to-nextjs-migration-keep-wordpress-modernize-the-frontend-lh1"
+    ],
+    "alerted": false
   }
 ]
