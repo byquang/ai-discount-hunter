@@ -1725,5 +1725,68 @@
       "https://github.com/cerulion-inc/cerulion"
     ],
     "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://www.techradar.com/coupons/playstation-us",
+      "https://techradar.com/coupons/playstation-us"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://relevanceandintent.co.nz/blog/black-friday",
+      "https://relevanceandintent.co.nz/blog/black-friday"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://www.tiktok.com/@rewatechnology/video/7710191480341646605",
+      "https://tiktok.com/@rewatechnology/video/7710191480341646605"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://www.facebook.com/chickfiladraper/videos/cow-calendars-are-here-for-purchase-chick-fil-a-draper-from-today-nov-16th-until/2720764505107256",
+      "https://facebook.com/chickfiladraper/videos/cow-calendars-are-here-for-purchase-chick-fil-a-draper-from-today-nov-16th-until/2720764505107256"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://www.bestofpalmbeachcounty.com/palm-beach-county-events?_evDiscoveryPath=%2Fevent%2F45016589a-karate-for-kids-6-15",
+      "https://bestofpalmbeachcounty.com/palm-beach-county-events?_evDiscoveryPath=%2Fevent%2F45016589a-karate-for-kids-6-15"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://www.cobbk12.org/griffin",
+      "https://cobbk12.org/griffin"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://en.softonic.com/articles/quentin-tarantinos-westerns-are-now-free-to-stream-django-unchained-and-the-hateful-eight",
+      "https://en.softonic.com/articles/quentin-tarantinos-westerns-are-now-free-to-stream-django-unchained-and-the-hateful-eight"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://www.oaklandca.gov/Home",
+      "https://oaklandca.gov/Home"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "hn:50635452",
+      "https://news.ycombinator.com/item?id=50635452"
+    ],
+    "alerted": false
   }
 ]
