@@ -1928,5 +1928,40 @@
       "https://dev.to/chmoez/wordpress-to-nextjs-migration-keep-wordpress-modernize-the-frontend-lh1"
     ],
     "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/vikasprogrammer/how-to-deploy-a-claude-code-app-2026-tutorial-1a9d",
+      "https://dev.to/vikasprogrammer/how-to-deploy-a-claude-code-app-2026-tutorial-1a9d"
+    ],
+    "alerted": true
+  },
+  {
+    "keys": [
+      "community:https://dev.to/wonderpick/why-google-news-cbmi-base64-decoding-broke-in-2026-pure-http-fix-free-online-decoder-589",
+      "https://dev.to/wonderpick/why-google-news-cbmi-base64-decoding-broke-in-2026-pure-http-fix-free-online-decoder-589"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/spaisee/maples-privacy-bet-could-redefine-how-ai-agents-earn-trust-4b9c",
+      "https://dev.to/spaisee/maples-privacy-bet-could-redefine-how-ai-agents-earn-trust-4b9c"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/rpgbyters/chatgpt-just-stopped-being-a-chatbot-4deh",
+      "https://dev.to/rpgbyters/chatgpt-just-stopped-being-a-chatbot-4deh"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/buluo/qwen4-max-architecture-explained-24t-parameters-71b-active-and-three-visual-tests-2ep4",
+      "https://dev.to/buluo/qwen4-max-architecture-explained-24t-parameters-71b-active-and-three-visual-tests-2ep4"
+    ],
+    "alerted": false
   }
 ]
