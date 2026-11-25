@@ -2209,5 +2209,40 @@
       "https://facebook.com/BaileysFineJewelry/videos/marcis-1-holiday-shopping-tip-shop-early-this-weekend-is-the-perfect-chance-to-s/4806692779561031"
     ],
     "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/yj_66d7294df017caf0384e3/a-quick-checklist-for-testing-an-ai-avatar-camera-in-google-meet-1h7c",
+      "https://dev.to/yj_66d7294df017caf0384e3/a-quick-checklist-for-testing-an-ai-avatar-camera-in-google-meet-1h7c"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/yj_66d7294df017caf0384e3/vertical-916-framing-for-shorts-and-tiktok-with-an-ai-avatar-camera-587a",
+      "https://dev.to/yj_66d7294df017caf0384e3/vertical-916-framing-for-shorts-and-tiktok-with-an-ai-avatar-camera-587a"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/damonphilipross/same-model-different-host-different-answers-4c1a",
+      "https://dev.to/damonphilipross/same-model-different-host-different-answers-4c1a"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/toai/publication-rejected-truncated-article-body-detected-in-pipeline-858",
+      "https://dev.to/toai/publication-rejected-truncated-article-body-detected-in-pipeline-858"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/alifar/ai-shopping-agents-chose-a-fake-deal-37-of-the-time-in-controlled-test-54bl",
+      "https://dev.to/alifar/ai-shopping-agents-chose-a-fake-deal-37-of-the-time-in-controlled-test-54bl"
+    ],
+    "alerted": false
   }
 ]
