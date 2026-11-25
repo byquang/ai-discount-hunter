@@ -2068,5 +2068,40 @@
       "https://ozbargain.com.au/node/985460"
     ],
     "alerted": false
+  },
+  {
+    "keys": [
+      "web:https://x.com/ChaiWithAi/status/2125562080313168124",
+      "https://x.com/ChaiWithAi/status/2125562080313168124"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/jeffdrizzy/i-built-two-open-agent-skills-for-claude-code-2mp5",
+      "https://dev.to/jeffdrizzy/i-built-two-open-agent-skills-for-claude-code-2mp5"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/achubnet/how-to-make-chatgpt-set-an-alarm-on-your-iphone-that-actually-rings-5ck6",
+      "https://dev.to/achubnet/how-to-make-chatgpt-set-an-alarm-on-your-iphone-that-actually-rings-5ck6"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "hn:50643708",
+      "https://github.com/raymond-van/animama"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "official:https://vercel.com/blog/how-cozey-turns-its-operators-into-software-builders-on-vercel",
+      "https://vercel.com/blog/how-cozey-turns-its-operators-into-software-builders-on-vercel"
+    ],
+    "alerted": false
   }
 ]
