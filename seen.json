@@ -2195,5 +2195,19 @@
       "https://dev.to/ai-ksk/flux1-kontext-consistent-character-and-object-editing-tested-against-gpt-image-1ec9"
     ],
     "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://vidiq.com/youtube-stats/channel/@senpai/videos",
+      "https://vidiq.com/youtube-stats/channel/@senpai/videos"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://www.facebook.com/BaileysFineJewelry/videos/marcis-1-holiday-shopping-tip-shop-early-this-weekend-is-the-perfect-chance-to-s/4806692779561031",
+      "https://facebook.com/BaileysFineJewelry/videos/marcis-1-holiday-shopping-tip-shop-early-this-weekend-is-the-perfect-chance-to-s/4806692779561031"
+    ],
+    "alerted": false
   }
 ]
