@@ -2876,5 +2876,19 @@
       "https://dev.to/aitoolsteps/how-to-use-lumo-desktop-ai-for-beginners-free-guide-2026-1i3o"
     ],
     "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://www.barstoolsports.com",
+      "https://barstoolsports.com/"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://www.facebook.com/noor.ul.aiiin/videos/how-many-minis-can-you-fit-in-1-scoop-how-it-works-1-download-the-gold-apple-app/1026442703039900",
+      "https://facebook.com/noor.ul.aiiin/videos/how-many-minis-can-you-fit-in-1-scoop-how-it-works-1-download-the-gold-apple-app/1026442703039900"
+    ],
+    "alerted": false
   }
 ]
