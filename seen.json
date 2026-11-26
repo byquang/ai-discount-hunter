@@ -2813,5 +2813,68 @@
       "https://clickondetroit.com/business/2026/11/26/necessities-join-gifts-in-black-friday-shopping-carts-as-ai-and-higher-costs-steer-spending"
     ],
     "alerted": false
+  },
+  {
+    "keys": [
+      "web:https://x.com/CreaoAI/status/2125749951212953682",
+      "https://x.com/CreaoAI/status/2125749951212953682"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "web:https://www.threads.com/@agentprompts.ai/post/DgNEnAAoFPw/start-here-it-shows-where-every-dollar-really-goes-the-money-map-system-act-as",
+      "https://threads.com/@agentprompts.ai/post/DgNEnAAoFPw/start-here-it-shows-where-every-dollar-really-goes-the-money-map-system-act-as"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/ijaz_hussain_949f86c7d07a/free-ai-tools-for-wedding-venues-and-event-planners-enquiries-showrounds-and-local-content-on-no-1i4d",
+      "https://dev.to/ijaz_hussain_949f86c7d07a/free-ai-tools-for-wedding-venues-and-event-planners-enquiries-showrounds-and-local-content-on-no-1i4d"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/nestdaddy/serper-alternative-web-search-and-news-for-ai-agents-at-0025-per-1000-searches-2026-2h9f",
+      "https://dev.to/nestdaddy/serper-alternative-web-search-and-news-for-ai-agents-at-0025-per-1000-searches-2026-2h9f"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/winsznx/my-import-said-successful-every-amount-came-back-negative-2e17",
+      "https://dev.to/winsznx/my-import-said-successful-every-amount-came-back-negative-2e17"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/vedhavyas/connecting-claude-to-email-without-oauth-1bl7",
+      "https://dev.to/vedhavyas/connecting-claude-to-email-without-oauth-1bl7"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/aitoolsteps/how-to-use-qube-ai-for-beginners-free-guide-lbb",
+      "https://dev.to/aitoolsteps/how-to-use-qube-ai-for-beginners-free-guide-lbb"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/uer87/we-put-an-llm-in-front-of-our-rule-engine-here-is-what-we-kept-and-what-we-banned-4030",
+      "https://dev.to/uer87/we-put-an-llm-in-front-of-our-rule-engine-here-is-what-we-kept-and-what-we-banned-4030"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/aitoolsteps/how-to-use-lumo-desktop-ai-for-beginners-free-guide-2026-1i3o",
+      "https://dev.to/aitoolsteps/how-to-use-lumo-desktop-ai-for-beginners-free-guide-2026-1i3o"
+    ],
+    "alerted": false
   }
 ]
