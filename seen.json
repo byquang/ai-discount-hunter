@@ -2328,5 +2328,75 @@
       "https://dev.to/a9xlabs/a9x-labs-677-ai-models-in-one-workspace-honest-review-of-the-unified-platform-27ld"
     ],
     "alerted": false
+  },
+  {
+    "keys": [
+      "web:https://x.com/TrendSpider/status/2125688474548515125",
+      "https://x.com/TrendSpider/status/2125688474548515125"
+    ],
+    "alerted": true
+  },
+  {
+    "keys": [
+      "web:https://x.com/FundamentEdge/status/2125667165202481521",
+      "https://x.com/FundamentEdge/status/2125667165202481521"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "web:https://x.com/ericdjav/status/2125662868720734239",
+      "https://x.com/ericdjav/status/2125662868720734239"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/sandscale/canary-tokens-in-agent-sandboxes-tripwires-that-tell-you-when-a-run-goes-rogue-2f1l",
+      "https://dev.to/sandscale/canary-tokens-in-agent-sandboxes-tripwires-that-tell-you-when-a-run-goes-rogue-2f1l"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/istiancollect/ask-questions-of-your-documents-with-notebooklm-with-citations-2hmg",
+      "https://dev.to/istiancollect/ask-questions-of-your-documents-with-notebooklm-with-citations-2hmg"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/sandscale/giving-a-coding-agent-git-access-pats-deploy-keys-and-github-app-tokens-compared-4hic",
+      "https://dev.to/sandscale/giving-a-coding-agent-git-access-pats-deploy-keys-and-github-app-tokens-compared-4hic"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/kling4ai-production/what-is-magi-2-480b-moe-architecture-30s-1080p-audio-video-and-benchmarks-416h",
+      "https://dev.to/kling4ai-production/what-is-magi-2-480b-moe-architecture-30s-1080p-audio-video-and-benchmarks-416h"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/sandscale/what-to-log-for-every-agent-run-a-structured-logging-schema-you-can-query-later-ap7",
+      "https://dev.to/sandscale/what-to-log-for-every-agent-run-a-structured-logging-schema-you-can-query-later-ap7"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/lw_y_cc0e8114599c56bc1b44/why-most-ai-side-hustles-fail-and-the-4-that-actually-work-in-2026-1ecc",
+      "https://dev.to/lw_y_cc0e8114599c56bc1b44/why-most-ai-side-hustles-fail-and-the-4-that-actually-work-in-2026-1ecc"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/baiwei/how-to-direct-consistent-ai-video-characters-with-magi-2s-20-multimodal-reference-slots-image1-4nd",
+      "https://dev.to/baiwei/how-to-direct-consistent-ai-video-characters-with-magi-2s-20-multimodal-reference-slots-image1-4nd"
+    ],
+    "alerted": false
   }
 ]
