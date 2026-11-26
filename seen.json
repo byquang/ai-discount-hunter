@@ -2568,5 +2568,47 @@
       "https://instagram.com/reel/DfzQRaiBSok"
     ],
     "alerted": false
+  },
+  {
+    "keys": [
+      "web:https://www.threads.com/@agentprompts.ai/post/DgMQ6mWFpGj/breaking-claude-can-now-plan-your-entire-move-boxes-to-utilities-in-one-weekend",
+      "https://threads.com/@agentprompts.ai/post/DgMQ6mWFpGj/breaking-claude-can-now-plan-your-entire-move-boxes-to-utilities-in-one-weekend"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "web:https://www.threads.com/@thechronicceo/post/DgMOf20FBip/ok-so-im-a-little-unhinged-but-this-is-not-new-news-what-is-new-news-is-that-im",
+      "https://threads.com/@thechronicceo/post/DgMOf20FBip/ok-so-im-a-little-unhinged-but-this-is-not-new-news-what-is-new-news-is-that-im"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/artur46222/the-smart-home-how-household-gadgets-collect-our-data-n4e",
+      "https://dev.to/artur46222/the-smart-home-how-household-gadgets-collect-our-data-n4e"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/sasco_smart_c126022fe465a/leading-audio-visual-system-brands-transforming-home-entertainment-aj2",
+      "https://dev.to/sasco_smart_c126022fe465a/leading-audio-visual-system-brands-transforming-home-entertainment-aj2"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/tymes_ai/why-does-ai-feels-so-fast-in-2026-dim",
+      "https://dev.to/tymes_ai/why-does-ai-feels-so-fast-in-2026-dim"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/observeri_technologies_4b/cyber-risk-management-software-ai-quantification-and-predictive-scoring-518p",
+      "https://dev.to/observeri_technologies_4b/cyber-risk-management-software-ai-quantification-and-predictive-scoring-518p"
+    ],
+    "alerted": false
   }
 ]
