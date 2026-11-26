@@ -2547,5 +2547,26 @@
       "https://dev.to/oal36ar/i-turn-youtube-tutorials-into-skills-for-my-coding-agent-heres-how-it-works-37h6"
     ],
     "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://www.powerfulai.tools/blog/is-zcode-free",
+      "https://powerfulai.tools/blog/is-zcode-free"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://chatcut.io/blog/best-ai-agents-for-video-editing",
+      "https://chatcut.io/blog/best-ai-agents-for-video-editing"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://www.instagram.com/reel/DfzQRaiBSok",
+      "https://instagram.com/reel/DfzQRaiBSok"
+    ],
+    "alerted": false
   }
 ]
