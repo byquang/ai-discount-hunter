@@ -2750,5 +2750,54 @@
       "https://jayhumelexier.substack.com/p/one-month-of-selling-an-ai-written"
     ],
     "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/creatorvideolab26/multilingual-es-pt-br-ai-dance-pet-motion-transfer-workflows-without-capcut-locks-2026-3hnc",
+      "https://dev.to/creatorvideolab26/multilingual-es-pt-br-ai-dance-pet-motion-transfer-workflows-without-capcut-locks-2026-3hnc"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/creatorvideolab26/capcut-template-alternatives-in-2026-single-photo-ai-choreography-pet-video-generators-compared-24b3",
+      "https://dev.to/creatorvideolab26/capcut-template-alternatives-in-2026-single-photo-ai-choreography-pet-video-generators-compared-24b3"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/martin_jones_5af8a972f62a/how-to-cut-llm-api-costs-by-50-75-using-prompt-caching-deepseek-off-peak-windows-gbf",
+      "https://dev.to/martin_jones_5af8a972f62a/how-to-cut-llm-api-costs-by-50-75-using-prompt-caching-deepseek-off-peak-windows-gbf"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/builditomi/were-hiring-40-interns-in-india-to-learn-how-ai-products-get-built-4i7k",
+      "https://dev.to/builditomi/were-hiring-40-interns-in-india-to-learn-how-ai-products-get-built-4i7k"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/axfab/when-ai-memory-gets-in-the-way-my-assistant-kept-remembering-the-rules-i-wanted-to-forget-4do4",
+      "https://dev.to/axfab/when-ai-memory-gets-in-the-way-my-assistant-kept-remembering-the-rules-i-wanted-to-forget-4do4"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "hn:50656925",
+      "https://github.com/graphvein/graphvein"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/member_c785b49d/running-a-one-person-content-studio-with-an-ai-agent-my-month-with-muse-plus-a-working-invite-16no",
+      "https://dev.to/member_c785b49d/running-a-one-person-content-studio-with-an-ai-agent-my-month-with-muse-plus-a-working-invite-16no"
+    ],
+    "alerted": false
   }
 ]
