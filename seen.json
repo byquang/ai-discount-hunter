@@ -2398,5 +2398,13 @@
       "https://dev.to/baiwei/how-to-direct-consistent-ai-video-characters-with-magi-2s-20-multimodal-reference-slots-image1-4nd"
     ],
     "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://www.ozbargain.com.au/node/984459",
+      "https://ozbargain.com.au/node/984459",
+      "https://vitalmetrics.org/register?promo=ozbargain"
+    ],
+    "alerted": true
   }
 ]
