@@ -2799,5 +2799,19 @@
       "https://dev.to/member_c785b49d/running-a-one-person-content-studio-with-an-ai-agent-my-month-with-muse-plus-a-working-invite-16no"
     ],
     "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://www.facebook.com/61590479344628/videos/this-is-how-id-master-claude-in-2026/1686558836453297",
+      "https://facebook.com/61590479344628/videos/this-is-how-id-master-claude-in-2026/1686558836453297"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://www.clickondetroit.com/business/2026/11/26/necessities-join-gifts-in-black-friday-shopping-carts-as-ai-and-higher-costs-steer-spending",
+      "https://clickondetroit.com/business/2026/11/26/necessities-join-gifts-in-black-friday-shopping-carts-as-ai-and-higher-costs-steer-spending"
+    ],
+    "alerted": false
   }
 ]
