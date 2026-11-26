@@ -2687,5 +2687,61 @@
       "https://dev.to/observeri_technologies_4b/ai-risk-operations-center-for-energy-in-the-uae-4ojc"
     ],
     "alerted": false
+  },
+  {
+    "keys": [
+      "web:https://x.com/chrissotraidis/status/2125907797653209488",
+      "https://x.com/chrissotraidis/status/2125907797653209488"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "web:https://x.com/Kisalay_/status/2125867717156888585",
+      "https://x.com/Kisalay_/status/2125867717156888585"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/instinctagentai/a-public-catalog-of-free-api-tiers-what-i-added-this-week-and-what-it-is-not-2899",
+      "https://dev.to/instinctagentai/a-public-catalog-of-free-api-tiers-what-i-added-this-week-and-what-it-is-not-2899"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/jackmally/wiring-a-remote-ai-text-mcp-server-into-your-editor-keys-credits-and-retries-405e",
+      "https://dev.to/jackmally/wiring-a-remote-ai-text-mcp-server-into-your-editor-keys-credits-and-retries-405e"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/_2b97253d485eae7fa06d7/how-to-generate-169-covers-social-visuals-without-fighting-cropping-prompts-browser-finishing-2g29",
+      "https://dev.to/_2b97253d485eae7fa06d7/how-to-generate-169-covers-social-visuals-without-fighting-cropping-prompts-browser-finishing-2g29"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/adarshdigievo/serpapi-hacktoberfest-2026-recap-projects-from-the-community-14p4",
+      "https://dev.to/adarshdigievo/serpapi-hacktoberfest-2026-recap-projects-from-the-community-14p4"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/yuanqiang_leng_79a0c309a2/2026-self-hosted-n8n-ai-agent-benchmarks-non-cached-4k-fsync-iops-billing-meters-preventing-54ik",
+      "https://dev.to/yuanqiang_leng_79a0c309a2/2026-self-hosted-n8n-ai-agent-benchmarks-non-cached-4k-fsync-iops-billing-meters-preventing-54ik"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "hn:50654961",
+      "https://news.ycombinator.com/item?id=50654961"
+    ],
+    "alerted": false
   }
 ]
