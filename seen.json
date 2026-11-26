@@ -2498,5 +2498,54 @@
       "https://dev.to/affineofficial/every-new-agent-session-starts-empty-i-wrote-a-wiki-packer-for-that-4li4"
     ],
     "alerted": false
+  },
+  {
+    "keys": [
+      "web:https://x.com/Beth_Kindig/status/2125804342825701612",
+      "https://x.com/Beth_Kindig/status/2125804342825701612"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "web:https://x.com/allen_explains/status/2125290671150121250",
+      "https://x.com/allen_explains/status/2125290671150121250"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/mango7777/gemini-4-neon-arrives-with-1m-context-3-token-pricing-and-top-coding-agent-scores-2hkp",
+      "https://dev.to/mango7777/gemini-4-neon-arrives-with-1m-context-3-token-pricing-and-top-coding-agent-scores-2hkp"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/extaileohappy/building-extai-leo-happy-a-high-speed-mv3-chrome-ai-copilot-with-byok-privacy-live-web-search-3510",
+      "https://dev.to/extaileohappy/building-extai-leo-happy-a-high-speed-mv3-chrome-ai-copilot-with-byok-privacy-live-web-search-3510"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/boban_dev/how-to-publish-your-first-app-online-without-a-developer-11il",
+      "https://dev.to/boban_dev/how-to-publish-your-first-app-online-without-a-developer-11il"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/m_khanna_60581d1c1b2b65c0/microbiome-therapeutics-market-trends-report-future-growth-segment-overview-and-leading-417i",
+      "https://dev.to/m_khanna_60581d1c1b2b65c0/microbiome-therapeutics-market-trends-report-future-growth-segment-overview-and-leading-417i"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/oal36ar/i-turn-youtube-tutorials-into-skills-for-my-coding-agent-heres-how-it-works-37h6",
+      "https://dev.to/oal36ar/i-turn-youtube-tutorials-into-skills-for-my-coding-agent-heres-how-it-works-37h6"
+    ],
+    "alerted": false
   }
 ]
