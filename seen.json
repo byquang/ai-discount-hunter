@@ -2244,5 +2244,89 @@
       "https://dev.to/alifar/ai-shopping-agents-chose-a-fake-deal-37-of-the-time-in-controlled-test-54bl"
     ],
     "alerted": false
+  },
+  {
+    "keys": [
+      "web:https://x.com/JulianGoldieSEO/status/2125590335384326155",
+      "https://x.com/JulianGoldieSEO/status/2125590335384326155"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "web:https://x.com/tjcages/status/2125300897798639765",
+      "https://x.com/tjcages/status/2125300897798639765"
+    ],
+    "alerted": true
+  },
+  {
+    "keys": [
+      "web:https://www.threads.com/@meta.ai/post/DgLSTb2jKT2/there-isnt-actually-different-completely-free-flow-connector-extensions-for",
+      "https://threads.com/@meta.ai/post/DgLSTb2jKT2/there-isnt-actually-different-completely-free-flow-connector-extensions-for"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "web:https://www.threads.com/@karima.digital/post/DgI-LEklosG/hey-karimas-bot-here-claude-karima-is-showing-exactly-how-in-a-free-class-this",
+      "https://threads.com/@karima.digital/post/DgI-LEklosG/hey-karimas-bot-here-claude-karima-is-showing-exactly-how-in-a-free-class-this"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "web:https://www.threads.com/@meta.ai/post/DgHz4XXihCT/that-screenshot-is-real-but-its-not-a-public-code-its-a-targeted-promo-open-ai",
+      "https://threads.com/@meta.ai/post/DgHz4XXihCT/that-screenshot-is-real-but-its-not-a-public-code-its-a-targeted-promo-open-ai"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "web:https://www.threads.com/@techyoudaily/post/DgHekKjGxY8/ai-tools-hours-of-research-yours-for-save-hours-every-week-ai-tools-for-content",
+      "https://threads.com/@techyoudaily/post/DgHekKjGxY8/ai-tools-hours-of-research-yours-for-save-hours-every-week-ai-tools-for-content"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "web:https://www.threads.com/@ditchthattextbook/post/DgIZI4qiIFP/black-friday-deal-get-off-your-ditch-summit-ticket-discover-fresh-ideas",
+      "https://threads.com/@ditchthattextbook/post/DgIZI4qiIFP/black-friday-deal-get-off-your-ditch-summit-ticket-discover-fresh-ideas"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/ghosts/what-32919-mcp-servers-tell-us-about-the-ecosystem-november-2026-13cf",
+      "https://dev.to/ghosts/what-32919-mcp-servers-tell-us-about-the-ecosystem-november-2026-13cf"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/yagyaraj_sharma_6cd410179/unveiling-the-mysterious-satoshi-nakamoto-25-lesser-known-facts-revealed-5gi9",
+      "https://dev.to/yagyaraj_sharma_6cd410179/unveiling-the-mysterious-satoshi-nakamoto-25-lesser-known-facts-revealed-5gi9"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/trillioniar_s_14a3c313e14/daily-ai-news-nov-26-ai-solves-math-while-the-bill-comes-due-29l6",
+      "https://dev.to/trillioniar_s_14a3c313e14/daily-ai-news-nov-26-ai-solves-math-while-the-bill-comes-due-29l6"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/yagyaraj_sharma_6cd410179/the-humble-hero-of-the-kitchen-why-midsize-knives-deserve-your-attention-2717",
+      "https://dev.to/yagyaraj_sharma_6cd410179/the-humble-hero-of-the-kitchen-why-midsize-knives-deserve-your-attention-2717"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/a9xlabs/a9x-labs-677-ai-models-in-one-workspace-honest-review-of-the-unified-platform-27ld",
+      "https://dev.to/a9xlabs/a9x-labs-677-ai-models-in-one-workspace-honest-review-of-the-unified-platform-27ld"
+    ],
+    "alerted": false
   }
 ]
