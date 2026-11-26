@@ -2743,5 +2743,12 @@
       "https://news.ycombinator.com/item?id=50654961"
     ],
     "alerted": false
+  },
+  {
+    "keys": [
+      "hn:50656245",
+      "https://jayhumelexier.substack.com/p/one-month-of-selling-an-ai-written"
+    ],
+    "alerted": false
   }
 ]
