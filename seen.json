@@ -2406,5 +2406,33 @@
       "https://vitalmetrics.org/register?promo=ozbargain"
     ],
     "alerted": true
+  },
+  {
+    "keys": [
+      "open-web:https://www.taskade.com/blog/best-ai-tutors",
+      "https://taskade.com/blog/best-ai-tutors"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://medium.com/@prasannavaidya/black-friday-saas-deals-2026-20-best-offers-92fb9328787d",
+      "https://medium.com/@prasannavaidya/black-friday-saas-deals-2026-20-best-offers-92fb9328787d"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://squirrelscan.com/learn/lighthouse-alternative",
+      "https://squirrelscan.com/learn/lighthouse-alternative"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://kudelskisecurity.com/research/sandboxing-coding-agents",
+      "https://kudelskisecurity.com/research/sandboxing-coding-agents"
+    ],
+    "alerted": false
   }
 ]
