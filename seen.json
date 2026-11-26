@@ -2610,5 +2610,82 @@
       "https://dev.to/observeri_technologies_4b/cyber-risk-management-software-ai-quantification-and-predictive-scoring-518p"
     ],
     "alerted": false
+  },
+  {
+    "keys": [
+      "web:https://x.com/itsalexvacca/status/2125323866641973274",
+      "https://x.com/itsalexvacca/status/2125323866641973274"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "web:https://www.threads.com/@techyoudaily/post/DgIHx_5G20G/ai-tools-hours-of-research-yours-for-save-hours-every-week-ai-tools-for-content",
+      "https://threads.com/@techyoudaily/post/DgIHx_5G20G/ai-tools-hours-of-research-yours-for-save-hours-every-week-ai-tools-for-content"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "web:https://www.threads.com/@agentprompts.ai/post/DgMWzLbFg-M/dont-screenshot-all-the-whole-vault-is-free-prompts-one-link",
+      "https://threads.com/@agentprompts.ai/post/DgMWzLbFg-M/dont-screenshot-all-the-whole-vault-is-free-prompts-one-link"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/carlosbergman84/orinoco-studio-50-ai-series-engines-on-digen-the-full-catalogue-1hgo",
+      "https://dev.to/carlosbergman84/orinoco-studio-50-ai-series-engines-on-digen-the-full-catalogue-1hgo"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/authentic_outboardparts_/buy-mephedrone-4-mmc-25dd",
+      "https://dev.to/authentic_outboardparts_/buy-mephedrone-4-mmc-25dd"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/mir_arshadalitalpur_1b3/your-telecom-ai-agent-is-not-cutting-calls-it-is-delaying-them-1ahc",
+      "https://dev.to/mir_arshadalitalpur_1b3/your-telecom-ai-agent-is-not-cutting-calls-it-is-delaying-them-1ahc"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/patrick_obrien_9d32049d27/i-gave-my-install-prompt-to-lovable-v0-bolt-and-claude-code-heres-what-broke-233i",
+      "https://dev.to/patrick_obrien_9d32049d27/i-gave-my-install-prompt-to-lovable-v0-bolt-and-claude-code-heres-what-broke-233i"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/b2_brands_e749bb8ab3ddac6/offline-cicd-testing-for-mcp-tool-poisoning-iso-20022-sepa-xml-zero-saas-lock-in-d0j",
+      "https://dev.to/b2_brands_e749bb8ab3ddac6/offline-cicd-testing-for-mcp-tool-poisoning-iso-20022-sepa-xml-zero-saas-lock-in-d0j"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/devang_chavda_641057d210b/the-founders-guide-to-hiring-a-mern-development-2be8",
+      "https://dev.to/devang_chavda_641057d210b/the-founders-guide-to-hiring-a-mern-development-2be8"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/likiyadiig/what-i-learned-getting-claude-to-edit-word-reports-without-hiding-what-it-changed-5i8",
+      "https://dev.to/likiyadiig/what-i-learned-getting-claude-to-edit-word-reports-without-hiding-what-it-changed-5i8"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/observeri_technologies_4b/ai-risk-operations-center-for-energy-in-the-uae-4ojc",
+      "https://dev.to/observeri_technologies_4b/ai-risk-operations-center-for-energy-in-the-uae-4ojc"
+    ],
+    "alerted": false
   }
 ]
