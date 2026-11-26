@@ -2434,5 +2434,69 @@
       "https://kudelskisecurity.com/research/sandboxing-coding-agents"
     ],
     "alerted": false
+  },
+  {
+    "keys": [
+      "web:https://x.com/ai_explorer25/status/2125784104348041649",
+      "https://x.com/ai_explorer25/status/2125784104348041649"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "web:https://x.com/CreaoAI/status/2125749819667062837",
+      "https://x.com/CreaoAI/status/2125749819667062837"
+    ],
+    "alerted": true
+  },
+  {
+    "keys": [
+      "web:https://x.com/Beth_Kindig/status/2125735145252528171",
+      "https://x.com/Beth_Kindig/status/2125735145252528171"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/belcore/try-belcores-long-term-memory-from-any-mcp-client-claude-desktop-cursor-in-two-minutes-2ind",
+      "https://dev.to/belcore/try-belcores-long-term-memory-from-any-mcp-client-claude-desktop-cursor-in-two-minutes-2ind",
+      "https://belcore.xyz/developers/signup"
+    ],
+    "alerted": true
+  },
+  {
+    "keys": [
+      "community:https://dev.to/elabstudio/i-extracted-text-from-3-famous-ai-papers-with-a-pdf-scraper-and-checked-it-against-pdftotext-52la",
+      "https://dev.to/elabstudio/i-extracted-text-from-3-famous-ai-papers-with-a-pdf-scraper-and-checked-it-against-pdftotext-52la"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/ayush_singh321/my-simulation-exaggerated-the-cost-of-my-own-safety-feature-565p",
+      "https://dev.to/ayush_singh321/my-simulation-exaggerated-the-cost-of-my-own-safety-feature-565p"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/maviapi/cheapest-flights-out-of-berlin-with-one-curl-call-534m",
+      "https://dev.to/maviapi/cheapest-flights-out-of-berlin-with-one-curl-call-534m"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/eric_culus/lovables-new-security-checks-what-runs-before-publish-and-what-doesnt-1p92",
+      "https://dev.to/eric_culus/lovables-new-security-checks-what-runs-before-publish-and-what-doesnt-1p92"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/affineofficial/every-new-agent-session-starts-empty-i-wrote-a-wiki-packer-for-that-4li4",
+      "https://dev.to/affineofficial/every-new-agent-session-starts-empty-i-wrote-a-wiki-packer-for-that-4li4"
+    ],
+    "alerted": false
   }
 ]
