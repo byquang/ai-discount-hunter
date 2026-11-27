@@ -1,13 +1,6 @@
 [
   {
     "keys": [
-      "open-web:https://www.facebook.com/Realromanknox/videos/16-billion-free-tokens-a-month-for-claude-code-from-free-tiers-four-free-tools-t/2085052772208105",
-      "https://facebook.com/Realromanknox/videos/16-billion-free-tokens-a-month-for-claude-code-from-free-tiers-four-free-tools-t/2085052772208105"
-    ],
-    "alerted": false
-  },
-  {
-    "keys": [
       "open-web:https://instantly.startupworld.com",
       "https://instantly.startupworld.com/"
     ],
@@ -3505,6 +3498,13 @@
     "keys": [
       "community:https://dev.to/jpster/ai-doesnt-turn-anyone-into-a-developer-4558",
       "https://dev.to/jpster/ai-doesnt-turn-anyone-into-a-developer-4558"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "official:https://blog.google/innovation-and-ai/products/gemini-app/tasks-in-gemini-free-new-features/",
+      "https://blog.google/innovation-and-ai/products/gemini-app/tasks-in-gemini-free-new-features"
     ],
     "alerted": false
   }
