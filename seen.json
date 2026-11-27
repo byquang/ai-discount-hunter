@@ -1,13 +1,6 @@
 [
   {
     "keys": [
-      "hn:50567622",
-      "https://bocalito.com/"
-    ],
-    "alerted": false
-  },
-  {
-    "keys": [
       "hn:50587779",
       "https://news.ycombinator.com/item?id=50587779"
     ],
@@ -3505,6 +3498,13 @@
     "keys": [
       "hn:50669286",
       "https://lanternpromos.com/"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "hn:50669993",
+      "https://flowmaps.ai/"
     ],
     "alerted": false
   }
