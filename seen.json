@@ -3416,5 +3416,19 @@
       "https://dev.to/angel_usa_66a965580f5a70f/adding-schema-markup-to-a-food-ingredient-website-in-react-5a1j"
     ],
     "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://www.fabrico.io/blog/cake-production-line-oee",
+      "https://fabrico.io/blog/cake-production-line-oee"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://www.speechtherapypd.com",
+      "https://speechtherapypd.com/"
+    ],
+    "alerted": false
   }
 ]
