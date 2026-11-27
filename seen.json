@@ -3072,5 +3072,55 @@
       "https://scolast.com/"
     ],
     "alerted": true
+  },
+  {
+    "keys": [
+      "web:https://x.com/haltakov/status/2125983102736470233",
+      "https://x.com/haltakov/status/2125983102736470233"
+    ],
+    "alerted": true
+  },
+  {
+    "keys": [
+      "web:https://www.threads.com/@agentprompts.ai/post/DgMWEJoljE1/breaking-claude-can-now-script-a-week-of-instagram-stories-like-a-month",
+      "https://threads.com/@agentprompts.ai/post/DgMWEJoljE1/breaking-claude-can-now-script-a-week-of-instagram-stories-like-a-month"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "web:https://x.com/sklyarov/status/2125909266691211591",
+      "https://x.com/sklyarov/status/2125909266691211591"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/germey/one-coding-budget-multiple-models-configure-opencode-with-the-acedatacloud-coding-plan-20fj",
+      "https://dev.to/germey/one-coding-budget-multiple-models-configure-opencode-with-the-acedatacloud-coding-plan-20fj",
+      "https://platform.acedata.cloud/services/coding"
+    ],
+    "alerted": true
+  },
+  {
+    "keys": [
+      "community:https://dev.to/aidy029/best-codex-design-skills-for-2027-an-honest-shortlist-no-rankings-no-hype-2bn1",
+      "https://dev.to/aidy029/best-codex-design-skills-for-2027-an-honest-shortlist-no-rankings-no-hype-2bn1"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/toolpotion/ai-writing-assistants-in-2026-pick-the-job-not-the-leaderboard-400n",
+      "https://dev.to/toolpotion/ai-writing-assistants-in-2026-pick-the-job-not-the-leaderboard-400n"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/leopixtv/the-3-photo-input-pattern-for-automated-e-commerce-product-videos-without-prompt-engineering-hbn",
+      "https://dev.to/leopixtv/the-3-photo-input-pattern-for-automated-e-commerce-product-videos-without-prompt-engineering-hbn"
+    ],
+    "alerted": false
   }
 ]
