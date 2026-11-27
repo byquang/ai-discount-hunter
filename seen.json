@@ -3430,5 +3430,47 @@
       "https://speechtherapypd.com/"
     ],
     "alerted": false
+  },
+  {
+    "keys": [
+      "web:https://x.com/cyrilXBT/status/2126239670304657768",
+      "https://x.com/cyrilXBT/status/2126239670304657768"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/hacksgr/glarity-chatgpt-summary-translate-anypage-4468-17k4",
+      "https://dev.to/hacksgr/glarity-chatgpt-summary-translate-anypage-4468-17k4"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "hn:50667373",
+      "https://wots.io/"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/andriyvk/5-google-news-scrapers-on-the-same-queries-full-text-direct-links-several-countries-in-one-run-5e05",
+      "https://dev.to/andriyvk/5-google-news-scrapers-on-the-same-queries-full-text-direct-links-several-countries-in-one-run-5e05"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/jaafarmourtada/fine-tuning-an-llm-what-courses-ask-you-to-know-and-build-3acp",
+      "https://dev.to/jaafarmourtada/fine-tuning-an-llm-what-courses-ask-you-to-know-and-build-3acp"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/caotiendat/td-manga-studio-v134-pro-phan-mem-dich-truyen-tranh-manga-manhwa-manhua-webtoon-cho-windows-4oak",
+      "https://dev.to/caotiendat/td-manga-studio-v134-pro-phan-mem-dich-truyen-tranh-manga-manhwa-manhua-webtoon-cho-windows-4oak"
+    ],
+    "alerted": false
   }
 ]
