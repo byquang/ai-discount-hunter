@@ -2995,5 +2995,82 @@
       "https://dev.to/vachi/your-agent-is-only-as-good-as-its-context-4dl"
     ],
     "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://shoutmeloud.com/black-friday-ai-tools-deals-offers.html",
+      "https://shoutmeloud.com/black-friday-ai-tools-deals-offers.html"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://www.instagram.com/p/DgNzbb7jQfb",
+      "https://instagram.com/p/DgNzbb7jQfb"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://colab.research.google.com/drive/1TV85puYbGG6OVGp9qpuvbBerHdVWTHBq",
+      "https://colab.research.google.com/drive/1TV85puYbGG6OVGp9qpuvbBerHdVWTHBq"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://www.facebook.com/100088297910322/videos/comment-lowes-for-list-great-stocking-stuffers-make-sure-to-be-signed-in-add-to/1007279079106858",
+      "https://facebook.com/100088297910322/videos/comment-lowes-for-list-great-stocking-stuffers-make-sure-to-be-signed-in-add-to/1007279079106858"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://www.facebook.com/lowes/videos/nothing-like-that-night-before-black-friday-excitement/1715088593697575",
+      "https://facebook.com/lowes/videos/nothing-like-that-night-before-black-friday-excitement/1715088593697575"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://www.facebook.com/cfaportcharlotte/posts/black-friday-giveaway-at-chick-fil-a-port-charlotte-get-ready-for-an-exciting-bl/1528955629352253",
+      "https://facebook.com/cfaportcharlotte/posts/black-friday-giveaway-at-chick-fil-a-port-charlotte-get-ready-for-an-exciting-bl/1528955629352253"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://www.facebook.com/AcadianaMall/posts/black-friday-giveaway-for-friday-1127-jcpenney-will-open-at-5am-gate-to-enter-th/1598953868934520",
+      "https://facebook.com/AcadianaMall/posts/black-friday-giveaway-for-friday-1127-jcpenney-will-open-at-5am-gate-to-enter-th/1598953868934520"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://www.instagram.com/reel/Df9lrbYvYe9",
+      "https://instagram.com/reel/Df9lrbYvYe9"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://www.instagram.com/reel/DgNhFJPB2iY",
+      "https://instagram.com/reel/DgNhFJPB2iY"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://rhodeislandcurrent.com/2026/11/26/buy-nothing-day-free-coat-exchange-in-providence-turns-30",
+      "https://rhodeislandcurrent.com/2026/11/26/buy-nothing-day-free-coat-exchange-in-providence-turns-30"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "hn:50661473",
+      "https://scolast.com/"
+    ],
+    "alerted": true
   }
 ]
