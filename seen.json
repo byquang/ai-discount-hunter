@@ -1,41 +1,6 @@
 [
   {
     "keys": [
-      "hn:50589936",
-      "https://klistra.ai/"
-    ],
-    "alerted": false
-  },
-  {
-    "keys": [
-      "hn:50589229",
-      "https://github.com/spooky6G/bobalice_books"
-    ],
-    "alerted": false
-  },
-  {
-    "keys": [
-      "hn:50588038",
-      "https://swiphtgroup.com/swiphtnum"
-    ],
-    "alerted": false
-  },
-  {
-    "keys": [
-      "hn:50585574",
-      "https://muglobe.com/"
-    ],
-    "alerted": false
-  },
-  {
-    "keys": [
-      "hn:50584994",
-      "https://nametheworld.starshadowx2.workers.dev/"
-    ],
-    "alerted": false
-  },
-  {
-    "keys": [
       "hn:50584716",
       "https://craoli.com/"
     ],
@@ -3477,6 +3442,69 @@
     "keys": [
       "hn:50667780",
       "https://news.ycombinator.com/item?id=50667780"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "web:https://x.com/aresotik/status/2126289411424108735",
+      "https://x.com/aresotik/status/2126289411424108735"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "web:https://x.com/mattshumer_/status/2126287844134048166",
+      "https://x.com/mattshumer_/status/2126287844134048166"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "web:https://x.com/higgsfield/status/2126123075221569655",
+      "https://x.com/higgsfield/status/2126123075221569655"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/jay_flyppt/how-to-build-a-promotion-interview-presentation-around-evidence-trade-offs-and-a-90-day-plan-egl",
+      "https://dev.to/jay_flyppt/how-to-build-a-promotion-interview-presentation-around-evidence-trade-offs-and-a-90-day-plan-egl"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/_2b97253d485eae7fa06d7/removebg-shutting-down-dec-1-2026-migration-checklist-standalone-alternatives-no-canva-pro-2eo7",
+      "https://dev.to/_2b97253d485eae7fa06d7/removebg-shutting-down-dec-1-2026-migration-checklist-standalone-alternatives-no-canva-pro-2eo7"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/malek_aitouaret_f026758c/my-llm-compiler-fixed-a-students-bug-nobody-asked-it-to-1oab",
+      "https://dev.to/malek_aitouaret_f026758c/my-llm-compiler-fixed-a-students-bug-nobody-asked-it-to-1oab"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/savlume/the-hidden-math-of-a-deal-modeling-shipping-tax-and-fees-before-you-call-it-a-discount-clf",
+      "https://dev.to/savlume/the-hidden-math-of-a-deal-modeling-shipping-tax-and-fees-before-you-call-it-a-discount-clf"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/mr_flow/tackling-llm-prompt-bloat-building-a-just-in-time-context-router-in-rust-part-8-43kh",
+      "https://dev.to/mr_flow/tackling-llm-prompt-bloat-building-a-just-in-time-context-router-in-rust-part-8-43kh"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/erpoida/erpoida-odoo-or-zoho-one-which-erp-fits-your-business-7ha",
+      "https://dev.to/erpoida/erpoida-odoo-or-zoho-one-which-erp-fits-your-business-7ha"
     ],
     "alerted": false
   }
