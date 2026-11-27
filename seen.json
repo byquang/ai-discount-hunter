@@ -1,48 +1,6 @@
 [
   {
     "keys": [
-      "hn:50574885",
-      "https://murmurcomputing.ai/"
-    ],
-    "alerted": false
-  },
-  {
-    "keys": [
-      "web:https://x.com/rubenhassid/status/2124110591866613936",
-      "https://x.com/rubenhassid/status/2124110591866613936"
-    ],
-    "alerted": false
-  },
-  {
-    "keys": [
-      "web:https://www.threads.com/@ai.iyaz/post/Df6zLjaAVqS/video-gemini-neon-is-free-on-the-api-for-hours-on-the-intelligence-index-ahead-of",
-      "https://threads.com/@ai.iyaz/post/Df6zLjaAVqS/video-gemini-neon-is-free-on-the-api-for-hours-on-the-intelligence-index-ahead-of"
-    ],
-    "alerted": false
-  },
-  {
-    "keys": [
-      "web:https://x.com/coreyganim/status/2123788629537362385",
-      "https://x.com/coreyganim/status/2123788629537362385"
-    ],
-    "alerted": false
-  },
-  {
-    "keys": [
-      "open-web:https://www.instagram.com/reel/DgASjqmtX09",
-      "https://instagram.com/reel/DgASjqmtX09"
-    ],
-    "alerted": false
-  },
-  {
-    "keys": [
-      "open-web:https://relevanceai.saver.com",
-      "https://relevanceai.saver.com/"
-    ],
-    "alerted": false
-  },
-  {
-    "keys": [
       "open-web:https://www.spheron.network/blog/agent-gpu-sandbox-vs-manual-ssh-what-the-guardrails-buy-you",
       "https://spheron.network/blog/agent-gpu-sandbox-vs-manual-ssh-what-the-guardrails-buy-you"
     ],
@@ -3505,6 +3463,48 @@
     "keys": [
       "community:https://dev.to/nityasha/your-ai-agent-cant-plan-your-day-because-there-is-no-format-for-it-3glg",
       "https://dev.to/nityasha/your-ai-agent-cant-plan-your-day-because-there-is-no-format-for-it-3glg"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://www.powerfulai.tools/blog/best-ai-for-coding",
+      "https://powerfulai.tools/blog/best-ai-for-coding"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://www.youtube.com/watch?v=XJteX6mMJaY",
+      "https://youtube.com/watch?v=XJteX6mMJaY"
+    ],
+    "alerted": true
+  },
+  {
+    "keys": [
+      "open-web:https://www.kimi.ai/resources/free-ai-agents",
+      "https://kimi.ai/resources/free-ai-agents"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://shattered.io/mai-code-2-github-copilot-vs-code-jetbrains-two-models-seven-plans-nov-27",
+      "https://shattered.io/mai-code-2-github-copilot-vs-code-jetbrains-two-models-seven-plans-nov-27"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://www.sfgate.com/shopping/article/1min-ai-lifetime-subscription-deal-22549918.php",
+      "https://sfgate.com/shopping/article/1min-ai-lifetime-subscription-deal-22549918.php"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://www.facebook.com/theamirafridi/videos/claude-just-got-claude-apps-huge-upgrade-claudeai-claudeapps-anthropic/2931035967269069",
+      "https://facebook.com/theamirafridi/videos/claude-just-got-claude-apps-huge-upgrade-claudeai-claudeapps-anthropic/2931035967269069"
     ],
     "alerted": false
   }
