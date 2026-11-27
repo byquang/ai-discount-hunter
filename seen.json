@@ -3122,5 +3122,47 @@
       "https://dev.to/leopixtv/the-3-photo-input-pattern-for-automated-e-commerce-product-videos-without-prompt-engineering-hbn"
     ],
     "alerted": false
+  },
+  {
+    "keys": [
+      "web:https://x.com/AGTPinsights/status/2126117142957277672",
+      "https://x.com/AGTPinsights/status/2126117142957277672"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "web:https://x.com/swapnakpanda/status/2125962331620565027",
+      "https://x.com/swapnakpanda/status/2125962331620565027"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "web:https://x.com/rubenhassid/status/2125922524575707539",
+      "https://x.com/rubenhassid/status/2125922524575707539"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/shivaysinghrajput/openai-merged-your-chatgpt-and-codex-budgets-heres-how-to-survive-the-shared-meter-3k85",
+      "https://dev.to/shivaysinghrajput/openai-merged-your-chatgpt-and-codex-budgets-heres-how-to-survive-the-shared-meter-3k85"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/manislab96/reinforcement-learning-teaching-machines-to-learn-through-rewards-10k3",
+      "https://dev.to/manislab96/reinforcement-learning-teaching-machines-to-learn-through-rewards-10k3"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/sandscale/mastra-agent-tools-that-run-in-a-sandscale-sandbox-2b4n",
+      "https://dev.to/sandscale/mastra-agent-tools-that-run-in-a-sandscale-sandbox-2b4n"
+    ],
+    "alerted": false
   }
 ]
