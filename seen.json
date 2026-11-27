@@ -3332,5 +3332,89 @@
       "https://europeinstead.com/"
     ],
     "alerted": false
+  },
+  {
+    "keys": [
+      "web:https://x.com/cultofmac/status/2126055987631333755",
+      "https://x.com/cultofmac/status/2126055987631333755"
+    ],
+    "alerted": true
+  },
+  {
+    "keys": [
+      "web:https://x.com/HomeRunPredict/status/2126032297111515302",
+      "https://x.com/HomeRunPredict/status/2126032297111515302"
+    ],
+    "alerted": true
+  },
+  {
+    "keys": [
+      "web:https://x.com/CreaoAI/status/2125953295856681240",
+      "https://x.com/CreaoAI/status/2125953295856681240"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "web:https://www.threads.com/@adocomplete/post/DgNmmgNlh8E/reminder-your-claude-max-or-team-plan-comes-with-monthly-api-credits-as-well-on",
+      "https://threads.com/@adocomplete/post/DgNmmgNlh8E/reminder-your-claude-max-or-team-plan-comes-with-monthly-api-credits-as-well-on"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "web:https://www.threads.com/@everydev.ai/post/DgOjhADifH1/hit-your-claude-code-usage-limit-mid-task-and-lose-your-flow-spec-with-code-is",
+      "https://threads.com/@everydev.ai/post/DgOjhADifH1/hit-your-claude-code-usage-limit-mid-task-and-lose-your-flow-spec-with-code-is"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "web:https://www.threads.com/@infanodes/post/DgOnFOjGxAW/the-deadline-matters-code-producthunt-gets-off-the-first-month-of-pro-but-only",
+      "https://threads.com/@infanodes/post/DgOnFOjGxAW/the-deadline-matters-code-producthunt-gets-off-the-first-month-of-pro-but-only"
+    ],
+    "alerted": true
+  },
+  {
+    "keys": [
+      "community:https://dev.to/technaom/eight-things-happened-in-ai-today-the-one-worth-your-attention-is-gemini-4-neon-4c27",
+      "https://dev.to/technaom/eight-things-happened-in-ai-today-the-one-worth-your-attention-is-gemini-4-neon-4c27"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/epmosgateless/epmos-daily-world-scan-friday-november-27-2026-ajk",
+      "https://dev.to/epmosgateless/epmos-daily-world-scan-friday-november-27-2026-ajk"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/delimitter/openai-corrected-gpt-62-billing-limits-hit-40-and-25-faster-one-banked-reset-3iia",
+      "https://dev.to/delimitter/openai-corrected-gpt-62-billing-limits-hit-40-and-25-faster-one-banked-reset-3iia"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "hn:50665796",
+      "https://github.com/legend-of-alan/ghostmode"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/tamizuddin/when-ai-agents-disagree-orchestrating-multiple-models-for-smarter-code-reviews-2kac",
+      "https://dev.to/tamizuddin/when-ai-agents-disagree-orchestrating-multiple-models-for-smarter-code-reviews-2kac"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/angel_usa_66a965580f5a70f/adding-schema-markup-to-a-food-ingredient-website-in-react-5a1j",
+      "https://dev.to/angel_usa_66a965580f5a70f/adding-schema-markup-to-a-food-ingredient-website-in-react-5a1j"
+    ],
+    "alerted": false
   }
 ]
