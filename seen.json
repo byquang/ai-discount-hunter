@@ -2960,5 +2960,40 @@
       "https://dev.to/siftsignal/nvidias-reported-shipment-pause-puts-cloud-customers-inside-the-export-control-perimeter-57m4"
     ],
     "alerted": false
+  },
+  {
+    "keys": [
+      "web:https://x.com/deanwperkins/status/2126007695257825631",
+      "https://x.com/deanwperkins/status/2126007695257825631"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "web:https://x.com/Faheem_uh/status/2125907079655563594",
+      "https://x.com/Faheem_uh/status/2125907079655563594"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/yuya_ai_lab/your-agent-approved-40-and-charged-60-binding-spend-to-the-approval-in-pure-python-76l",
+      "https://dev.to/yuya_ai_lab/your-agent-approved-40-and-charged-60-binding-spend-to-the-approval-in-pure-python-76l"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/magistry/every-action-is-a-decisionlog-row-11k7",
+      "https://dev.to/magistry/every-action-is-a-decisionlog-row-11k7"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/vachi/your-agent-is-only-as-good-as-its-context-4dl",
+      "https://dev.to/vachi/your-agent-is-only-as-good-as-its-context-4dl"
+    ],
+    "alerted": false
   }
 ]
