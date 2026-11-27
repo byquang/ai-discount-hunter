@@ -1,34 +1,6 @@
 [
   {
     "keys": [
-      "hn:50584716",
-      "https://craoli.com/"
-    ],
-    "alerted": false
-  },
-  {
-    "keys": [
-      "hn:50581403",
-      "https://github.com/diggerhq/opencomputer"
-    ],
-    "alerted": false
-  },
-  {
-    "keys": [
-      "hn:50576552",
-      "https://usenunya.com/"
-    ],
-    "alerted": false
-  },
-  {
-    "keys": [
-      "hn:50573575",
-      "https://github.com/protortyp/depthpro2-onnx"
-    ],
-    "alerted": false
-  },
-  {
-    "keys": [
       "hn:50567622",
       "https://bocalito.com/"
     ],
@@ -3505,6 +3477,34 @@
     "keys": [
       "community:https://dev.to/erpoida/erpoida-odoo-or-zoho-one-which-erp-fits-your-business-7ha",
       "https://dev.to/erpoida/erpoida-odoo-or-zoho-one-which-erp-fits-your-business-7ha"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://realpython.com/ai-news-weekly-2026-11-27",
+      "https://realpython.com/ai-news-weekly-2026-11-27"
+    ],
+    "alerted": true
+  },
+  {
+    "keys": [
+      "open-web:https://lowendbox.com/vps-for-ai-agents",
+      "https://lowendbox.com/vps-for-ai-agents"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://www.investing.com/news/stock-market-news/black-friday-is-here-60-off-investingpro-and-its-ai-stock-picks-end-soon-5052816",
+      "https://investing.com/news/stock-market-news/black-friday-is-here-60-off-investingpro-and-its-ai-stock-picks-end-soon-5052816"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "hn:50669286",
+      "https://lanternpromos.com/"
     ],
     "alerted": false
   }
