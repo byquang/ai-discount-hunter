@@ -3164,5 +3164,61 @@
       "https://dev.to/sandscale/mastra-agent-tools-that-run-in-a-sandscale-sandbox-2b4n"
     ],
     "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://www.instagram.com/p/DfzhIhchGeZ",
+      "https://instagram.com/p/DfzhIhchGeZ"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://www.facebook.com/adobecreativecloud/videos/black-friday-offer/1684195486640708",
+      "https://facebook.com/adobecreativecloud/videos/black-friday-offer/1684195486640708"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://www.instagram.com/reel/DgFw60_yZpC",
+      "https://instagram.com/reel/DgFw60_yZpC"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://www.facebook.com/vccartoolsupport/posts/vccartool-black-friday-2026-super-sale-november-2330-2026-exclusive-black-friday/122159927883139540",
+      "https://facebook.com/vccartoolsupport/posts/vccartool-black-friday-2026-super-sale-november-2330-2026-exclusive-black-friday/122159927883139540"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://openart.ai/blog/black-friday-marketing-ideas",
+      "https://openart.ai/blog/black-friday-marketing-ideas"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://www.instagram.com/reel/DfxIOnVSxqO",
+      "https://instagram.com/reel/DfxIOnVSxqO"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://vineyardgazette.com/wp-content/uploads/2026/11/112726.pdf",
+      "https://vineyardgazette.com/wp-content/uploads/2026/11/112726.pdf"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://www.facebook.com/Coupert/videos/the-tricky-part-several-of-these-black-friday-giveaways-reward-the-first-shopper/1629831752158543",
+      "https://facebook.com/Coupert/videos/the-tricky-part-several-of-these-black-friday-giveaways-reward-the-first-shopper/1629831752158543"
+    ],
+    "alerted": false
   }
 ]
