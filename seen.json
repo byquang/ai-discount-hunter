@@ -3276,5 +3276,61 @@
       "https://dev.to/grfdsasdvef/vllm-vs-tensorrt-llm-vs-sglang-serving-throughput-kv-cache-paging-speculative-decoding-3d0d"
     ],
     "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://dev.to/vinishbhaskar/2026-black-friday-deals-for-developers-ai-tools-devtools-hosting-and-more-297j",
+      "https://dev.to/vinishbhaskar/2026-black-friday-deals-for-developers-ai-tools-devtools-hosting-and-more-297j"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://www.greatfrontend.com/blog/black-friday-deals-for-front-end-developers-2026",
+      "https://greatfrontend.com/blog/black-friday-deals-for-front-end-developers-2026"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://shattered.io/cursor-vs-copilot-survey-drift-duckdb-decomposition-12-steps-2026",
+      "https://shattered.io/cursor-vs-copilot-survey-drift-duckdb-decomposition-12-steps-2026"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://www.saasworthy.com/blog/best-black-friday-software-deals",
+      "https://saasworthy.com/blog/best-black-friday-software-deals"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://www.instagram.com/reel/Df7Evy4oew3",
+      "https://instagram.com/reel/Df7Evy4oew3"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://www.openpr.com/news/4701846/visualping-creates-its-10-millionth-website-monitor-13-years",
+      "https://openpr.com/news/4701846/visualping-creates-its-10-millionth-website-monitor-13-years"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://www.producthunt.com/products/remove-silence",
+      "https://producthunt.com/products/remove-silence"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "hn:50664795",
+      "https://europeinstead.com/"
+    ],
+    "alerted": false
   }
 ]
