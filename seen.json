@@ -1,76 +1,6 @@
 [
   {
     "keys": [
-      "hn:50587779",
-      "https://news.ycombinator.com/item?id=50587779"
-    ],
-    "alerted": false
-  },
-  {
-    "keys": [
-      "hn:50583761",
-      "https://news.ycombinator.com/item?id=50583761"
-    ],
-    "alerted": false
-  },
-  {
-    "keys": [
-      "web:https://x.com/LinusEkenstam/status/2123392055573385525",
-      "https://x.com/LinusEkenstam/status/2123392055573385525"
-    ],
-    "alerted": true
-  },
-  {
-    "keys": [
-      "web:https://www.threads.com/@ariacodez/post/Df7i3iYDcA5/video-comment-api-and-ill-send-you-the-free-setup-prompt-one-prompt-and-claude-code",
-      "https://threads.com/@ariacodez/post/Df7i3iYDcA5/video-comment-api-and-ill-send-you-the-free-setup-prompt-one-prompt-and-claude-code"
-    ],
-    "alerted": false
-  },
-  {
-    "keys": [
-      "web:https://www.threads.com/@theaiimpact/post/Df-22_vhkDM/video-free-tools-to-upgrade-claude-code-rtk-cuts-command-output-tokens-by-up-to",
-      "https://threads.com/@theaiimpact/post/Df-22_vhkDM/video-free-tools-to-upgrade-claude-code-rtk-cuts-command-output-tokens-by-up-to"
-    ],
-    "alerted": false
-  },
-  {
-    "keys": [
-      "web:https://x.com/stretchcloud/status/2124072576859419103",
-      "https://x.com/stretchcloud/status/2124072576859419103"
-    ],
-    "alerted": false
-  },
-  {
-    "keys": [
-      "web:https://www.threads.com/@claudeyoudaily/post/Df90n1UG1Ck/ai-tools-hours-of-research-yours-for-save-hours-every-week-ai-tools-for-content",
-      "https://threads.com/@claudeyoudaily/post/Df90n1UG1Ck/ai-tools-hours-of-research-yours-for-save-hours-every-week-ai-tools-for-content"
-    ],
-    "alerted": false
-  },
-  {
-    "keys": [
-      "web:https://x.com/sebuzdugan/status/2123511607439626392",
-      "https://x.com/sebuzdugan/status/2123511607439626392"
-    ],
-    "alerted": false
-  },
-  {
-    "keys": [
-      "web:https://x.com/TrustScore_1/status/2123845500550148237",
-      "https://x.com/TrustScore_1/status/2123845500550148237"
-    ],
-    "alerted": false
-  },
-  {
-    "keys": [
-      "hn:50583294",
-      "https://news.ycombinator.com/item?id=50583294"
-    ],
-    "alerted": false
-  },
-  {
-    "keys": [
       "hn:50574885",
       "https://murmurcomputing.ai/"
     ],
@@ -3505,6 +3435,76 @@
     "keys": [
       "hn:50669993",
       "https://flowmaps.ai/"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "web:https://x.com/every/status/2126324739345883363",
+      "https://x.com/every/status/2126324739345883363"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "web:https://x.com/higgsfield_ai/status/2126324248621019540",
+      "https://x.com/higgsfield_ai/status/2126324248621019540"
+    ],
+    "alerted": true
+  },
+  {
+    "keys": [
+      "web:https://x.com/higgsfield_ai/status/2126305657473409529",
+      "https://x.com/higgsfield_ai/status/2126305657473409529"
+    ],
+    "alerted": true
+  },
+  {
+    "keys": [
+      "web:https://x.com/marcusyul/status/2126289326342574142",
+      "https://x.com/marcusyul/status/2126289326342574142"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/moonya_ai_84a1d03cbdd2aff/one-long-video-into-30-shorts-the-copyable-loop-and-the-rights-constraint-227b",
+      "https://dev.to/moonya_ai_84a1d03cbdd2aff/one-long-video-into-30-shorts-the-copyable-loop-and-the-rights-constraint-227b"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/momin_aziz_1/how-we-cut-coding-agent-tokens-without-breaking-the-prompt-cache-n6i",
+      "https://dev.to/momin_aziz_1/how-we-cut-coding-agent-tokens-without-breaking-the-prompt-cache-n6i"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/turbogen_app/how-much-does-ai-video-cost-per-second-in-2026-seedance-25-vs-kling-40-vs-grok-imagine-15-vs-3o7e",
+      "https://dev.to/turbogen_app/how-much-does-ai-video-cost-per-second-in-2026-seedance-25-vs-kling-40-vs-grok-imagine-15-vs-3o7e"
+    ],
+    "alerted": true
+  },
+  {
+    "keys": [
+      "hn:50670874",
+      "https://labs.opentangle.com/after-proof"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/opencode-bridge/opencode-bridge-a-local-openai-compatible-api-and-chat-for-opencode-models-1447",
+      "https://dev.to/opencode-bridge/opencode-bridge-a-local-openai-compatible-api-and-chat-for-opencode-models-1447"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/nityasha/your-ai-agent-cant-plan-your-day-because-there-is-no-format-for-it-3glg",
+      "https://dev.to/nityasha/your-ai-agent-cant-plan-your-day-because-there-is-no-format-for-it-3glg"
     ],
     "alerted": false
   }
