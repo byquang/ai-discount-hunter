@@ -1,13 +1,6 @@
 [
   {
     "keys": [
-      "open-web:https://faisalitebtools.com/guides",
-      "https://faisalitebtools.com/guides"
-    ],
-    "alerted": false
-  },
-  {
-    "keys": [
       "open-web:https://shattered.io/cursor-vs-copilot-survey-raking-reweight-python-12-steps-2026",
       "https://shattered.io/cursor-vs-copilot-survey-raking-reweight-python-12-steps-2026"
     ],
@@ -3505,6 +3498,13 @@
     "keys": [
       "community:https://dev.to/alexanderdetkov/ai-agents-suck-on-computers-but-are-amazing-on-phones-1pjd",
       "https://dev.to/alexanderdetkov/ai-agents-suck-on-computers-but-are-amazing-on-phones-1pjd"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://www.instagram.com/p/DgKsdBRhBKS",
+      "https://instagram.com/p/DgKsdBRhBKS"
     ],
     "alerted": false
   }
