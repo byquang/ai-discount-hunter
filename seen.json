@@ -1,55 +1,6 @@
 [
   {
     "keys": [
-      "web:https://x.com/StudentOffersHQ/status/2123916388314321108",
-      "https://x.com/StudentOffersHQ/status/2123916388314321108"
-    ],
-    "alerted": false
-  },
-  {
-    "keys": [
-      "web:https://www.threads.com/@mikes.lab55/post/Df-pnY4DxRp/what-i-love-is-if-you-get-the-claude-plan-you-also-get-of-api-credit-per-month",
-      "https://threads.com/@mikes.lab55/post/Df-pnY4DxRp/what-i-love-is-if-you-get-the-claude-plan-you-also-get-of-api-credit-per-month"
-    ],
-    "alerted": false
-  },
-  {
-    "keys": [
-      "web:https://www.threads.com/@mktpavlenko/post/DgAi397lt8z/two-months-ago-the-x-subscription-was-one-of-the-best-deals-in-ai-now-the-model",
-      "https://threads.com/@mktpavlenko/post/DgAi397lt8z/two-months-ago-the-x-subscription-was-one-of-the-best-deals-in-ai-now-the-model"
-    ],
-    "alerted": false
-  },
-  {
-    "keys": [
-      "hn:50598848",
-      "https://meetadmiral.com/website-seo-checker"
-    ],
-    "alerted": false
-  },
-  {
-    "keys": [
-      "hn:50600516",
-      "https://github.com/impizulu/rayclay"
-    ],
-    "alerted": false
-  },
-  {
-    "keys": [
-      "open-web:https://ribbonpost.com/free/ai-tools",
-      "https://ribbonpost.com/free/ai-tools"
-    ],
-    "alerted": false
-  },
-  {
-    "keys": [
-      "open-web:https://rushtechhub.com/use-cases/ai-coding-tools",
-      "https://rushtechhub.com/use-cases/ai-coding-tools"
-    ],
-    "alerted": false
-  },
-  {
-    "keys": [
       "open-web:https://www.youtube.com/watch?v=L9iYmDzZh3k",
       "https://youtube.com/watch?v=L9iYmDzZh3k"
     ],
@@ -3507,5 +3458,55 @@
       "https://ozbargain.com.au/node/986277"
     ],
     "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://better-design.com/blog/opencode",
+      "https://better-design.com/blog/opencode"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://www.instagram.com/p/DgMeDC6BI2h?hl=da",
+      "https://instagram.com/p/DgMeDC6BI2h?hl=da"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://fishaudio.startupworld.com",
+      "https://fishaudio.startupworld.com/"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://benchlm.ai/blog/posts/llm-news-november-28-2026",
+      "https://benchlm.ai/blog/posts/llm-news-november-28-2026"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://shattered.io/oppo-coloros-17-paid-ai-features-289-rupees-credits-nov-28",
+      "https://shattered.io/oppo-coloros-17-paid-ai-features-289-rupees-credits-nov-28"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://www.facebook.com/chiamaka.onuke/videos/mood-when-your-ai-trainees-are-winning-abeg-if-you-see-me-dancing-just-know-that/1662170495649060",
+      "https://facebook.com/chiamaka.onuke/videos/mood-when-your-ai-trainees-are-winning-abeg-if-you-see-me-dancing-just-know-that/1662170495649060"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://www.ozbargain.com.au/node/986305",
+      "https://ozbargain.com.au/node/986305",
+      "https://chatgpt.com/?promo_campaign=team-1-month-free"
+    ],
+    "alerted": true
   }
 ]
