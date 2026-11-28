@@ -1,13 +1,6 @@
 [
   {
     "keys": [
-      "web:https://www.threads.com/@titcreates/post/Df-Dri5jxyk/want-the-best-ai-models-but-each-one-wants-its-own-monthly-bill-meet-ap-inex",
-      "https://threads.com/@titcreates/post/Df-Dri5jxyk/want-the-best-ai-models-but-each-one-wants-its-own-monthly-bill-meet-ap-inex"
-    ],
-    "alerted": false
-  },
-  {
-    "keys": [
       "web:https://www.threads.com/@vikuchotala/post/Df_YEKOlKX7/the-api-is-for-software-making-model-requests-the-claude-subscription-is-a",
       "https://threads.com/@vikuchotala/post/Df_YEKOlKX7/the-api-is-for-software-making-model-requests-the-claude-subscription-is-a"
     ],
@@ -3505,6 +3498,13 @@
     "keys": [
       "community:https://dev.to/vidraft_lab/oneulyi-hangug-ai-sunwi-2026-11-28-gongin-bencimakeu-1wi-14gae-daunrodeu-1wi-pocket-darwin-180b-gguf-1fcp",
       "https://dev.to/vidraft_lab/oneulyi-hangug-ai-sunwi-2026-11-28-gongin-bencimakeu-1wi-14gae-daunrodeu-1wi-pocket-darwin-180b-gguf-1fcp"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "hn:50674351",
+      "https://news.ycombinator.com/item?id=50674351"
     ],
     "alerted": false
   }
