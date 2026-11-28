@@ -1,55 +1,6 @@
 [
   {
     "keys": [
-      "open-web:https://shattered.io/cursor-vs-copilot-survey-raking-reweight-python-12-steps-2026",
-      "https://shattered.io/cursor-vs-copilot-survey-raking-reweight-python-12-steps-2026"
-    ],
-    "alerted": false
-  },
-  {
-    "keys": [
-      "open-web:https://www.giveawayoftheday.com",
-      "https://giveawayoftheday.com/"
-    ],
-    "alerted": false
-  },
-  {
-    "keys": [
-      "open-web:https://minutecryptic.today/krillion-answers",
-      "https://minutecryptic.today/krillion-answers"
-    ],
-    "alerted": false
-  },
-  {
-    "keys": [
-      "open-web:https://www.facebook.com/groups/503185364261770/posts/1820213812558912",
-      "https://facebook.com/groups/503185364261770/posts/1820213812558912"
-    ],
-    "alerted": false
-  },
-  {
-    "keys": [
-      "open-web:https://www.escapewithdollycas.com/2026/11/19/the-friars-last-curse-a-wren-meadows-mystery-by-kathleen-bailey-author-interview-giveaway-greatescapesbooktour-cozycrimewriter",
-      "https://escapewithdollycas.com/2026/11/19/the-friars-last-curse-a-wren-meadows-mystery-by-kathleen-bailey-author-interview-giveaway-greatescapesbooktour-cozycrimewriter"
-    ],
-    "alerted": false
-  },
-  {
-    "keys": [
-      "open-web:https://www.advance-africa.com/Brighter-Monday.html",
-      "https://advance-africa.com/Brighter-Monday.html"
-    ],
-    "alerted": false
-  },
-  {
-    "keys": [
-      "open-web:https://ismailblogger.com/blog/earn-1000-dollars-per-month-pakistan",
-      "https://ismailblogger.com/blog/earn-1000-dollars-per-month-pakistan"
-    ],
-    "alerted": false
-  },
-  {
-    "keys": [
       "web:https://x.com/kawaidgaf/status/2124137276334821513",
       "https://x.com/kawaidgaf/status/2124137276334821513"
     ],
@@ -3505,6 +3456,55 @@
     "keys": [
       "open-web:https://www.instagram.com/p/DgKsdBRhBKS",
       "https://instagram.com/p/DgKsdBRhBKS"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "web:https://www.threads.com/@dearklairs.club/post/DgQ6uhwAD_F/video-blue-black-friday-written-in-the-sky-blue-drop-m-l-free-pro-cream-with-blue",
+      "https://threads.com/@dearklairs.club/post/DgQ6uhwAD_F/video-blue-black-friday-written-in-the-sky-blue-drop-m-l-free-pro-cream-with-blue"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "web:https://www.threads.com/@brianredway_/post/DgQ0FUWNhE1/video-in-our-free-ai-tool-countdown-scrapling-pull-data-from-almost-any-website-and",
+      "https://threads.com/@brianredway_/post/DgQ0FUWNhE1/video-in-our-free-ai-tool-countdown-scrapling-pull-data-from-almost-any-website-and"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/protovisionlab/i-built-lumen-a-self-hosted-esp32-smart-lighting-controller-with-web-ui-floor-plans-home-2505",
+      "https://dev.to/protovisionlab/i-built-lumen-a-self-hosted-esp32-smart-lighting-controller-with-web-ui-floor-plans-home-2505"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/villabitai/architecting-an-ai-powered-local-seo-system-for-real-estate-brokerages-ggl",
+      "https://dev.to/villabitai/architecting-an-ai-powered-local-seo-system-for-real-estate-brokerages-ggl"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/jagdeepsinghrana/how-i-made-my-wordpress-site-readable-to-ai-assistants-llmstxt-json-ld-59a4",
+      "https://dev.to/jagdeepsinghrana/how-i-made-my-wordpress-site-readable-to-ai-assistants-llmstxt-json-ld-59a4"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/jistudio/connect-claude-desktop-cursor-to-live-tiktok-shop-shopee-youtube-transcripts-via-1i3o",
+      "https://dev.to/jistudio/connect-claude-desktop-cursor-to-live-tiktok-shop-shopee-youtube-transcripts-via-1i3o"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/tamizuddin/orchestrating-multiple-ai-coding-agents-one-task-parallel-terminals-unified-git-workflow-29ce",
+      "https://dev.to/tamizuddin/orchestrating-multiple-ai-coding-agents-one-task-parallel-terminals-unified-git-workflow-29ce"
     ],
     "alerted": false
   }
