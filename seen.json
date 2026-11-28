@@ -1,34 +1,6 @@
 [
   {
     "keys": [
-      "open-web:https://instantly.startupworld.com",
-      "https://instantly.startupworld.com/"
-    ],
-    "alerted": false
-  },
-  {
-    "keys": [
-      "open-web:https://www.instagram.com/reel/Dfme979pNFq",
-      "https://instagram.com/reel/Dfme979pNFq"
-    ],
-    "alerted": false
-  },
-  {
-    "keys": [
-      "open-web:https://www.startupgrantsindia.com/perks/jetbrains-ai-for-startups",
-      "https://startupgrantsindia.com/perks/jetbrains-ai-for-startups"
-    ],
-    "alerted": false
-  },
-  {
-    "keys": [
-      "open-web:https://www.masaischool.com/blog/best-ai-research-tools-2027",
-      "https://masaischool.com/blog/best-ai-research-tools-2027"
-    ],
-    "alerted": false
-  },
-  {
-    "keys": [
       "open-web:https://www.pinecone.io/pinecone-answers",
       "https://pinecone.io/pinecone-answers"
     ],
@@ -3505,6 +3477,34 @@
     "keys": [
       "official:https://blog.google/innovation-and-ai/products/gemini-app/tasks-in-gemini-free-new-features/",
       "https://blog.google/innovation-and-ai/products/gemini-app/tasks-in-gemini-free-new-features"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://affinityally.com/appsumo-black-friday-deals",
+      "https://affinityally.com/appsumo-black-friday-deals"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://qcwebworks.com/godaddy-vs-squarespace",
+      "https://qcwebworks.com/godaddy-vs-squarespace"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://in.investing.com/news/stock-market-news/form-4-wedbush-series-trust-for-27-november-93CH-5728586",
+      "https://in.investing.com/news/stock-market-news/form-4-wedbush-series-trust-for-27-november-93CH-5728586"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "open-web:https://www.ainvest.com/news/hubspot-free-gold-rings-receipt-growth-problem-2611",
+      "https://ainvest.com/news/hubspot-free-gold-rings-receipt-growth-problem-2611"
     ],
     "alerted": false
   }
