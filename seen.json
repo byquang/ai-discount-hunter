@@ -1,55 +1,6 @@
 [
   {
     "keys": [
-      "open-web:https://www.powerfulai.tools/blog/best-free-ai-tools",
-      "https://powerfulai.tools/blog/best-free-ai-tools"
-    ],
-    "alerted": false
-  },
-  {
-    "keys": [
-      "open-web:https://www.activepieces.com/blog/apty-pricing-quote-based-digital-adoption-2026",
-      "https://activepieces.com/blog/apty-pricing-quote-based-digital-adoption-2026"
-    ],
-    "alerted": false
-  },
-  {
-    "keys": [
-      "open-web:https://www.youtube.com/watch?v=NbKdfnzCRJY",
-      "https://youtube.com/watch?v=NbKdfnzCRJY"
-    ],
-    "alerted": false
-  },
-  {
-    "keys": [
-      "open-web:https://www.startupgrantsindia.com/competitions/ai-tools-that-earn-a-hackathon-by-apify",
-      "https://startupgrantsindia.com/competitions/ai-tools-that-earn-a-hackathon-by-apify"
-    ],
-    "alerted": false
-  },
-  {
-    "keys": [
-      "open-web:https://www.makeuseof.com/legit-ways-to-use-paid-ai-models-for-free-right-now",
-      "https://makeuseof.com/legit-ways-to-use-paid-ai-models-for-free-right-now"
-    ],
-    "alerted": false
-  },
-  {
-    "keys": [
-      "open-web:https://www.facebook.com/aniksingal/videos/run-claude-code-on-free-modelstwo-open-source-repos-let-claude-code-run-on-free-/4047363005571650",
-      "https://facebook.com/aniksingal/videos/run-claude-code-on-free-modelstwo-open-source-repos-let-claude-code-run-on-free-/4047363005571650"
-    ],
-    "alerted": false
-  },
-  {
-    "keys": [
-      "open-web:https://techcrunch.com/2026/11/22/techcrunch-mobility-a-b-testing-robots-vs-humans",
-      "https://techcrunch.com/2026/11/22/techcrunch-mobility-a-b-testing-robots-vs-humans"
-    ],
-    "alerted": false
-  },
-  {
-    "keys": [
       "hn:50604007",
       "https://apps.apple.com/us/app/flighttrack-flight-tracker/id6788552553"
     ],
@@ -3506,6 +3457,55 @@
     "keys": [
       "community:https://www.producthunt.com/products/wender",
       "https://producthunt.com/products/wender"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "web:https://x.com/sentimentrader/status/2126383051621998674",
+      "https://x.com/sentimentrader/status/2126383051621998674"
+    ],
+    "alerted": true
+  },
+  {
+    "keys": [
+      "web:https://www.threads.com/@petergyang/post/DgQIiqXmmQZ/also-i-still-have-a-few-claude-max-value-codes-left-for-my-newsletters-annual",
+      "https://threads.com/@petergyang/post/DgQIiqXmmQZ/also-i-still-have-a-few-claude-max-value-codes-left-for-my-newsletters-annual"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/magnus_ferm/dev-news-digest-28-nov-2026-1200-3mj0",
+      "https://dev.to/magnus_ferm/dev-news-digest-28-nov-2026-1200-3mj0"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/observeri_technologies_4b/enterprise-risk-for-banks-in-the-uae-2gac",
+      "https://dev.to/observeri_technologies_4b/enterprise-risk-for-banks-in-the-uae-2gac"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/uehara/installing-a-claude-artifact-as-a-mac-or-windows-app-install-open-share-and-uninstall-7cd",
+      "https://dev.to/uehara/installing-a-claude-artifact-as-a-mac-or-windows-app-install-open-share-and-uninstall-7cd"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "hn:50676368",
+      "https://machinerylearning.eu/"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/v0it3ch/your-ai-saas-margin-is-wrong-if-you-only-multiply-tokens-by-price-2ac5",
+      "https://dev.to/v0it3ch/your-ai-saas-margin-is-wrong-if-you-only-multiply-tokens-by-price-2ac5"
     ],
     "alerted": false
   }
