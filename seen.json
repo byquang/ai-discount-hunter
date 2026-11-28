@@ -1,13 +1,6 @@
 [
   {
     "keys": [
-      "open-web:https://www.youtube.com/watch?v=L9iYmDzZh3k",
-      "https://youtube.com/watch?v=L9iYmDzZh3k"
-    ],
-    "alerted": false
-  },
-  {
-    "keys": [
       "open-web:https://www.powerfulai.tools/blog/best-free-ai-tools",
       "https://powerfulai.tools/blog/best-free-ai-tools"
     ],
@@ -3508,5 +3501,12 @@
       "https://chatgpt.com/?promo_campaign=team-1-month-free"
     ],
     "alerted": true
+  },
+  {
+    "keys": [
+      "community:https://www.producthunt.com/products/wender",
+      "https://producthunt.com/products/wender"
+    ],
+    "alerted": false
   }
 ]
