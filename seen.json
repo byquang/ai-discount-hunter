@@ -1,48 +1,6 @@
 [
   {
     "keys": [
-      "open-web:https://www.pinecone.io/pinecone-answers",
-      "https://pinecone.io/pinecone-answers"
-    ],
-    "alerted": false
-  },
-  {
-    "keys": [
-      "open-web:https://www.facebook.com/crestschoolbangkok/videos/free-engineering-ai-trial-class-led-by-cmkl-university-join-us-for-an-exclusive-/2693539091066031",
-      "https://facebook.com/crestschoolbangkok/videos/free-engineering-ai-trial-class-led-by-cmkl-university-join-us-for-an-exclusive-/2693539091066031"
-    ],
-    "alerted": false
-  },
-  {
-    "keys": [
-      "open-web:https://www.instagram.com/reel/Dfo0yCrR4nr",
-      "https://instagram.com/reel/Dfo0yCrR4nr"
-    ],
-    "alerted": false
-  },
-  {
-    "keys": [
-      "open-web:https://www.instagram.com/p/Dfg1PDTiI7b",
-      "https://instagram.com/p/Dfg1PDTiI7b"
-    ],
-    "alerted": false
-  },
-  {
-    "keys": [
-      "open-web:https://www.instagram.com/reel/Df_c1CCsc-a",
-      "https://instagram.com/reel/Df_c1CCsc-a"
-    ],
-    "alerted": false
-  },
-  {
-    "keys": [
-      "web:https://x.com/AIVerseUday/status/2123793503746445659",
-      "https://x.com/AIVerseUday/status/2123793503746445659"
-    ],
-    "alerted": false
-  },
-  {
-    "keys": [
       "web:https://www.threads.com/@titcreates/post/Df-Dri5jxyk/want-the-best-ai-models-but-each-one-wants-its-own-monthly-bill-meet-ap-inex",
       "https://threads.com/@titcreates/post/Df-Dri5jxyk/want-the-best-ai-models-but-each-one-wants-its-own-monthly-bill-meet-ap-inex"
     ],
@@ -3505,6 +3463,48 @@
     "keys": [
       "open-web:https://www.ainvest.com/news/hubspot-free-gold-rings-receipt-growth-problem-2611",
       "https://ainvest.com/news/hubspot-free-gold-rings-receipt-growth-problem-2611"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "web:https://www.threads.com/@btibor91/post/DgQhVkxAWVM/looks-like-open-ai-and-lenovo-have-a-new-promo-some-lenovo-windows-p-cs-come",
+      "https://threads.com/@btibor91/post/DgQhVkxAWVM/looks-like-open-ai-and-lenovo-have-a-new-promo-some-lenovo-windows-p-cs-come"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "web:https://www.threads.com/@dailyprompter/post/DgQnueVEbWW/price-tracker-that-texts-you-claude-code-can-write-a-small-program-on-your",
+      "https://threads.com/@dailyprompter/post/DgQnueVEbWW/price-tracker-that-texts-you-claude-code-can-write-a-small-program-on-your"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/felix8686/muse-invite-code-vo9i5q-how-to-get-1-billion-free-tokens-and-what-i-actually-use-muse-for-49fa",
+      "https://dev.to/felix8686/muse-invite-code-vo9i5q-how-to-get-1-billion-free-tokens-and-what-i-actually-use-muse-for-49fa"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "official:https://openai.com/index/expanding-chatgpt-for-academic-researchers",
+      "https://openai.com/index/expanding-chatgpt-for-academic-researchers"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/frankchu/1000x-off-the-book-that-taught-ai-just-quit-137b",
+      "https://dev.to/frankchu/1000x-off-the-book-that-taught-ai-just-quit-137b"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/vidraft_lab/oneulyi-hangug-ai-sunwi-2026-11-28-gongin-bencimakeu-1wi-14gae-daunrodeu-1wi-pocket-darwin-180b-gguf-1fcp",
+      "https://dev.to/vidraft_lab/oneulyi-hangug-ai-sunwi-2026-11-28-gongin-bencimakeu-1wi-14gae-daunrodeu-1wi-pocket-darwin-180b-gguf-1fcp"
     ],
     "alerted": false
   }
