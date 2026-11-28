@@ -1,55 +1,6 @@
 [
   {
     "keys": [
-      "web:https://www.threads.com/@vikuchotala/post/Df_YEKOlKX7/the-api-is-for-software-making-model-requests-the-claude-subscription-is-a",
-      "https://threads.com/@vikuchotala/post/Df_YEKOlKX7/the-api-is-for-software-making-model-requests-the-claude-subscription-is-a"
-    ],
-    "alerted": false
-  },
-  {
-    "keys": [
-      "web:https://www.threads.com/@loveable_aiart/post/Df9X5ZKiSWa/video-sign-up-for-tripo-through-my-link-in-bio-to-receive-bonus-credits-and-off-your",
-      "https://threads.com/@loveable_aiart/post/Df9X5ZKiSWa/video-sign-up-for-tripo-through-my-link-in-bio-to-receive-bonus-credits-and-off-your"
-    ],
-    "alerted": false
-  },
-  {
-    "keys": [
-      "web:https://www.threads.com/@bythetweaks/post/DgAOriRIAYd/googles-black-friday-deal-up-to-off-google-ai-plus-and-annual-pro-plans-its",
-      "https://threads.com/@bythetweaks/post/DgAOriRIAYd/googles-black-friday-deal-up-to-off-google-ai-plus-and-annual-pro-plans-its"
-    ],
-    "alerted": false
-  },
-  {
-    "keys": [
-      "web:https://x.com/undefinedKi/status/2123785008259211653",
-      "https://x.com/undefinedKi/status/2123785008259211653"
-    ],
-    "alerted": false
-  },
-  {
-    "keys": [
-      "open-web:https://techpilot.ai/best-ai-for-coding-free",
-      "https://techpilot.ai/best-ai-for-coding-free"
-    ],
-    "alerted": false
-  },
-  {
-    "keys": [
-      "open-web:https://ryunapp.com/student-perks",
-      "https://ryunapp.com/student-perks"
-    ],
-    "alerted": false
-  },
-  {
-    "keys": [
-      "open-web:https://www.startupgrantsindia.com/events/claude-workshop-2",
-      "https://startupgrantsindia.com/events/claude-workshop-2"
-    ],
-    "alerted": false
-  },
-  {
-    "keys": [
       "open-web:https://faisalitebtools.com/guides",
       "https://faisalitebtools.com/guides"
     ],
@@ -3505,6 +3456,55 @@
     "keys": [
       "hn:50674351",
       "https://news.ycombinator.com/item?id=50674351"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "web:https://www.threads.com/@higgsfield.ai/post/DgPospRkWMi/video-higgsfield-black-friday-less-than-hours-left-for-the-secret-plan-comment-secret",
+      "https://threads.com/@higgsfield.ai/post/DgPospRkWMi/video-higgsfield-black-friday-less-than-hours-left-for-the-secret-plan-comment-secret"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/divyanshihospitalitygoa1/chef-on-call-in-candolim-goa-private-chef-services-for-villas-hk4",
+      "https://dev.to/divyanshihospitalitygoa1/chef-on-call-in-candolim-goa-private-chef-services-for-villas-hk4"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/voice_developer/create-multilingual-voice-content-with-elevenlabs-43d5",
+      "https://dev.to/voice_developer/create-multilingual-voice-content-with-elevenlabs-43d5"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/shivaysinghrajput/nvidia-lost-half-its-value-while-revenue-doubled-what-builders-should-learn-from-ais-wildest-week-1m5a",
+      "https://dev.to/shivaysinghrajput/nvidia-lost-half-its-value-while-revenue-doubled-what-builders-should-learn-from-ais-wildest-week-1m5a"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/voice_developer/deploy-a-voice-cloning-demo-app-from-code-to-live-website-2poo",
+      "https://dev.to/voice_developer/deploy-a-voice-cloning-demo-app-from-code-to-live-website-2poo"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/paullovelace/openai-just-countersued-apple-and-the-ai-device-race-is-now-a-courtroom-fight-3cog",
+      "https://dev.to/paullovelace/openai-just-countersued-apple-and-the-ai-device-race-is-now-a-courtroom-fight-3cog"
+    ],
+    "alerted": false
+  },
+  {
+    "keys": [
+      "community:https://dev.to/alexanderdetkov/ai-agents-suck-on-computers-but-are-amazing-on-phones-1pjd",
+      "https://dev.to/alexanderdetkov/ai-agents-suck-on-computers-but-are-amazing-on-phones-1pjd"
     ],
     "alerted": false
   }
